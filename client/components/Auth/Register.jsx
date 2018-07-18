@@ -66,16 +66,19 @@ class Register extends React.Component {
               <input type='text' name='name' id='name' placeholder='Name' onChange={this.handleChange} value={this.state.firstName} />
               <br />
               <label htmlFor='store'>Store: </label>
-              <input type='text' name='surname' id='surname' placeholder='Store' onChange={this.handleChange} value={this.state.surname} />
+              <input type='text' name='surname' id='surname' placeholder='Store' onChange={this.handleChange} value={this.state.store} />
+              <br />
+              <label htmlFor='owner'>Owner: </label>
+              <input type='text' name='owner' id='owner' placeholder='Store owner' onChange={this.handleChange} value={this.state.owner} />
               <br />
               <label htmlFor='email'>Email: </label>
               <input type='email' name='email' id='email' placeholder='Email' onChange={this.handleChange} value={this.state.email} />
               <br />
               <label htmlFor='address'>Address: </label>
-              <input type='text' name='address' id='address' placeholder='Address' onChange={this.handleChange} value={this.state.email} />
+              <input type='text' name='address' id='address' placeholder='Address' onChange={this.handleChange} value={this.state.address} />
               <br />
               <label htmlFor='phone'>Phone no: </label>
-              <input type='tel' name='phone' id='phone' placeholder='Phone' onChange={this.handleChange} value={this.state.email} />
+              <input type='tel' name='phone' id='phone' placeholder='Phone' onChange={this.handleChange} value={this.state.phone} />
               <br />
               <label htmlFor='password'>Password: </label>
               <input type='password' name='password' id='password' placeholder='Password' onChange={this.handleChange} value={this.state.password} />
