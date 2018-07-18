@@ -7,15 +7,11 @@ import Advertising from './Advertising'
 const Home = () => {
   return (
     <div className='main-container'>
-      <div className='columns'>
-
-        <div className='column'>
-          <Banner />
-          <Locations />
-          <Advertising />
-        </div>
-      </div>
+      <Banner />
+      <Locations />
+      <Advertising />
     </div>
+
   )
 }
 
