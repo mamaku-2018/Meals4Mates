@@ -9,10 +9,9 @@ const App = () => {
   return (
     <Router>
       <div className='container'>
-        <Route path='/header' component={Header} />
+        <Header />
         <Route exact path='/' component={Home} />
-      </div>
-      <div className='footer'>
+
         <Footer />
       </div>
     </Router>
