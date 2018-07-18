@@ -5,7 +5,7 @@ const baseUrl = './api/v1'
 export default function consume (method = 'get', endpoint, data = {}) {
   const payloadMethod = method.toLowerCase() === 'get' ? 'query' : 'send'
   const token = getEncodedToken()
-  const headers = {Accep: 'application/json'}
+  const headers = {Accept: 'application/json'}
   if (Authenticated()) {
     headers['Authorization'] = `Bearer ${token}`
   }
