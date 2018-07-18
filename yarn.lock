@@ -4794,6 +4794,10 @@ react-dom@^16.4.1:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
+react-redux-popup@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/react-redux-popup/-/react-redux-popup-3.0.4.tgz#1b73c146e4d041e8ce79a6f05cc762b5086408cc"
+
 react-redux@^5.0.7:
   version "5.0.7"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.7.tgz#0dc1076d9afb4670f993ffaef44b8f8c1155a4c8"
