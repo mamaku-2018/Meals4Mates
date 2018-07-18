@@ -1,5 +1,5 @@
-var environment = process.env.NODE_ENV || 'development'
-const config = require('./knexfile')[environment]
+// var environment = process.env.NODE_ENV || 'development'
+const config = require('../knexfile').development
 const knex = require('knex')(config)
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
 function getStoreDetails (id, db = knex) {
   return db('stores as s')
     .join('users as u', 's.id', 'u.store_id')
-    .where('s,id', id)
+    .where('s.id', id)
     .select('u.email as email', 'u.hash as hash', 'u.name as owner', 's.name as name', 's.address as address', 's.phone as phone')
 }
 
