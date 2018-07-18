@@ -10,6 +10,7 @@ class Register extends React.Component {
     this.state = {
       name: '',
       email: '',
+      owner: '',
       store: '',
       address: '',
       phone: '',
@@ -38,6 +39,7 @@ class Register extends React.Component {
     const { register } = this.props
     const user = {
       name: this.state.name,
+      owner: this.state.owner,
       email: this.state.email,
       store: this.state.store,
       address: this.state.address,
@@ -56,33 +58,33 @@ class Register extends React.Component {
       )
     } else {
       return (
-        <div className="register">
+        <div className='register'>
           <form>
             <fieldset>
               <legend>Register</legend>
-              <label htmlFor="name">Name: </label>
-              <input type="text" name="name" id="name" placeholder="Name" onChange={this.handleChange} value={this.state.firstName} />
+              <label htmlFor='name'>Name: </label>
+              <input type='text' name='name' id='name' placeholder='Name' onChange={this.handleChange} value={this.state.firstName} />
               <br />
-              <label htmlFor="store">Store: </label>
-              <input type="text" name="surname" id="surname" placeholder="Store" onChange={this.handleChange} value={this.state.surname} />
+              <label htmlFor='store'>Store: </label>
+              <input type='text' name='surname' id='surname' placeholder='Store' onChange={this.handleChange} value={this.state.surname} />
               <br />
-              <label htmlFor="email">Email: </label>
-              <input type="email" name="email" id="email" placeholder="Email" onChange={this.handleChange} value={this.state.email} />
+              <label htmlFor='email'>Email: </label>
+              <input type='email' name='email' id='email' placeholder='Email' onChange={this.handleChange} value={this.state.email} />
               <br />
-              <label htmlFor="address">Address: </label>
-              <input type="text" name="address" id="address" placeholder="Address" onChange={this.handleChange} value={this.state.email} />
+              <label htmlFor='address'>Address: </label>
+              <input type='text' name='address' id='address' placeholder='Address' onChange={this.handleChange} value={this.state.email} />
               <br />
-              <label htmlFor="phone">Phone no: </label>
-              <input type="tel" name="phone" id="phone" placeholder="Phone" onChange={this.handleChange} value={this.state.email} />
+              <label htmlFor='phone'>Phone no: </label>
+              <input type='tel' name='phone' id='phone' placeholder='Phone' onChange={this.handleChange} value={this.state.email} />
               <br />
-              <label htmlFor="password">Password: </label>
-              <input type="password" name="password" id="password" placeholder="Password" onChange={this.handleChange} value={this.state.password} />
+              <label htmlFor='password'>Password: </label>
+              <input type='password' name='password' id='password' placeholder='Password' onChange={this.handleChange} value={this.state.password} />
               <br />
-              <label htmlFor="confirm">Confirm password: </label>
-              <input type="password" name="confirm" id="confirm" placeholder="Confirm password" onChange={this.handleChange} value={this.state.confirm} />
+              <label htmlFor='confirm'>Confirm password: </label>
+              <input type='password' name='confirm' id='confirm' placeholder='Confirm password' onChange={this.handleChange} value={this.state.confirm} />
               {!this.state.match && <span>{this.state.message}</span>}
               <br />
-              <button type="button" disabled={!this.state.match} className="button" onClick={this.handleSubmit}>Register</button>
+              <button type='button' disabled={!this.state.match} className='button' onClick={this.handleSubmit}>Register</button>
             </fieldset>
           </form>
         </div>
