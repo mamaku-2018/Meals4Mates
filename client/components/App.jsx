@@ -6,6 +6,7 @@ const App = () => {
     <Router>
       <div className='container'>
         <h1>Meals4Mates</h1>
+        <h2>dev branch made</h2>
       </div>
     </Router>
   )
