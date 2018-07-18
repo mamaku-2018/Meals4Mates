@@ -3,7 +3,7 @@ exports.up = (knex, Promise) => {
     table.increments('id').primary()
     table.integer('amount')
     table.integer('store_id')
-    table.integer('timestamp')
+    table.string('timestamp')
   })
 }
 
