@@ -1,12 +1,18 @@
 import React from 'react'
-import {HashRouter as Router} from 'react-router-dom'
+import {HashRouter as Router, Route} from 'react-router-dom'
+
+import Header from './Header'
+import Home from './Home'
+import Footer from './Footer'
 
 const App = () => {
   return (
     <Router>
       <div className='container'>
-        <h1>Meals4Mates</h1>
-        <h2>dev branch made</h2>
+        <Header />
+        <Route exact path='/' component={Home} />
+
+        <Footer />
       </div>
     </Router>
   )
