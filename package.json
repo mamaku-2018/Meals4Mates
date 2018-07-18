@@ -17,8 +17,9 @@
       "env",
       "react"
     ]
-},
+  },
   "dependencies": {
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-jwt": "^5.3.1",
     "jsonwebtoken": "^8.3.0",
@@ -44,6 +45,7 @@
     "sqlite3": "^4.0.2",
     "superagent": "^3.8.3",
     "supertest": "^3.1.0",
-    "webpack": "^4.16.1"
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.0.8"
   }
 }
