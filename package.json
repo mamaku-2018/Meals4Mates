@@ -1,0 +1,49 @@
+{
+  "name": "Meals4Mates",
+  "version": "1.0.0",
+  "main": "server/index",
+  "scripts": {
+    "build": "webpack --config ./client/webpack.config.js",
+    "dev": "nodemon server & yarn build --watch",
+    "knex": "knex --knexfile ./server/db/knexfile.js",
+    "test": "jest",
+    "start": "node server"
+  },
+  "repository": "https://github.com/mamaku-2018/Meals4Mates.git",
+  "author": "Team BASIC",
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      "env",
+      "react"
+    ]
+},
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-jwt": "^5.3.1",
+    "jsonwebtoken": "^8.3.0",
+    "jwt-decode": "^2.2.0",
+    "knex": "^0.15.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "enzyme": "^3.3.0",
+    "jest": "^23.4.1",
+    "nodemon": "^1.18.3",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "sqlite3": "^4.0.2",
+    "superagent": "^3.8.3",
+    "supertest": "^3.1.0",
+    "webpack": "^4.16.1"
+  }
+}
