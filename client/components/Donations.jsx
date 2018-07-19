@@ -1,7 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import Modal from 'react-modal'
-import {submitDonation} from '../../actions/donations'
+import {submitDonation} from '../actions/donations'
+import {Redirect} from 'react-router-dom'
 
 const customStyles = {
   content: {
@@ -20,11 +21,13 @@ export class Donations extends React.Component {
     this.state = {
       amountSelected: false,
       amount: 0,
-      modalIsOpen: false
+      modalIsOpen: false,
+      redirect: false
     }
     this.handleConfirm = this.handleConfirm.bind(this)
     this.openModal = this.openModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   openModal () {
@@ -55,43 +58,54 @@ export class Donations extends React.Component {
 
   handleSubmit () {
     const donation = this.state.amount
-    this.props.submitDonation(donation)
+    const id = Number(this.props.match.params.id)
+    this.props.submitDonation(donation, id)
+    this.setState({
+      redirect: true
+    })
   }
 
   render () {
-    return (
-      <div className='donations'>
-        <h2>Every little helps</h2>
-        <button type='button' onClick={this.handleClick.bind(this, 1)}>$1</button>
-        <br/>
-        <button type='button' onClick={this.handleClick.bind(this, 3)}>$3</button>
-        <br/>
-        <button type='button' onClick={this.handleClick.bind(this, 5)}>$5</button>
-        <br/>
-        <button type='button' onClick={this.handleClick.bind(this, 10)}>$10</button>
-        <br/>
-        <button type='button' disabled={!this.state.amountSelected}>Donate</button>
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          contentLabel='Confirm donation'
-          ariaHideApp={false}
-        >
-          <h4>Please confirm your donation</h4>
-          <p>${this.state.amount}</p>
-          <button type='button' onClick={this.handleConfirm}>Confirm</button>
-        </Modal>
-      </div>
-    )
+    if (this.state.redirect) {
+      const id = Number(this.props.match.params.id)
+      return (
+        <Redirect to={`/store/${id}`} />
+      )
+    } else {
+      return (
+        <div className='donations'>
+          <h2>Every little helps</h2>
+          <button type='button' onClick={this.handleClick.bind(this, 1)}>$1</button>
+          <br/>
+          <button type='button' onClick={this.handleClick.bind(this, 3)}>$3</button>
+          <br/>
+          <button type='button' onClick={this.handleClick.bind(this, 5)}>$5</button>
+          <br/>
+          <button type='button' onClick={this.handleClick.bind(this, 10)}>$10</button>
+          <br/>
+          <button type='button' disabled={!this.state.amountSelected} onClick={this.handleSubmit}>Donate</button>
+          <Modal
+            isOpen={this.state.modalIsOpen}
+            onAfterOpen={this.afterOpenModal}
+            onRequestClose={this.closeModal}
+            style={customStyles}
+            contentLabel='Confirm donation'
+            ariaHideApp={false}
+          >
+            <h4>Please confirm your donation</h4>
+            <p>${this.state.amount}</p>
+            <button type='button' onClick={this.handleConfirm}>Confirm</button>
+          </Modal>
+        </div>
+      )
+    }
   }
 }
 
 function mapDispatchToStore (dispatch) {
   return {
-    submitDonation: (donation) => {
-      return dispatch(submitDonation(donation))
+    submitDonation: (donation, id) => {
+      return dispatch(submitDonation(donation, id))
     }
   }
 }
