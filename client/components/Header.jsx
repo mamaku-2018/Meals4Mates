@@ -6,6 +6,7 @@ const Header = () => {
     <nav className='navbar'>
       <div className='navbar-brand'>
         <a className='logo' href='/'>
+          <img src='/images/logo.png' alt='M4M logo' />
         </a>
       </div>
       <div className='navbar-menu'>

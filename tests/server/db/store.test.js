@@ -14,7 +14,16 @@ afterEach(() => {
 
 test('getStoreDetails returns details of the specified store', () => {
   const id = 1
-  const expected = [ 'email', 'hash', 'owner', 'name', 'address', 'phone' ]
+  const expected = ['id',
+    'name',
+    'address',
+    'email',
+    'hash',
+    'owner',
+    'phone',
+    'lat',
+    'lng',
+    'image_url']
   return db.getStoreDetails(id, testDb)
     .then(details => {
       expect(Object.keys(details[0])).toEqual(expected)
@@ -30,7 +39,8 @@ test('addNewStore returns new id of new store', () => {
     email: 'test@test.com',
     hash: '12321312',
     lat: '100',
-    lng: '90'
+    lng: '90',
+    image_url: 'img.com'
   }
   return db.addNewStore(newStore, testDb)
     .then((storeId) => {

@@ -1,10 +1,10 @@
 import React from 'react'
 import {HashRouter as Router, Route} from 'react-router-dom'
 import Login from './Auth/Login'
-import Header from './Header'
-// import Home from './Home'
-import Footer from './Footer'
 import Register from './Auth/Register'
+import Header from './Header'
+import Home from './Home'
+import Footer from './Footer'
 import Donations from './Donations'
 
 const App = () => {
@@ -12,11 +12,11 @@ const App = () => {
     <Router>
       <div className='container'>
         <Route path='/' component={Header} />
-        {/* <Route exact path='/' component={Home} /> */}
+        <Route exact path='/' component={Home} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/register' component={Register} />
         <Route path='/donations' component={Donations} />
-        <Footer />
+        <Route path='/' component={Footer} />
       </div>
     </Router>
   )
