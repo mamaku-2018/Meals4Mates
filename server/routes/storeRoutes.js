@@ -35,7 +35,7 @@ router.put('/:id/edit', (req, res) => {
     })
 })
 
-router.put('/register', (req, res) => {
+router.post('/register', (req, res) => {
   const store = {
     name: req.body.name,
     address: req.body.address,

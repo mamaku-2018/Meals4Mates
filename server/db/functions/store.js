@@ -22,14 +22,14 @@ function addNewStore (newStore, db = knex) {
 function editStoreDetails (store, db = knex) {
   return db('stores as s')
     .where('s.id', store.id)
-    .update(
-      'name', store.name,
-      'address', store.address,
-      'phone', store.phone,
-      'lat', store.lat,
-      'lng', store.lng,
-      'owner', store.owner,
-      'email', store.email,
-      'hash', store.hash
-    )
+    .update({
+      name: store.name,
+      address: store.address,
+      phone: store.phone,
+      lat: store.lat,
+      lng: store.lng,
+      owner: store.owner,
+      email: store.email,
+      hash: store.hash
+    })
 }
