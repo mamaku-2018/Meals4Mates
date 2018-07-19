@@ -2,6 +2,7 @@ exports.up = (knex, Promise) => {
   return knex.schema.createTable('stores', table => {
     table.increments('id').primary()
     table.string('name')
+    table.boolean('admin')
     table.string('address')
     table.string('email')
     table.string('hash')
