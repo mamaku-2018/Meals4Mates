@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { clearError } from '.././actions'
+import { clearError } from '../../actions'
 import { Redirect } from 'react-router-dom'
 import {register} from '../../actions/auth/register'
 
