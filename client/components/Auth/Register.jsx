@@ -1,11 +1,11 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { clearError } from '../../actions'
-import { Redirect } from 'react-router-dom'
+import {connect} from 'react-redux'
+import {clearError} from '../../actions'
+import {Redirect} from 'react-router-dom'
 import {register} from '../../actions/auth/register'
 
-class Register extends React.Component {
-  constructor(props) {
+export class Register extends React.Component {
+  constructor (props) {
     super(props)
     this.state = {
       name: '',
@@ -24,8 +24,8 @@ class Register extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange(e) {
-    const { name, value } = e.target
+  handleChange (e) {
+    const {name, value} = e.target
     let match = this.state.match
     match = name === 'password' ? value === this.state.confirm : match
     match = name === 'confirm' ? value === this.state.password : match
@@ -35,8 +35,8 @@ class Register extends React.Component {
     })
   }
 
-  handleSubmit(e) {
-    const { register } = this.props
+  handleSubmit (e) {
+    const {register} = this.props
     const user = {
       name: this.state.name,
       owner: this.state.owner,
@@ -44,14 +44,14 @@ class Register extends React.Component {
       store: this.state.store,
       address: this.state.address,
       phone: this.state.phone,
-      password: this.state.password,
+      password: this.state.password
     }
     register(user)
-    this.setState({ redirect: true })
+    this.setState({redirect: true})
     e.preventDefault()
   }
 
-  render() {
+  render () {
     if (this.state.redirect) {
       return (
         <Redirect to='/' />
@@ -96,7 +96,7 @@ class Register extends React.Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
   return {
     register: (user) => {
       dispatch(clearError())
