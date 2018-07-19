@@ -38,14 +38,14 @@ export class StoreInfoEdit extends React.Component {
   }
 
   render () {
-    const info = this.props.storeInfo
+    // const info = this.props.storeInfo
     return (
 
       <div className='StoreInfoEdit'>
         <form>
           <fieldset>
             <h2 className='StoreInfo'>Add Store</h2>
-            <label htmlFor='name' >Name:</label>
+            {/* <label htmlFor='name' >Name:</label>
             <input placeholder={info.name} value={this.state.name} onChange={this.changeHandler} name='name'/>
             <br />
             <label htmlFor='owner' >Owner:</label>
@@ -57,7 +57,7 @@ export class StoreInfoEdit extends React.Component {
             <label htmlFor='email'>Email:</label>
             <input placeholder={info.email} value={this.state.email} onChange={this.changeHandler} name='email'/>
             <br />
-            <button className='addButt' onClick={this.submitHandler}>SUBMIT</button>
+            <button className='addButt' onClick={this.submitHandler}>SUBMIT</button> */}
           </fieldset>
         </form>
       </div>
