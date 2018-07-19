@@ -4,7 +4,7 @@ import {
 } from '../../actions/auth/register'
 
 const register = (state = false, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case REQUEST_USER_REGISTRATION:
       return true
 
