@@ -21,3 +21,38 @@ test('getStoreDetails returns details of the specified store', () => {
     })
 })
 
+test('addNewStore returns new id of new store', () => {
+  const newStore = {
+    name: 'test',
+    address: 'test street',
+    owner: 'test',
+    phone: 111,
+    email: 'test@test.com',
+    hash: '12321312',
+    lat: '100',
+    lng: '90'
+  }
+  return db.addNewStore(newStore, testDb)
+    .then((storeId) => {
+      expect(storeId.length).toBe(1)
+    })
+})
+
+test('edit updates the store details in the store', () => {
+  const store = {
+    id: 3,
+    name: 'test',
+    address: 'test street',
+    owner: 'test',
+    phone: 111,
+    email: 'test@test.com',
+    hash: '12321312',
+    lat: '100',
+    lng: '90'
+  }
+
+  return db.editStoreDetails(store, testDb)
+    .then(details => {
+      expect(details).toEqual(1)
+    })
+})
