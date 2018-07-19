@@ -5,6 +5,7 @@ import Register from './Auth/Register'
 import Header from './Header'
 import Home from './Home'
 import Footer from './Footer'
+import StoreProfile from './StoreProfile'
 import Donations from './Donations'
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
         <Route exact path='/' component={Home} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/register' component={Register} />
+        <Route path='/store/:id' component={StoreProfile} />
         <Route path='/store/:id/donations' component={Donations} />
         <Route path='/' component={Footer} />
       </div>
