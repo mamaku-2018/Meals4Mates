@@ -1,8 +1,9 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {clearError} from '../actions'
-import {edit} from '../actions/auth/edit'// action to be written
+import {Redirect} from 'react-router-dom'
+import {storeInfoEdit} from '../actions/auth/edit'
+import {getStoreInfo} from '../actions/getStoreInfo'
 
 export class StoreInfoEdit extends React.Component {
   constructor (props) {
@@ -12,11 +13,17 @@ export class StoreInfoEdit extends React.Component {
       owner: '',
       phone: 0,
       email: '',
-      address: ''
+      address: '',
+      redirect: false
     }
 
     this.submitHandler = this.submitHandler.bind(this)
     this.changeHandler = this.changeHandler.bind(this)
+  }
+
+  componentsDidMount () {
+    const id = this.props.match.params.id
+    this.props.dispatch(getStoreInfo(id))
   }
 
   changeHandler (e) {
@@ -26,6 +33,7 @@ export class StoreInfoEdit extends React.Component {
   }
 
   submitHandler (e) {
+    const {storeInfoEdit} = this.props
     const user = {
       name: this.state.name,
       owner: this.state.owner,
@@ -33,19 +41,25 @@ export class StoreInfoEdit extends React.Component {
       email: this.state.email,
       address: this.state.address
     }
-
-    this.props.edit(user)
+    storeInfoEdit(user)
+    this.setState({redirect: true})
     e.preventDefault()
   }
 
   render () {
     // const info = this.props.storeInfo
-    return (
+    if (this.state.redirect) {
+      const id = this.props.match.params.id
+      return (
+        <Redirect to={`/store/${id}`} />
+      )
+    } else {
+      return (
 
-      <div className='StoreInfoEdit'>
-        <form>
-          <fieldset>
-            {/* <h2 className='StoreInfo'>Edit Store Details</h2>
+        <div className='StoreInfoEdit'>
+          <form>
+            <fieldset>
+              {/* <h2 className='StoreInfo'>Edit Store Details</h2>
             <label htmlFor='name' >Name:</label>
             <input placeholder={info.name} value={this.state.name} onChange={this.changeHandler} name='name'/>
             <br />
@@ -58,11 +72,12 @@ export class StoreInfoEdit extends React.Component {
             <label htmlFor='email'>Email:</label>
             <input placeholder={info.email} value={this.state.email} onChange={this.changeHandler} name='email'/>
             <br /> */}
-            <Link to='/store/:id' type='button' className='button' onClick={this.submitHandler}>SUBMIT</Link>
-          </fieldset>
-        </form>
-      </div>
-    )
+              <button className='button' onClick={this.submitHandler}>SUBMIT</button>
+            </fieldset>
+          </form>
+        </div>
+      )
+    }
   }
 }
 
@@ -76,7 +91,7 @@ function mapDispatchToProps (dispatch) {
   return {
     edit: (user) => {
       dispatch(clearError())
-      return dispatch(edit(user))
+      return dispatch(storeInfoEdit(user))
     }
   }
 }
