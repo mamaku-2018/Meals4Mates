@@ -5,7 +5,7 @@ export function submitDonation (donation, id) {
   return (dispatch) => {
     return request
       .post(`/api/v1/balance/${id}/donate`)
-      .send(donation)
+      .send({donation})
       .then(() => {
         dispatch(showSuccess('Donation has been submitted'))
       })
