@@ -14,7 +14,7 @@ const StoreProfile = () => {
         <Link to='/store/profile/:id/edit' className='button'>Edit</Link>
       </div>
 
-      <Route path='/store/profile/:id' component={StoreInfo} />
+      <Route exact path='/store/profile/:id' component={StoreInfo} />
       <Route path='/store/profile/:id' component={StorePie} />
       <Route path='/store/profile/:id' component={StoreStats} />
       <Route path='/store/profile/:id/edit' component={StoreInfoEdit} />
