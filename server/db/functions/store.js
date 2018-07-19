@@ -12,7 +12,8 @@ function getStoreDetails (id, db = knex) {
   return db('stores as s')
     .join('users as u', 's.id', 'u.store_id')
     .where('s.id', id)
-    .select('u.email as email', 'u.hash as hash', 'u.name as owner', 's.name as name', 's.address as address', 's.phone as phone')
+    .select('u.email as email', 'u.hash as hash', 'u.name as owner',
+      's.name as name', 's.address as address', 's.phone as phone')
 }
 
 // new store object strcture = {user.name, user.hash, user.email, stores.name, stores.address, stores.phone, stores.lat, stores.lng}
@@ -37,7 +38,9 @@ function editStoreDetails (store, db = knex) {
   return db('stores as s')
     .join('users as u', 's.id', 'u.store_id')
     .where('s.id', store.id)
-    .select('u.email as email', 'u.hash as hash', 'u.name as owner', 's.name as name', 's.address as address', 's.phone as phone', 's.lat as lat', 's.lng as lng')
+    .select('u.email as email', 'u.hash as hash', 'u.name as owner',
+      's.name as name', 's.address as address', 's.phone as phone',
+      's.lat as lat', 's.lng as lng')
     .update(
       'name', store.name,
       'address', store.address,
