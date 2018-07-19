@@ -4,7 +4,7 @@ import L from 'leaflet'
 class Map extends React.Component {
   componentDidMount () {
     this.map = L.map('map', {
-      center: [36.8485, 174.7633],
+      center: [-36.8485, 174.7633],
       zoom: 13,
       layers: [
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -13,6 +13,7 @@ class Map extends React.Component {
           id: 'mapbox.streets',
           accessToken: 'pk.eyJ1IjoiYnJvbmJ1cmd1bmR5IiwiYSI6ImNqanJ3N3hlYzhvb2sza2xmdGZocmwzMHgifQ.W5lq17kl4kLbi4qmQ1DNrg'
         })
+        // .addTo(this.map)
       ]
     })
   }

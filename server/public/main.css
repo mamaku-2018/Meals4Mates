@@ -1,15 +1,14 @@
 * {
   box-sizing: border-box;
-  border: 0.5px solid transparent; 
+  border: 0.5px solid red; 
 }
 
 html, body {
-  max-width: 100%;
-  font-family: 'Libre Franklin', sans-serif;
+  width: 100%;
   color: #c5c1c0;
   text-align: center;
-  margin: 0px; 
-  padding: 0px; 
+  margin: 0; 
+  padding: 0; 
   background-color: #314950;
 }
 
@@ -87,7 +86,7 @@ label {
 .navbar {
   position: relative;
   display: flex;
-  height: 10%;
+  height: 6rem;
   width: 100%; 
   background-color: #1a2930;
   margin: 0;
@@ -99,15 +98,17 @@ label {
 
 .navbar-brand img {
   position: absolute;
-  top: 30%;
-  left: 2%;
+  top: 20%;
+  left: 0;
   width: 30%; 
 }
 
 .navbar-menu {
   position: absolute;
-  right: 0.7rem;
-  padding: 1rem;
+  padding: 0.7rem;
+  right: 0;
+  display: inline;
+  background-color: #1a2930;
 }
 
 .navbar-menu .button {
@@ -120,14 +121,36 @@ label {
 /* BANNER */
 
 .banner {
-  width: 50%;
+  width: 100%;
+}
+
+.banner-text {
+  width: 80%;
   margin: auto;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+}
+
+.banner h1 {
+  line-height: 4rem;
+}
+
+.banner-text p {
+  margin: 1rem;
 }
 
 /* LOCATIONS */
 
+.locations {
+  height: 400px;
+  width: 100%;
+}
+
 #map { 
-  height: 300px; 
+  height: 400px; 
+  width: 100vw;
+  position: relative;
+  overflow: auto;
 }
 
 /* LOGIN & REGISTER */
@@ -138,20 +161,71 @@ label {
 
 /* FOOTER */
 
-footer {
-  width: 90%;
+.footer {
+  width: 100%;
   margin: auto;
-  height: 5%;
   background-color: #1a2930;
-  border-top: 2px solid #7AB0AD;
-  margin-top: 5rem;
-  margin-bottom: 0;
   color: #E8E8E8;
 }
 
 .footer a {
   color: #E8E8E8;
   border: .3px solid transparent;
+  margin-bottom: 1rem;
 }
 
 /* MEDIA QUERIES */
+
+@media only screen and (min-width: 400px) {
+  .navbar-brand img {
+  
+  }
+}  
+
+@media only screen and (min-width: 640px) {
+  .navbar-brand img {
+    width: 18%; 
+  } 
+}
+
+@media only screen and (min-width: 800px) {
+  .container {
+    height: 100vh;
+  }
+
+  .navbarmenu .button {
+    width: 6rem;
+    height: 3rem;
+    font-size: 1rem;
+  }
+
+  .companyList {
+    text-align: left;
+  }
+
+  .companyList ul {
+    text-align: left; 
+  }
+
+  .companyList h3 {
+    margin-left: 1rem;
+  }
+
+  .footer {
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+
+  .about p {
+    font-size: 1.6rem;
+  }  
+}
+
+@media only screen and (min-width: 900px) {
+  .navbar-brand img {
+    width: 15%; 
+  }
+}
