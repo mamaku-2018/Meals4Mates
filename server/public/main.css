@@ -165,7 +165,14 @@ label {
   width: 100%;
 }
 
-#map { 
+.map { 
+  height: 400px; 
+  width: 100vw;
+  position: relative;
+  overflow: auto;
+}
+
+.leaflet-container { 
   height: 400px; 
   width: 100vw;
   position: relative;
