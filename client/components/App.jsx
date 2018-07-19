@@ -5,14 +5,12 @@ import Login from './Auth/Login'
 import Header from './Header'
 // import Home from './Home'
 import Footer from './Footer'
-import Advertising from './Advertising'
 
 const App = () => {
   return (
     <Router>
       <div className='container'>
         <Route path='/' component={Header} />
-        <Route exact path='/' component={Advertising} />
         {/* <Route exact path='/' component={Home} /> */}
         <Route exact path='/login' component={Login} />
 
