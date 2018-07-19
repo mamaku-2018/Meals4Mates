@@ -57,6 +57,11 @@ input {
   margin-bottom: 1rem;
   color: #1a2930;
   border-radius: 3px;
+  box-shadow: inset 0 1px 3px #ddd;
+}
+
+::placeholder {
+  font-size: 0.8rem;
 }
 
 .error {
@@ -107,7 +112,8 @@ label {
 
 .logo {
   position: absolute;
-  top: 15%;
+  top: 20%;
+  left: 0.5rem;
   width: 60%; 
 }
 
@@ -120,10 +126,10 @@ label {
 }
 
 .navbar-menu .button {
-  width: 5rem;
+  width: 4rem;
   height: 2rem;
-  margin: 1rem 0 0 1rem;
-  font-size: 0.8rem;
+  margin: 1.5rem 0 0 1rem;
+  font-size: 0.6rem;
 }
 
 /* BANNER */
@@ -190,13 +196,16 @@ form h2 {
 .advertising {
   height: 10%;
   padding: 2rem;
+  background-color: #c5c1c0;
+  border-top: #314950 1rem solid;
 }
 
 .advertising img {
-  width: 10%;
+  width: 15%;
+  margin: 2rem 1rem 2rem 1rem;
 }
 
-/* STORE INFO */
+/* STORE */
 
 /* DONATIONS */
 
@@ -205,31 +214,40 @@ form h2 {
 .footer {
   width: 100%;
   margin: 0;
-  margin-top: 1rem;
   background-color: #1a2930;
   color: #c5c1c0;
   padding: 2rem 1.5rem 3rem;
 }
 
 .footer h4 {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .footer p {
   font-size: 1rem;
 }
 
-.footer a {
-  font-size: 1rem;
-  color: #c5c1c0;
+.footer-email {
   margin-bottom: 1rem;
+}
+
+.footer-email a {
+  font-size: 1.2rem;
+  color: #c5c1c0;
 }
 
 /* MEDIA QUERIES */ 
 
 @media only screen and (min-width: 440px) {
   .logo {
-    width: 40%; 
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .logo {
+    width: 50%;
+    top: 15%;
   }
 }
 
@@ -238,12 +256,15 @@ form h2 {
     width: 15%;
     margin-top: 1rem;
   }
+  .logo {
+    width: 40%;
+  }
   .login {
     height: 700px;
   }
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 750px) {
   .container {
     height: 100vh;
   }
@@ -252,6 +273,10 @@ form h2 {
     width: 6rem;
     height: 3rem;
     font-size: 1rem;
+  }
+
+  .logo {
+    top: 10%;
   }
 
   .footer {
@@ -272,8 +297,8 @@ form h2 {
   }
  
   .logo {
-    width: 30%; 
-    top: 0;
+    width: 35%; 
+    top: 10%;
   }
 
   .banner-text {
@@ -298,5 +323,16 @@ form h2 {
   .container {
     max-width: 100%;
     width: 100%;
+  }
+  .logo {
+    width: 30%; 
+    top: 0;
+  }
+  .locations {
+    height: 500px;
+    width: 100%;
+  }
+  #map { 
+    height: 500px; 
   }
 }

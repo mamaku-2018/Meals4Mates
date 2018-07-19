@@ -5,6 +5,7 @@ const Advertising = () => {
     <div className='advertising'>
       <img src='/images/pita.png' />
       <img src='/images/subway.png' />
+      <img src='/images/bf.png' />
     </div>
   )
 }
