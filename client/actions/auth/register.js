@@ -7,7 +7,6 @@ export const RECEIVE_USER_REGISTRATION = 'RECEIVE_USER_REGISTRATION'
 export const REQUEST_USER_DETAILS = 'REQUEST_USER_DETAILS'
 export const RECEIVE_USER_DETAILS = 'RECEIVE_USER_DETAILS'
 
-
 export const requestUserRegistration = () => {
   return {
     type: REQUEST_USER_REGISTRATION
@@ -34,7 +33,7 @@ export const receiveUserDetails = (user) => {
   }
 }
 
-export function register(user) {
+export function register (user) {
   return dispatch => {
     dispatch(requestUserRegistration())
     return request('post', '/auth/register', user)
@@ -53,7 +52,7 @@ export function register(user) {
   }
 }
 
-export function getUserDetails(id) {
+export function getUserDetails (id) {
   return (dispatch) => {
     dispatch(requestUserDetails())
     request('get', `/auth/${id}`)

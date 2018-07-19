@@ -13,7 +13,8 @@ module.exports = {
     },
     seeds: {
       directory: path.join(__dirname, '../../tests/server/db/seeds')
-    }
+    },
+    useNullAsDefault: true
   },
 
   staging: {
