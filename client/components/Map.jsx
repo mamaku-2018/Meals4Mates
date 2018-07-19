@@ -1,6 +1,10 @@
 import React from 'react'
 import L from 'leaflet'
 
+let icon = L.icon ({
+  iconUrl: 'images/knf.png',
+  iconSize: 
+})
 class Map extends React.Component {
   componentDidMount () {
     let mymap = L.map('map').setView([-36.8485, 174.7633], 13)
@@ -10,6 +14,7 @@ class Map extends React.Component {
       id: 'mapbox.streets',
       accessToken: 'pk.eyJ1IjoiYnJvbmJ1cmd1bmR5IiwiYSI6ImNqanJ3N3hlYzhvb2sza2xmdGZocmwzMHgifQ.W5lq17kl4kLbi4qmQ1DNrg'
     }).addTo(mymap)
+    let marker = L.marker([-36.850, 174.76], {icon: myIcon}).addTo(mymap)
   }
   render () {
     return <div id='map'></div>
