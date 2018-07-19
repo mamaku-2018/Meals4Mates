@@ -6,7 +6,7 @@
     "build": "webpack --config ./client/webpack.config.js",
     "dev": "nodemon server & yarn build --watch",
     "knex": "knex --knexfile ./server/db/knexfile.js",
-    "test": "jest",
+    "test": "jest --watchAll",
     "start": "node server"
   },
   "repository": "https://github.com/mamaku-2018/Meals4Mates.git",
@@ -33,6 +33,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
     "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^23.4.1",
     "nodemon": "^1.18.3",
     "react": "^16.4.1",
