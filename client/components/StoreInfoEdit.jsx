@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {clearError} from '../actions'
 import {edit} from '../actions/auth/edit'// action to be written
@@ -44,8 +45,8 @@ export class StoreInfoEdit extends React.Component {
       <div className='StoreInfoEdit'>
         <form>
           <fieldset>
-            <h2 className='StoreInfo'>Add Store</h2>
-            {/* <label htmlFor='name' >Name:</label>
+            {/* <h2 className='StoreInfo'>Edit Store Details</h2>
+            <label htmlFor='name' >Name:</label>
             <input placeholder={info.name} value={this.state.name} onChange={this.changeHandler} name='name'/>
             <br />
             <label htmlFor='owner' >Owner:</label>
@@ -56,8 +57,8 @@ export class StoreInfoEdit extends React.Component {
             <br />
             <label htmlFor='email'>Email:</label>
             <input placeholder={info.email} value={this.state.email} onChange={this.changeHandler} name='email'/>
-            <br />
-            <button className='addButt' onClick={this.submitHandler}>SUBMIT</button> */}
+            <br /> */}
+            <Link to='/store/:id' type='button' className='button' onClick={this.submitHandler}>SUBMIT</Link>
           </fieldset>
         </form>
       </div>
