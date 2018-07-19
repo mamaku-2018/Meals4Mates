@@ -27,7 +27,7 @@ export const requestUserDetails = () => {
   }
 }
 
-export const receiveUserDetails = () => {
+export const receiveUserDetails = (user) => {
   return {
     type: RECEIVE_USER_DETAILS,
     user
