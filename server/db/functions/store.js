@@ -26,7 +26,7 @@ function addNewStore (newStore, db = knex) {
       phone: newStore.phone,
       lat: newStore.lat,
       lng: newStore.lng
-    })
+    }).into('stores')
     .insert({
       name: newStore.owner,
       email: newStore.email,

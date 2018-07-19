@@ -53,6 +53,7 @@ test('edit updates the store details in the store', () => {
 
   return db.editStoreDetails(store, testDb)
     .then(details => {
+      console.log(details)
       expect(details).toEqual(1)
     })
 })
