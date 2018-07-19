@@ -6,7 +6,7 @@
     "build": "webpack --config ./client/webpack.config.js",
     "dev": "nodemon server & yarn build --watch",
     "knex": "knex --knexfile ./server/db/knexfile.js",
-    "test": "jest",
+    "test": "jest --watchAll",
     "start": "node server"
   },
   "repository": "https://github.com/mamaku-2018/Meals4Mates.git",
