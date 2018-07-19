@@ -5,9 +5,7 @@ import Map from './Map'
 const Locations = () => {
   return (
     <div className='locations'>
-      <div id='map'>
-        <Map />
-      </div>
+      <Map />
     </div>
   )
 }

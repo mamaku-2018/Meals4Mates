@@ -3,7 +3,6 @@ import L from 'leaflet'
 
 class Map extends React.Component {
   componentDidMount () {
-    // create map
     this.map = L.map('map', {
       center: [36.8485, 174.7633],
       zoom: 13,
@@ -18,7 +17,7 @@ class Map extends React.Component {
     })
   }
   render () {
-    return <div id="map"></div>
+    return <div id='map'></div>
   }
 }
 

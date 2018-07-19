@@ -84,7 +84,47 @@ label {
 
 /* HEADER */
 
-/* MAIN */
+.navbar {
+  position: relative;
+  display: flex;
+  height: 10%;
+  width: 100%; 
+  background-color: #1a2930;
+  margin: 0;
+}
+
+.navbar-brand {
+  width: 50%;
+}
+
+.navbar-brand img {
+  position: absolute;
+  top: 30%;
+  left: 2%;
+  width: 30%; 
+}
+
+.navbar-menu {
+  position: absolute;
+  right: 0.7rem;
+  padding: 1rem;
+}
+
+.navbar-menu .button {
+  width: 5rem;
+  height: 2rem;
+  margin: 1rem 0 0 1rem;
+  font-size: 0.8rem;
+}
+
+/* BANNER */
+
+.banner {
+  width: 50%;
+  margin: auto;
+}
+
+/* LOCATIONS */
 
 #map { 
   height: 300px; 
@@ -97,3 +137,21 @@ label {
 /* DONATIONS */
 
 /* FOOTER */
+
+footer {
+  width: 90%;
+  margin: auto;
+  height: 5%;
+  background-color: #1a2930;
+  border-top: 2px solid #7AB0AD;
+  margin-top: 5rem;
+  margin-bottom: 0;
+  color: #E8E8E8;
+}
+
+.footer a {
+  color: #E8E8E8;
+  border: .3px solid transparent;
+}
+
+/* MEDIA QUERIES */
