@@ -35,12 +35,12 @@ function makeRedemption (redemption, db = knex) {
     .insert(redemption)
 }
 
-function getTotalDonations (id, db = knex) {
+function getTotalDonations (db = knex) {
   return db('balance')
-    .sum('donation')
+    .sum('donation as donation')
 }
 
-function getTotalRedemptions (id, db = knex) {
+function getTotalRedemptions (db = knex) {
   return db('balance')
-    .sum('redemption')
+    .sum('redemption as redemption')
 }

@@ -2,6 +2,25 @@ const express = require('express')
 const db = require('../db/functions/balance')
 const router = express.Router()
 
+router.get('/admin', (req, res) => {
+  db.getTotalDonations()
+    .then(donations => {
+      db.getTotalRedemptions()
+        .then(redemptions => {
+          const balance = {
+            donations: donations[0].donation,
+            redemptions: redemptions[0].redemption
+          }
+          res.json(balance)
+        })
+    })
+    .catch(err => {
+      // eslint-disable-next-line
+  console.log(err)
+      res.status(500).send('Unable to retrieve balances')
+    })
+})
+
 router.get('/:id', (req, res) => {
   const id = req.params.id
   db.getStoreTotalDonation(id)
@@ -14,6 +33,11 @@ router.get('/:id', (req, res) => {
           }
           res.json([balance])
         })
+    })
+    .catch(err => {
+      // eslint-disable-next-line
+  console.log(err)
+      res.status(500).send('Unable to retrieve store data')
     })
 })
 
@@ -46,21 +70,6 @@ router.post('/:id/redeem', (req, res) => {
     // eslint-disable-next-line
 console.log(err)
       res.status(500).send('Unable to make redemption')
-    })
-})
-
-router.get('/admiin', (req, res) => {
-  const id = req.params.id
-  db.getStoreTotalDonation(id)
-    .then(donations => {
-      db.getStoreTotalRedemption(id)
-        .then(redemptions => {
-          const balance = {
-            donations: donations.donation,
-            redemptions: redemptions.redemption
-          }
-          res.json([balance])
-        })
     })
 })
 
