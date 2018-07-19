@@ -3,17 +3,12 @@ const config = require('../knexfile')[environment]
 const knex = require('knex')(config)
 
 module.exports = {
-  getCurrentBalance,
   getStoreTotalDonation,
-  getStoreTotalRedemption
-}
-
-//function returns a array of an object contatining total donation and redemption of the store. these two figures can be used to generate datta for store balance circle as well as bar graph
-function getCurrentBalance (id, db = knex) {
-  return db('balance')
-    .where('store_id', id)
-    .sum('donation as donation')
-    .sum('redemption as redemption')
+  getStoreTotalRedemption,
+  addDonation,
+  makeRedemption,
+  getTotalDonations,
+  getTotalRedemptions
 }
 
 function getStoreTotalDonation (id, db = knex) {
@@ -30,3 +25,22 @@ function getStoreTotalRedemption (id, db = knex) {
     .then(redemption => redemption[0])
 }
 
+function addDonation (donation, db = knex) {
+  return db('balance')
+    .insert(donation)
+}
+
+function makeRedemption (redemption, db = knex) {
+  return db('balance')
+    .insert(redemption)
+}
+
+function getTotalDonations (id, db = knex) {
+  return db('balance')
+    .sum('donation')
+}
+
+function getTotalRedemptions (id, db = knex) {
+  return db('balance')
+    .sum('redemption')
+}
