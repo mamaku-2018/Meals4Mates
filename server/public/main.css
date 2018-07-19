@@ -86,6 +86,10 @@ label {
 
 /* MAIN */
 
+#map { 
+  height: 300px; 
+}
+
 /* LOGIN & REGISTER */
 
 /* STORE INFO */
