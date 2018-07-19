@@ -7,5 +7,9 @@ module.exports = {
 }
 
 function getCurrentBalance (id, db = knex) {
-  return db('')
+  return db('balance')
+    .where('store_id', id)
+    .sum('donation as donation')
+    .sum('redemption as redemption')
+    .then(figures => figures[0].donation - figures[0].redemption)
 }
