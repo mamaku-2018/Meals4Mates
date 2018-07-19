@@ -5,6 +5,7 @@ import Header from './Header'
 // import Home from './Home'
 import Footer from './Footer'
 import Register from './Auth/Register'
+import Donations from './Donations'
 
 const App = () => {
   return (
@@ -14,7 +15,7 @@ const App = () => {
         {/* <Route exact path='/' component={Home} /> */}
         <Route exact path='/login' component={Login} />
         <Route exact path='/register' component={Register} />
-
+        <Route path='/donations' component={Donations} />
         <Footer />
       </div>
     </Router>
