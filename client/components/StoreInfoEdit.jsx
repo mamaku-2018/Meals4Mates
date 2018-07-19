@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {updateStoreInfo} from '../actions/store'
+import {clearError} from '../../actions'
+import {edit} from '../../actions/auth/edit'// action to be written
 
 export class StoreInfoEdit extends React.Component {
   constructor (props) {
@@ -8,7 +9,7 @@ export class StoreInfoEdit extends React.Component {
     this.state = {
       name: '',
       owner: '',
-      phoneNumber: 0,
+      phone: 0,
       email: '',
       address: ''
     }
@@ -24,27 +25,59 @@ export class StoreInfoEdit extends React.Component {
   }
 
   submitHandler (e) {
-    this.props.dispatch(updateStoreInfo(this.state))
+    const user = {
+      name: this.state.name,
+      owner: this.state.owner,
+      phone: this.state.phone,
+      email: this.state.email,
+      address: this.state.address
+    }
+
+    this.props.edit(user)
+    e.preventDefault()
   }
 
   render () {
+    const info = this.props.storeInfo
     return (
+
       <div className='StoreInfoEdit'>
-        <h2 className='StoreInfo'>Add Store</h2>
-        <h3>Name:</h3>
-        <input onChange={this.changeHandler} name='name'/>
-        <h3>Owner:</h3>
-        <input onChange={this.changeHandler} name='owner'/>
-        <h3>Phone:</h3>
-        <input onChange={this.changeHandler} name='phone'/>
-        <h3>Email:</h3>
-        <input onChange={this.changeHandler} name='email'/>
-        <h3>Password:</h3>
-        <input onChange={this.changeHandler} name='password'/>
-        <button className='addButt' onClick={this.submitHandler}>SUBMIT</button>
+        <form>
+          <fieldset>
+            <h2 className='StoreInfo'>Add Store</h2>
+            <label htmlFor='name' >Name:</label>
+            <input placeholder={info.name} value={this.state.name} onChange={this.changeHandler} name='name'/>
+            <br />
+            <label htmlFor='owner' >Owner:</label>
+            <input placeholder={info.owner} value={this.state.owner} onChange={this.changeHandler} name='owner'/>
+            <br />
+            <label htmlFor='phone'>Phone Number:</label>
+            <input placeholder={info.phone} value={this.state.phone} onChange={this.changeHandler} name='phone'/>
+            <br />
+            <label htmlFor='email'>Email:</label>
+            <input placeholder={info.email} value={this.state.email} onChange={this.changeHandler} name='email'/>
+            <br />
+            <button className='addButt' onClick={this.submitHandler}>SUBMIT</button>
+          </fieldset>
+        </form>
       </div>
     )
   }
 }
 
-export default connect(StoreInfoEdit)
+const mapStateToProps = (state) => {
+  return {
+    storeInfo: state.storeInfo
+  }
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    edit: (user) => {
+      dispatch(clearError())
+      return dispatch(edit(user))
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(StoreInfoEdit)
