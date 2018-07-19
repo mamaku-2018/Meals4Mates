@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {clearError} from '../../actions'
-import {edit} from '../../actions/auth/edit'// action to be written
+import {clearError} from '../actions'
+import {edit} from '../actions/auth/edit'// action to be written
 
 export class StoreInfoEdit extends React.Component {
   constructor (props) {

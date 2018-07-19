@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {getStoreInfo} from '../actions/store/profile'
+import {getStoreInfo} from '../actions/getStoreInfo'
 
 class StoreInfo extends React.Component {
   componentsDidMount () {
