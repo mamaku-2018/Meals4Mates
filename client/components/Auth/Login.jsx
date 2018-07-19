@@ -41,10 +41,10 @@ class Login extends React.Component {
       )
     } else {
       return (
-        <div>
+        <div className='login'>
           <form>
             <fieldset>
-              <legend>Login</legend>
+              <h2>Login</h2>
               <label htmlFor='email'>Email: </label>
               <input type='text' name='email' id='email' placeholder='Email'
                 onChange={this.handleChange} value={this.state.email} />

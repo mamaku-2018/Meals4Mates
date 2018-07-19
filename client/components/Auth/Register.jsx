@@ -61,7 +61,7 @@ export class Register extends React.Component {
         <div className='register'>
           <form>
             <fieldset>
-              <legend>Register</legend>
+              <h2>Register</h2>
               <label htmlFor='name'>Name: </label>
               <input type='text' name='name' id='name' placeholder='Name' onChange={this.handleChange} value={this.state.firstName} />
               <br />
@@ -69,7 +69,7 @@ export class Register extends React.Component {
               <input type='text' name='surname' id='surname' placeholder='Store' onChange={this.handleChange} value={this.state.store} />
               <br />
               <label htmlFor='owner'>Owner: </label>
-              <input type='text' name='owner' id='owner' placeholder='Store owner' onChange={this.handleChange} value={this.state.owner} />
+              <input type='text' name='owner' id='owner' placeholder='Store owner or manager' onChange={this.handleChange} value={this.state.owner} />
               <br />
               <label htmlFor='email'>Email: </label>
               <input type='email' name='email' id='email' placeholder='Email' onChange={this.handleChange} value={this.state.email} />

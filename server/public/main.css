@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  border: 0.5px solid red; 
+  border: 0.5px solid transparent; 
 }
 
 html, body {
@@ -54,7 +54,7 @@ input {
   width: 100%;
   padding: 10px;
   font-size: 15px;
-  margin: 2% 0% 2% 0%;
+  margin-bottom: 1rem;
   color: #1a2930;
   border-radius: 3px;
 }
@@ -75,10 +75,17 @@ input {
   position: relative;
 }
 
+form {
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+}
+
 label {
+  text-align: left;
   font-size: 1rem;
-  color: #F7CE3E;
-  margin-bottom: 0rem;
+  color: #c5c1c0;
+  margin-bottom: 0;
 }
 
 /* HEADER */
@@ -93,14 +100,15 @@ label {
 }
 
 .navbar-brand {
+  position: absolute;
   width: 50%;
+  height: 100%;
 }
 
-.navbar-brand img {
+.logo {
   position: absolute;
-  top: 20%;
-  left: 0;
-  width: 30%; 
+  top: 15%;
+  width: 60%; 
 }
 
 .navbar-menu {
@@ -139,6 +147,11 @@ label {
   margin: 1rem;
 }
 
+.banner img {
+  width: 30%;
+  margin-top: 1rem;
+}
+
 /* LOCATIONS */
 
 .locations {
@@ -155,6 +168,34 @@ label {
 
 /* LOGIN & REGISTER */
 
+.login, .register {
+  width: 80%;
+  margin: auto;
+}
+
+.login button, .register button {
+  margin-left: 0;
+}
+
+.login {
+  height: 500px;
+}
+
+form h2 {
+  margin-bottom: 1rem;
+}
+
+/* ADVERTISING */
+
+.advertising {
+  height: 10%;
+  padding: 2rem;
+}
+
+.advertising img {
+  width: 10%;
+}
+
 /* STORE INFO */
 
 /* DONATIONS */
@@ -163,29 +204,43 @@ label {
 
 .footer {
   width: 100%;
-  margin: auto;
+  margin: 0;
+  margin-top: 1rem;
   background-color: #1a2930;
-  color: #E8E8E8;
+  color: #c5c1c0;
+  padding: 2rem 1.5rem 3rem;
 }
 
-.footer a {
-  color: #E8E8E8;
-  border: .3px solid transparent;
+.footer h4 {
   margin-bottom: 1rem;
 }
 
-/* MEDIA QUERIES */
+.footer p {
+  font-size: 1rem;
+}
 
-@media only screen and (min-width: 400px) {
-  .navbar-brand img {
-  
+.footer a {
+  font-size: 1rem;
+  color: #c5c1c0;
+  margin-bottom: 1rem;
+}
+
+/* MEDIA QUERIES */ 
+
+@media only screen and (min-width: 440px) {
+  .logo {
+    width: 40%; 
   }
-}  
+}
 
 @media only screen and (min-width: 640px) {
-  .navbar-brand img {
-    width: 18%; 
-  } 
+  .banner img {
+    width: 15%;
+    margin-top: 1rem;
+  }
+  .login {
+    height: 700px;
+  }
 }
 
 @media only screen and (min-width: 800px) {
@@ -199,32 +254,49 @@ label {
     font-size: 1rem;
   }
 
-  .companyList {
-    text-align: left;
-  }
-
-  .companyList ul {
-    text-align: left; 
-  }
-
-  .companyList h3 {
-    margin-left: 1rem;
-  }
-
   .footer {
     width: 100%;
     position: relative;
     bottom: 0;
     text-align: left;
-  }
-
-  .about p {
-    font-size: 1.6rem;
-  }  
+  } 
 }
 
 @media only screen and (min-width: 900px) {
-  .navbar-brand img {
-    width: 15%; 
+  .navbar-brand {
+    margin-left: 5% !important;
+  }
+
+  .navbar-menu {
+    margin-right: 5% !important;
+  }
+ 
+  .logo {
+    width: 30%; 
+    top: 0;
+  }
+
+  .banner-text {
+    width: 50%;
+  }
+
+  .banner p {
+    font-size: 1.5rem;
+  }
+
+  .login, .register {
+    width: 60%;
+    margin: auto;
+  }
+
+  .footer-text {
+    margin-left: 5%;
+  }
+}
+
+@media only screen and (min-width: 1088px) {
+  .container {
+    max-width: 100%;
+    width: 100%;
   }
 }
