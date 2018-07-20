@@ -26,10 +26,7 @@ function editStoreDetails (store, db = knex) {
       name: store.name,
       address: store.address,
       phone: store.phone,
-      lat: store.lat,
-      lng: store.lng,
       owner: store.owner,
-      email: store.email,
-      hash: store.hash
+      email: store.email
     })
 }
