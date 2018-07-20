@@ -3,9 +3,14 @@ import React from 'react'
 const Footer = () => {
   return (
     <div className='footer'>
-      <h4>Contact</h4>
-      <h5>Meals4Mates</h5>
-      <p>© Copyright 2018 Enspiral Dev Academy Ltd. All rights reserved.</p>
+      <div className='footer-text'>
+        <h4>Contact</h4>
+        <div className='footer-email'>
+          <a href='mailto:hello@Meals4Mates.co.nz'>hello@Meals4Mates.co.nz</a>
+        </div>
+        <p>© Copyright 2018 Enspiral Dev Academy Ltd.</p>
+        <p>All rights reserved.</p>
+      </div>
     </div>
   )
 }
