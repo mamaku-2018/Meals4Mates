@@ -1,10 +1,10 @@
 import React from 'react'
-import {Map, Marker, TileLayer, Popup} from 'react-leaflet'
+import {Map, Marker, TileLayer, Popup, Icon} from 'react-leaflet'
 
-// const myIcon = L.icon({
-//   iconUrl: '../../server/public/images/knf.png',
-//   iconSize: [10, 10]
-// })
+const myIcon = Icon({
+  iconUrl: '../../server/public/images/knf.png',
+  iconSize: [10, 10]
+})
 
 class Map1 extends React.Component {
   constructor (props) {
@@ -28,7 +28,7 @@ class Map1 extends React.Component {
             id= 'mapbox.streets'
             accessToken='pk.eyJ1IjoiYnJvbmJ1cmd1bmR5IiwiYSI6ImNqanJ3N3hlYzhvb2sza2xmdGZocmwzMHgifQ.W5lq17kl4kLbi4qmQ1DNrg'
           />
-          <Marker position={position} >
+          <Marker position={position} Icon={myIcon} >
             <Popup>Hi</Popup>
           </Marker>
         </Map>
