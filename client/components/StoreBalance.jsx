@@ -4,6 +4,13 @@ import {connect} from 'react-redux'
 import {getStoreBalance} from '../actions/storeBalance'
 
 export class StoreBalance extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+
+    }
+  }
+
   componentDidMount () {
     const id = Number(this.props.match.params.id)
     this.props.getStoreBalance(id)

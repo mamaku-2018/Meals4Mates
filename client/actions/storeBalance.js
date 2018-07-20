@@ -20,7 +20,8 @@ export const receiveBalance = (balance) => {
 export function getStoreBalance (id) {
   return dispatch => {
     dispatch(requestBalance())
-    return request('get', `/api/v1/balance/${id}`)
+    return request
+      .get(`/api/v1/balance/${id}`)
       .then(res => {
         dispatch(receiveBalance(res.body[0].donations))
       })

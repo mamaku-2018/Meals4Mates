@@ -16,6 +16,7 @@ test('getStoreDetails returns details of the specified store', () => {
   const id = 1
   const expected = ['id',
     'name',
+    'admin',
     'address',
     'email',
     'hash',
