@@ -1,18 +1,13 @@
-import {REQUEST_TOTAL_STATS, RECEIVE_TOTAL_STATS} from '../actions/getTotalStats'
+import {RECEIVE_TOTAL_STATS} from '../actions/getTotalStats'
 
-const initial = {
-  donations: 0,
-  redemptions: 0
-}
-
-const requestTotalStats = (state = false, action) => {
+const totalStats = (state = null, action) => {
   switch (action.type) {
-    case REQUEST_TOTAL_STATS:
-      return true
+    case RECEIVE_TOTAL_STATS:
+      return action.stats
 
     default:
       return state
   }
 }
 
-export default register
+export default totalStats

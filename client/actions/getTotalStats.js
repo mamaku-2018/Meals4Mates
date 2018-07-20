@@ -1,4 +1,5 @@
 import request from 'superagent'
+import {showError} from '../'
 
 export const REQUEST_TOTAL_STATS = 'REQUEST_TOTAL_STATS'
 export const RECEIVE_TOTAL_STATS = 'RECEIVE_TOTAL_STATS'
@@ -9,22 +10,22 @@ export const requestUserRegistration = () => {
   }
 }
 
-export const receiveTotalStats = () => {
+export const receiveTotalStats = (stats) => {
   return {
-    type: RECEIVE_TOTAL_STATS
+    type: RECEIVE_TOTAL_STATS,
+    stats
   }
 }
 
 export function getTotalStats () {
   return (dispatch) => {
-    request('get', `/auth/${id}`)
-      .then(res => {
-        dispatch(receiveUserDetails(res.body))
-        dispatch(clearError)
+    request
+      .get('/api/v1/balance/admin')
+      .then(stats => {
+        dispatch(receiveTotalStats(stats.body))
       })
       .catch(() => {
         dispatch(showError('An unexpected error has occurred'))
       })
   }
 }
-
