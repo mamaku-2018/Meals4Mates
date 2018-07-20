@@ -75,7 +75,8 @@ export class Donations extends React.Component {
       return (
         <div className='donations'>
           <h2>Donations</h2>
-          <h5>Thanks for choosing to help! Every little bit counts.</h5>
+          <p>Thank you for choosing to help!</p>
+          <p>Every little bit counts.</p>
           <div className='donations-buttons'>
             <button type='button' className='button' onClick={this.handleClick.bind(this, 1)}>$1</button>
             <br/>
@@ -86,7 +87,12 @@ export class Donations extends React.Component {
             <button type='button' className='button' onClick={this.handleClick.bind(this, 10)}>$10</button>
             <br/>
           </div>
-          <button type='button' className='button' id="submitDonationBtn" disabled={!this.state.amountSelected} onClick={this.handleSubmit}>Donate</button>
+          <div className='donate-button'>
+            <button type='button' className='button' id="submitDonationBtn" disabled={!this.state.amountSelected} onClick={this.handleSubmit}>Donate</button>
+          </div>
+          <div className='donatepic'>
+            <img src='/images/hands.jpg' />
+          </div>
           <Modal
             isOpen={this.state.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
