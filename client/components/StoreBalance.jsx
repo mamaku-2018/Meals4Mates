@@ -4,12 +4,10 @@ import {connect} from 'react-redux'
 
 const StoreBalance = () => {
   return (
-
     <div className='store-balance'>
       <div className='redeem'>
         <Link to='/store/:id/redeem' className='redeem-button'>Redeem</Link>
       </div>
-
       <p>Total Store Balance </p>
       {/* TO DO */}
       {/* {this.props.storetotal} */}
