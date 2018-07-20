@@ -74,16 +74,25 @@ export class Donations extends React.Component {
     } else {
       return (
         <div className='donations'>
-          <h2>Every little helps</h2>
-          <button type='button' className='button' onClick={this.handleClick.bind(this, 1)}>$1</button>
-          <br/>
-          <button type='button' className='button' onClick={this.handleClick.bind(this, 3)}>$3</button>
-          <br/>
-          <button type='button' className='button' onClick={this.handleClick.bind(this, 5)}>$5</button>
-          <br/>
-          <button type='button' className='button' onClick={this.handleClick.bind(this, 10)}>$10</button>
-          <br/>
-          <button type='button' className='button' id="submitDonationBtn" disabled={!this.state.amountSelected} onClick={this.handleSubmit}>Donate</button>
+          <h2>Donations</h2>
+          <p>Thank you for choosing to help!</p>
+          <p>Every little bit counts.</p>
+          <div className='donations-buttons'>
+            <button type='button' className='button' onClick={this.handleClick.bind(this, 1)}>$1</button>
+            <br/>
+            <button type='button' className='button' onClick={this.handleClick.bind(this, 3)}>$3</button>
+            <br/>
+            <button type='button' className='button' onClick={this.handleClick.bind(this, 5)}>$5</button>
+            <br/>
+            <button type='button' className='button' onClick={this.handleClick.bind(this, 10)}>$10</button>
+            <br/>
+          </div>
+          <div className='donate-button'>
+            <button type='button' className='button' id="submitDonationBtn" disabled={!this.state.amountSelected} onClick={this.handleSubmit}>Donate</button>
+          </div>
+          <div className='donatepic'>
+            <img src='/images/hands.jpg' />
+          </div>
           <Modal
             isOpen={this.state.modalIsOpen}
             onAfterOpen={this.afterOpenModal}

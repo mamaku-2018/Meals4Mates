@@ -10,11 +10,10 @@ const StoreProfile = () => {
   return (
     <div className='storeprofile'>
       <h2>Your Store Stats</h2>
-      {/* <StoreInfo /> */}
       <Route exact path='/store/:id' component={StoreInfo} />
+      <Route path='/store/:id/edit' component={StoreInfoEdit} />
       <Route path='/store/:id' component={StoreBalance} />
       {/* <Route path='/store/:id' component={StoreStats} /> */}
-      <Route path='/store/:id/edit' component={StoreInfoEdit} />
 
     </div>
   )

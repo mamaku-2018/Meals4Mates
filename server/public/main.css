@@ -1,36 +1,45 @@
+/* RESET CSS */
+
+
 * {
   box-sizing: border-box;
-  border: 0.5px solid transparent; 
+  /* border: 0.5px solid red;  */
 }
 
 html, body {
   width: 100%;
-  color: #c5c1c0;
+  color: #e4e2e2;
   text-align: center;
   margin: 0; 
   padding: 0; 
   background-color: #314950;
+  font-family: 'Libre Franklin', sans-serif
 }
 
 h1, h2, h3, h4, h5 {
   font-weight: 900;
   color: #F7CE3E;
+  margin: 1rem 0 1rem 0;
 }
 
 h1 {
-  font-size: 4rem;
-}
-
-h2 {
   font-size: 3rem;
 }
 
-h3 {
+h2 {
   font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.6rem;
 }
 
 h4 {
   font-size: 1.2rem;
+}
+
+p {
+  color:#e4e2e2;
 }
 
 .button {
@@ -41,9 +50,10 @@ h4 {
   background-color: transparent;
   border: 2px solid  #F7CE3E;
   height: 3rem;
-  color: #c5c1c0;
+  color: #e4e2e2;
   border-radius: 5px;
   outline: none;
+  box-shadow: 0 2px 3px #3f3e3e;
 }
 
 .button:hover {
@@ -57,6 +67,7 @@ input {
   margin-bottom: 1rem;
   color: #1a2930;
   border-radius: 3px;
+  background-color: white;
   box-shadow: inset 0 1px 3px #ddd;
 }
 
@@ -89,7 +100,7 @@ form {
 label {
   text-align: left;
   font-size: 1rem;
-  color: #c5c1c0;
+  color: #e4e2e2;
   margin-bottom: 0;
 }
 
@@ -147,10 +158,17 @@ label {
 
 .banner h1 {
   line-height: 4rem;
+  margin-bottom: 1rem;
+}
+
+.banner h4 {
+  color: #e4e2e2;
+
 }
 
 .banner-text p {
-  margin: 1rem;
+  margin-top: 1rem;
+  color: #8e9b9f;
 }
 
 .banner img {
@@ -163,6 +181,7 @@ label {
 .locations {
   height: 400px;
   width: 100%;
+
 }
 
 #map { 
@@ -170,6 +189,7 @@ label {
   width: 100vw;
   position: relative;
   overflow: auto;
+  box-shadow: 0 2px 0 0 rgba(0,0,0,0.12);
 }
 
 /* LOGIN & REGISTER */
@@ -177,6 +197,7 @@ label {
 .login, .register {
   width: 80%;
   margin: auto;
+  border: none;
 }
 
 .login button, .register button {
@@ -184,11 +205,16 @@ label {
 }
 
 .login {
-  height: 500px;
+  height: 550px;
 }
 
 form h2 {
   margin-bottom: 1rem;
+} 
+
+fieldset {
+  border-width: 0;
+  border-color: transparent;
 }
 
 /* ADVERTISING */
@@ -196,12 +222,11 @@ form h2 {
 .advertising {
   height: 10%;
   padding: 2rem;
-  background-color: #c5c1c0;
-  border-top: #314950 1rem solid;
+  background-color: #314950;
 }
 
 .advertising img {
-  width: 15%;
+  width: 20%;
   margin: 2rem 1rem 2rem 1rem;
 }
 
@@ -209,13 +234,56 @@ form h2 {
 
 /* DONATIONS */
 
+.donations {
+  position: relative;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.donations p {
+  font-size: 1.2rem;
+  padding: 0 1rem 0 1rem;
+}
+
+.donations-buttons {
+  display: inline-block;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.donations-buttons button {
+  background-color: #F7CE3E;
+  border-color: #1a2930;
+  color: #1a2930;
+  font-size: 1.3rem;
+  width: 7rem;
+  height: 2.5rem;
+  padding-top: 0.2rem;
+}
+
+.donate-button {
+  margin-bottom: 2rem;
+}
+
+.donatepic {
+  position: relative;
+  bottom: 0;
+  right: 0;
+}
+
+.donatepic img {
+  min-height: 262px;
+  object-fit: cover;
+}
+
+
 /* FOOTER */
 
 .footer {
   width: 100%;
   margin: 0;
   background-color: #1a2930;
-  color: #c5c1c0;
+  color: #e4e2e2;
   padding: 2rem 1.5rem 3rem;
 }
 
@@ -224,7 +292,7 @@ form h2 {
 }
 
 .footer p {
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .footer-email {
@@ -233,10 +301,16 @@ form h2 {
 
 .footer-email a {
   font-size: 1.2rem;
-  color: #c5c1c0;
+  color: #e4e2e2;
 }
 
 /* MEDIA QUERIES */ 
+
+@media only screen and (min-width: 350px) {
+  .login {
+    height: 520px;
+  }
+}
 
 @media only screen and (min-width: 440px) {
   .logo {
@@ -249,6 +323,10 @@ form h2 {
     width: 50%;
     top: 15%;
   }
+  .donatepic {
+    position: relative;
+    bottom: 0;
+  }  
 }
 
 @media only screen and (min-width: 640px) {
@@ -262,23 +340,35 @@ form h2 {
   .login {
     height: 700px;
   }
+  .donations-buttons {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+  .donate-button {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+  .donations h2 {
+    margin-top: 3rem;
+ 
+  }
 }
 
 @media only screen and (min-width: 750px) {
   .container {
     height: 100vh;
   }
-
   .navbarmenu .button {
     width: 6rem;
     height: 3rem;
     font-size: 1rem;
   }
-
   .logo {
     top: 10%;
   }
-
   .footer {
     width: 100%;
     position: relative;
@@ -288,32 +378,41 @@ form h2 {
 }
 
 @media only screen and (min-width: 900px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 3rem;
+  }
   .navbar-brand {
     margin-left: 5% !important;
   }
-
+  .navbar-menu .button {
+    width: 6rem;
+    height: 2.5rem;
+    margin: 1rem 0 0 1rem;
+    font-size: 0.9rem;
+  }
+  .login button, .register button {
+    width: 8rem;
+  }
   .navbar-menu {
     margin-right: 5% !important;
   }
- 
   .logo {
     width: 35%; 
     top: 10%;
   }
-
   .banner-text {
     width: 50%;
   }
-
   .banner p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
-
   .login, .register {
     width: 60%;
     margin: auto;
   }
-
   .footer-text {
     margin-left: 5%;
   }
@@ -336,3 +435,26 @@ form h2 {
     height: 500px; 
   }
 }
+
+@media only screen and (min-width: 1200px) {
+  .logo {
+    width: 30%; 
+    top: 0;
+  }
+  .donations-buttons button {
+    width: 20rem;
+    font-size: 1.5rem;
+  }
+  .donatepic img {
+    width: 100%;
+  }
+}  
+
+@media only screen and (min-width: 1400px) {
+  .navbar{
+    height: 8rem;
+  }
+  .logo {
+    width: 28%;
+  }
+}  
