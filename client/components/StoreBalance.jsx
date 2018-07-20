@@ -4,18 +4,17 @@ import {connect} from 'react-redux'
 
 const StoreBalance = () => {
   return (
-
     <div className='store-balance'>
       <div className='redeem'>
-        <Link to='/store/redeem' className='redeem-button'>Redeem</Link>
+        <Link to='/store/:id/redeem' className='redeem-button'>Redeem</Link>
       </div>
-
       <p>Total Store Balance </p>
-      {/* need to write reducer and actions to call total into state */}
+      {/* TO DO */}
+      {/* {this.props.storetotal} */}
       <p>$100</p>
 
       <div className='donation'>
-        <Link to='/store/donation' className='donate-button'>Donate</Link>
+        <Link to='/store/:id/donation' className='donate-button'>Donate</Link>
       </div>
     </div>
   )
