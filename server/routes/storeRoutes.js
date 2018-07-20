@@ -14,9 +14,8 @@ router.get('/:id', (req, res) => {
 })
 
 router.put('/:id/edit', (req, res) => {
-  const id = req.params.id
   const store = {
-    id: id,
+    id: req.body.id,
     name: req.body.name,
     address: req.body.address,
     phone: req.body.phone,
@@ -27,7 +26,7 @@ router.put('/:id/edit', (req, res) => {
     hash: req.body.hash
   }
   db.editStoreDetails(store)
-    .then(() => res.send('information updated'))
+    .then(() => { res.status(200) })
     .catch(err => {
     // eslint-disable-next-line
     console.log(err)

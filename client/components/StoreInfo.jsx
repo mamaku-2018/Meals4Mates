@@ -13,10 +13,11 @@ class StoreInfo extends React.Component {
   }
 
   render () {
+    const id = Number(this.props.match.params.id)
     return (
       <div>Hi
         <div className='StoreInfo'>
-          <Link to='/store/:id/edit' className='button'>Edit</Link>
+          <Link to={`/store/${id}/edit`} className='button'>Edit</Link>
         </div>
         {this.props.userDetails &&
         <div>
@@ -39,7 +40,6 @@ function mapDispatchToProps (dispatch) {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     userDetails: state.userDetails
   }

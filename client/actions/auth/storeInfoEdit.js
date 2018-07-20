@@ -1,10 +1,10 @@
 import {showError, showSuccess} from '../'
-import request from '../../lib/apiClient'
+import request from 'superagent'
 
 export function storeInfoEdit (user) {
   return dispatch => {
     return request
-      .post('/api/v1/store/edit')
+      .put(`/api/v1/store/${user.id}/edit`)
       .send(user)
       .then(res => {
         dispatch(showSuccess('Your details have been successfully updated'))
