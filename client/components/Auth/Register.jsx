@@ -8,7 +8,6 @@ export class Register extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      name: '',
       email: '',
       owner: '',
       store: '',
@@ -38,10 +37,9 @@ export class Register extends React.Component {
   handleSubmit (e) {
     const {register} = this.props
     const user = {
-      name: this.state.name,
       owner: this.state.owner,
       email: this.state.email,
-      store: this.state.store,
+      name: this.state.store,
       address: this.state.address,
       phone: this.state.phone,
       password: this.state.password
@@ -62,11 +60,8 @@ export class Register extends React.Component {
           <form>
             <fieldset>
               <h2>Register</h2>
-              <label htmlFor='name'>Name: </label>
-              <input type='text' name='name' id='name' placeholder='Name..' onChange={this.handleChange} value={this.state.firstName} />
-              <br />
               <label htmlFor='store'>Store: </label>
-              <input type='text' name='surname' id='surname' placeholder='Store..' onChange={this.handleChange} value={this.state.store} />
+              <input type='text' name='store' id='store' placeholder='Store..' onChange={this.handleChange} value={this.state.store} />
               <br />
               <label htmlFor='owner'>Owner: </label>
               <input type='text' name='owner' id='owner' placeholder='Store owner (or manager)..' onChange={this.handleChange} value={this.state.owner} />
