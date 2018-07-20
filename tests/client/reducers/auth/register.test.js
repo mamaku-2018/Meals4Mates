@@ -1,9 +1,8 @@
-import { 
+import {
   REQUEST_USER_REGISTRATION,
   RECEIVE_USER_REGISTRATION
 } from '../../../../client/actions/auth/register'
 import register from '../../../../client/reducers/auth/register'
-
 
 test('register returns true during REQUEST_USER_REGISTRATION', () => {
   const currentState = false
