@@ -6,15 +6,16 @@ const StoreBalance = () => {
   return (
     <div className='store-balance'>
       <div className='redeem'>
-        <Link to='/store/:id/redeem' className='redeem-button'>Redeem</Link>
+        <Link to='/store/:id/redeem' className='button'>Redeem</Link>
       </div>
+
       <p>Total Store Balance </p>
       {/* TO DO */}
       {/* {this.props.storetotal} */}
       <p>$100</p>
 
       <div className='donation'>
-        <Link to='/store/:id/donation' className='donate-button'>Donate</Link>
+        <Link to='/store/:id/donation' className='button'>Donate</Link>
       </div>
     </div>
   )
