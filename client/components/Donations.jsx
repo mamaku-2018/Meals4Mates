@@ -74,15 +74,18 @@ export class Donations extends React.Component {
     } else {
       return (
         <div className='donations'>
-          <h2>Every little helps</h2>
-          <button type='button' className='button' onClick={this.handleClick.bind(this, 1)}>$1</button>
-          <br/>
-          <button type='button' className='button' onClick={this.handleClick.bind(this, 3)}>$3</button>
-          <br/>
-          <button type='button' className='button' onClick={this.handleClick.bind(this, 5)}>$5</button>
-          <br/>
-          <button type='button' className='button' onClick={this.handleClick.bind(this, 10)}>$10</button>
-          <br/>
+          <h2>Donations</h2>
+          <h5>Thanks for choosing to help! Every little bit counts.</h5>
+          <div className='donations-buttons'>
+            <button type='button' className='button' onClick={this.handleClick.bind(this, 1)}>$1</button>
+            <br/>
+            <button type='button' className='button' onClick={this.handleClick.bind(this, 3)}>$3</button>
+            <br/>
+            <button type='button' className='button' onClick={this.handleClick.bind(this, 5)}>$5</button>
+            <br/>
+            <button type='button' className='button' onClick={this.handleClick.bind(this, 10)}>$10</button>
+            <br/>
+          </div>
           <button type='button' className='button' id="submitDonationBtn" disabled={!this.state.amountSelected} onClick={this.handleSubmit}>Donate</button>
           <Modal
             isOpen={this.state.modalIsOpen}

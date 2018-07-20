@@ -7,7 +7,7 @@ const StoreBalance = () => {
 
     <div className='store-balance'>
       <div className='redeem'>
-        <Link to='/store/redeem' className='redeem-button'>Redeem</Link>
+        <Link to='/store/redeem' className='button'>Redeem</Link>
       </div>
 
       <p>Total Store Balance </p>
@@ -15,7 +15,7 @@ const StoreBalance = () => {
       <p>$100</p>
 
       <div className='donation'>
-        <Link to='/store/donation' className='donate-button'>Donate</Link>
+        <Link to='/store/donation' className='button'>Donate</Link>
       </div>
     </div>
   )
