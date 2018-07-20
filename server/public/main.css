@@ -23,15 +23,15 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-  font-size: 4rem;
-}
-
-h2 {
   font-size: 3rem;
 }
 
-h3 {
+h2 {
   font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.6rem;
 }
 
 h4 {
@@ -53,6 +53,7 @@ p {
   color: #e4e2e2;
   border-radius: 5px;
   outline: none;
+  box-shadow: 0 2px 3px #3f3e3e;
 }
 
 .button:hover {
@@ -247,21 +248,24 @@ fieldset {
 }
 
 .donations p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   padding: 0 1rem 0 1rem;
 }
 
 .donations-buttons {
   display: inline-block;
   margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .donations-buttons button {
   background-color: #F7CE3E;
   border-color: #1a2930;
   color: #1a2930;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  width: 7rem;
+  height: 2.5rem;
+  padding-top: 0.2rem;
 }
 
 .donate-button {
@@ -381,6 +385,12 @@ fieldset {
 }
 
 @media only screen and (min-width: 900px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 3rem;
+  }
   .navbar-brand {
     margin-left: 5% !important;
   }
