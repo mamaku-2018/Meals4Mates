@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {clearError} from '../actions'
 import {Redirect} from 'react-router-dom'
-import {storeInfoEdit} from '../actions/auth/edit'
+import {storeInfoEdit} from '../actions/auth/storeInfoEdit'
 import {getStoreInfo} from '../actions/getStoreInfo'
 
 export class StoreInfoEdit extends React.Component {
@@ -21,7 +21,7 @@ export class StoreInfoEdit extends React.Component {
     this.changeHandler = this.changeHandler.bind(this)
   }
 
-  componentsDidMount () {
+  componentDidMount () {
     const id = this.props.match.params.id
     this.props.dispatch(getStoreInfo(id))
   }

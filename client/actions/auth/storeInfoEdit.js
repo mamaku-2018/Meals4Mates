@@ -1,5 +1,5 @@
 import {showError, showSuccess} from '../'
-import request from '../../lib.apiClient'
+import request from '../../lib/apiClient'
 
 export function storeInfoEdit (user) {
   return dispatch => {

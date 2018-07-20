@@ -1,13 +1,16 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-// import {connect} from 'react-redux'
-// import {getStoreInfo} from '../actions/getStoreInfo'
+import {connect} from 'react-redux'
+import {getStoreInfo} from '../actions/getStoreInfo'
 
 class StoreInfo extends React.Component {
-  // componentsDidMount () {
-  //   const id = this.props.match.params.id
-  //   this.props.dispatch(getStoreInfo(id))
-  // }
+  constructor (props) {
+    super(props)
+  }
+  componentDidMount () {
+    const id = Number(this.props.match.params.id)
+    this.props.getStoreInfo(id)
+  }
 
   render () {
     return (
@@ -15,20 +18,32 @@ class StoreInfo extends React.Component {
         <div className='StoreInfo'>
           <Link to='/store/:id/edit' className='button'>Edit</Link>
         </div>
-        {/* <h2>{this.props.storeInfo.name}</h2>
-        <p>{this.props.storeInfo.owner}</p>
-        <p>{this.props.storeInfo.phone}</p>
-        <p>{this.props.storeInfo.address}</p> */}
+        {this.props.userDetails &&
+        <div>
+          <h2>{this.props.userDetails.name}</h2>
+          <p>{this.props.userDetails.owner}</p>
+          <p>{this.props.userDetails.phone}</p>
+          <p>{this.props.userDetails.address}</p>
+        </div>}
       </div>
     )
   }
 }
 
-// const mapStateToProps = (state) => {
-//   return {
-//     storeInfo: state.storeInfo
-//   }
-// }
+function mapDispatchToProps (dispatch) {
+  return {
+    getStoreInfo: (id) => {
+      return dispatch(getStoreInfo(id))
+    }
+  }
+}
 
-// export default connect(mapStateToProps)(StoreInfo)
-export default StoreInfo
+const mapStateToProps = (state) => {
+  console.log(state)
+  return {
+    userDetails: state.userDetails
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(StoreInfo)
+// export default StoreInfo
