@@ -8,7 +8,7 @@ import {
 } from '../../actions/auth/register'
 
 const userDetails = (state = null, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case REQUEST_USER_DETAILS:
       return null
 
