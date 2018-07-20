@@ -1,9 +1,11 @@
 import React from 'react'
-import {Map, Marker, TileLayer, Popup, Icon} from 'react-leaflet'
+import L from 'leaflet'
+import {Map, Marker, TileLayer, Popup} from 'react-leaflet'
+import path from 'path'
 
-const myIcon = Icon({
-  iconUrl: '../../server/public/images/knf.png',
-  iconSize: [10, 10]
+const myIcon = L.icon({
+  iconUrl: path.join(__dirname, './images/knf.png'),
+  iconSize: [200, 200]
 })
 
 class Map1 extends React.Component {
@@ -19,7 +21,7 @@ class Map1 extends React.Component {
   render () {
     const position = [this.state.lat, this.state.lng]
     return (
-      <div className='map'>hi
+      <div className='map'>
         <Map center={position} zoom={this.state.zoom}>
           <TileLayer
             url='https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}'
@@ -28,8 +30,8 @@ class Map1 extends React.Component {
             id= 'mapbox.streets'
             accessToken='pk.eyJ1IjoiYnJvbmJ1cmd1bmR5IiwiYSI6ImNqanJ3N3hlYzhvb2sza2xmdGZocmwzMHgifQ.W5lq17kl4kLbi4qmQ1DNrg'
           />
-          <Marker position={position} Icon={myIcon} >
-            <Popup>Hi</Popup>
+          <Marker position={position} icon={myIcon}>
+            <Popup>hi</Popup>
           </Marker>
         </Map>
       </div>
