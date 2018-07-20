@@ -6,6 +6,9 @@ import {getStoreInfo} from '../actions/getStoreInfo'
 class StoreInfo extends React.Component {
   constructor (props) {
     super(props)
+    this.state = {
+
+    }
   }
   componentDidMount () {
     const id = Number(this.props.match.params.id)
@@ -15,7 +18,7 @@ class StoreInfo extends React.Component {
   render () {
     const id = Number(this.props.match.params.id)
     return (
-      <div>Hi
+      <div>
         <div className='StoreInfo'>
           <Link to={`/store/${id}/edit`} className='button'>Edit</Link>
         </div>
@@ -24,6 +27,7 @@ class StoreInfo extends React.Component {
           <h2>{this.props.userDetails.name}</h2>
           <p>{this.props.userDetails.owner}</p>
           <p>{this.props.userDetails.phone}</p>
+          <p>{this.props.userDetails.email}</p>
           <p>{this.props.userDetails.address}</p>
         </div>}
       </div>

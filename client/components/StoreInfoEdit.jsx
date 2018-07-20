@@ -36,11 +36,11 @@ export class StoreInfoEdit extends React.Component {
     const id = this.props.match.params.id
     const {storeInfoEdit} = this.props
     const user = {
-      name: this.state.name,
-      owner: this.state.owner,
-      phone: this.state.phone,
-      email: this.state.email,
-      address: this.state.address,
+      name: this.state.name || this.props.userDetails.name,
+      owner: this.state.owner || this.props.userDetails.owner,
+      phone: this.state.phone || this.props.userDetails.phone,
+      email: this.state.email || this.props.userDetails.email,
+      address: this.state.address || this.props.userDetails.address,
       id: id
     }
     storeInfoEdit(user)
@@ -68,6 +68,9 @@ export class StoreInfoEdit extends React.Component {
               <br />
               <label htmlFor='owner' >Owner:</label>
               <input placeholder={info.owner} value={this.state.owner} onChange={this.changeHandler} name='owner'/>
+              <br />
+              <label htmlFor='Address'>Address:</label>
+              <input placeholder={info.address} value={this.state.address} onChange={this.changeHandler} name='address'/>
               <br />
               <label htmlFor='phone'>Phone Number:</label>
               <input placeholder={info.phone} value={this.state.phone} onChange={this.changeHandler} name='phone'/>

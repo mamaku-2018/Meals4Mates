@@ -19,11 +19,8 @@ router.put('/:id/edit', (req, res) => {
     name: req.body.name,
     address: req.body.address,
     phone: req.body.phone,
-    lat: req.body.lat,
-    lng: req.body.lng,
     owner: req.body.owner,
-    email: req.body.email,
-    hash: req.body.hash
+    email: req.body.email
   }
   db.editStoreDetails(store)
     .then(() => { res.status(200) })
