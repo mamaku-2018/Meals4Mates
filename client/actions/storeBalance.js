@@ -1,5 +1,12 @@
 import request from 'superagent'
 export const RECEIVE_BALANCE = 'RECEIVE_BALANCE'
+export const REQUEST_BALANCE = 'REQUEST_BALANCE'
+
+export const requestBalance = () => {
+  return {
+    type: REQUEST_BALANCE
+  }
+}
 
 export const receiveBalance = (balance) => {
   return {
@@ -10,6 +17,7 @@ export const receiveBalance = (balance) => {
 
 export function getStoreBalance (id) {
   return dispatch => {
+    dispatch(requestBalance())
     return request('get', `/api/v1/balance/${id}`)
       .then(res => {
         dispatch(receiveBalance(res))
