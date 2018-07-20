@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {getStoreBalance} from '../client/actions/storeBalance'
+import {getStoreBalance} from '../actions/storeBalance'
 
 export class StoreBalance extends React.Component {
   componentDidMount () {
@@ -16,7 +16,7 @@ export class StoreBalance extends React.Component {
           <Link to='/store/:id/redeem' className='button'>Redeem</Link>
         </div>
         <p>Total Store Balance</p>
-        {this.storeTotal && <p>{this.props.storetotal}</p>}
+        {this.props.storeBalance && <p>{this.props.storeBalance}</p>}
 
         <div className='donation'>
           <Link to='/store/:id/donation' className='button'>Donate</Link>
@@ -28,7 +28,7 @@ export class StoreBalance extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    storeTotal: state.storeTotal
+    storeBalance: state.storeBalance
   }
 }
 

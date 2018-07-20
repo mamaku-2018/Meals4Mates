@@ -1,4 +1,6 @@
 import request from 'superagent'
+import {showError} from './'
+
 export const RECEIVE_BALANCE = 'RECEIVE_BALANCE'
 export const REQUEST_BALANCE = 'REQUEST_BALANCE'
 
@@ -20,7 +22,10 @@ export function getStoreBalance (id) {
     dispatch(requestBalance())
     return request('get', `/api/v1/balance/${id}`)
       .then(res => {
-        dispatch(receiveBalance(res))
+        dispatch(receiveBalance(res.body[0].donations))
+      })
+      .catch(() => {
+        dispatch(showError('An unexpected error has occurred'))
       })
   }
 }
