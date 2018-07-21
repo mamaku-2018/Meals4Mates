@@ -25,12 +25,12 @@ function register (req, res, next) {
 router.post('/login', login, token.issue)
 
 function login (req, res, next) {
-  db.verifyStoreDetails(req.body.email)
-    .then(user => {
-      return user || invalidCredentials(res)
+  db.getStoreByEmail(req.body.email)
+    .then(store => {
+      return store || invalidCredentials(res)
     })
-    .then(user => {
-      return user && hash.verify(user.hash, req.body.password)
+    .then(store => {
+      return store && hash.verify(store.hash, req.body.password)
     })
     .then(isValid => {
       return isValid ? next() : invalidCredentials(res)
@@ -51,13 +51,13 @@ function invalidCredentials (res) {
 router.get('/:id', (req, res) => {
   const id = Number(req.params.id)
   db.getStore(id)
-    .then(user => {
-      res.json(user)
+    .then(store => {
+      res.json(store)
     })
     .catch(err => {
       // eslint-disable-next-line
       console.log(err)
-      res.status(500).send('Unable to find user')
+      res.status(500).send('Unable to find store')
     })
 })
 

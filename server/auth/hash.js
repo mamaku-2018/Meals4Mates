@@ -16,5 +16,5 @@ function generate (password) {
 
 function verify (hash, password) {
   const passwordBuffer = Buffer.from(password, 'utf8')
-  return sodium.crypto_str_verify(hash, passwordBuffer)
+  return sodium.crypto_pwhash_str_verify(hash, passwordBuffer)
 }

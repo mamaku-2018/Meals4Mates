@@ -8,7 +8,7 @@ module.exports = {
   addNewStore,
   storeExists,
   getStore,
-  verifyStoreDetails,
+  getStoreByEmail,
   getStoreDetails,
   editStoreDetails
 }
@@ -36,7 +36,7 @@ function storeExists (email, db = knex) {
     })
 }
 
-function verifyStoreDetails (email, db = knex) {
+function getStoreByEmail (email, db = knex) {
   return db('stores')
     .select()
     .where('email', email)

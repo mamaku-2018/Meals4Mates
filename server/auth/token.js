@@ -9,9 +9,9 @@ module.exports = {
 }
 
 function issue (req, res) {
-  db.verifyStoreDetails(req.body.email)
-    .then(user => {
-      const token = createToken(user, process.env.JWT_SECRET)
+  db.getStoreByEmail(req.body.email)
+    .then(store => {
+      const token = createToken(store, process.env.JWT_SECRET)
       res.json({
         message: 'Authentication successful.',
         token
@@ -20,7 +20,6 @@ function issue (req, res) {
 }
 
 function createToken (store, secret) {
-  console.log(store)
   return jwt.sign({
     id: store.id
   }, secret, {

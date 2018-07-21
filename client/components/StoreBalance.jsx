@@ -17,16 +17,17 @@ export class StoreBalance extends React.Component {
   }
 
   render () {
+    const id = this.props.match.params.id
     return (
       <div className='store-balance'>
         <div className='redeem'>
-          <Link to='/store/:id/redeem' className='button'>Redeem</Link>
+          <Link to={`/store/${id}/redeem`} className='button'>Redeem</Link>
         </div>
         <p>Total Store Balance</p>
-        {this.props.storeBalance && <p>{this.props.storeBalance}</p>}
+        {this.props.storeBalance && <p>${this.props.storeBalance}</p>}
 
         <div className='donation'>
-          <Link to='/store/:id/donation' className='button'>Donate</Link>
+          <Link to={`/store/${id}/donate`} className='button'>Donate</Link>
         </div>
       </div>
     )
