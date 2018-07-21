@@ -21,7 +21,7 @@ export function getAllStoreStats () {
   return dispatch => {
     dispatch(requestStats())
     return request
-      .get('/api/v1/balance/admin')
+      .get('/api/v1/balance/admin/stats')
       .then(stats => {
         dispatch(receiveStats(stats.body))
       })

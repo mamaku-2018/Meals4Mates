@@ -21,6 +21,13 @@ router.get('/admin', (req, res) => {
     })
 })
 
+router.get('/admin/stats', (req, res) => {
+  db.getStoreStats()
+    .then((stats) => {
+      res.json(stats)
+    })
+})
+
 router.get('/:id', (req, res) => {
   const id = req.params.id
   db.getStoreTotalDonation(id)

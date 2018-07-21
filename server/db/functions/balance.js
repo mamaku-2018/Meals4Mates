@@ -8,7 +8,8 @@ module.exports = {
   addDonation,
   makeRedemption,
   getTotalDonations,
-  getTotalRedemptions
+  getTotalRedemptions,
+  getStoreStats
 }
 
 function getStoreTotalDonation (id, db = knex) {
@@ -23,6 +24,12 @@ function getStoreTotalRedemption (id, db = knex) {
     .where('store_id', id)
     .sum('redemption as redemption')
     .then(redemption => redemption[0])
+}
+
+function getStoreStats (db = knex) {
+  return db('stores')
+    .join('balance', 'stores.id', 'balance.store_id')
+    .select('stores.name as store', 'balance.store_id', 'balance.donation as donation', 'balance.redemption as redemption')
 }
 
 function addDonation (donation, db = knex) {

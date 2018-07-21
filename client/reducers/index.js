@@ -6,6 +6,7 @@ import register from './auth/register'
 import login from './auth/login'
 import userDetails from './auth/userDetails'
 import storeBalance from './storeBalance'
+import companyList from './companyList'
 
 export default combineReducers({
   errorMessage,
@@ -13,5 +14,6 @@ export default combineReducers({
   register,
   login,
   userDetails,
-  storeBalance
+  storeBalance,
+  companyList
 })

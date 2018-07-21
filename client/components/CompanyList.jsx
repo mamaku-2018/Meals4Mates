@@ -1,11 +1,38 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {getAllStoreStats} from '../actions/companyList'
 
 export class CompanyList extends React.Component {
+  componentDidMount () {
+    this.props.getAllStoreStats()
+  }
+
   render () {
     return (
       <div className='companyList'>
-
+        <table>
+          <thead>
+            <tr>
+              <th>Store</th>
+              <th>Total donations</th>
+              <th>Total redemptions</th>
+              <th>Remaining balance</th>
+            </tr>
+          </thead>
+          {/* {this.props.storeStats && <tbody>
+            {this.props.storeStats.map(stats => {
+              return (
+                <tr key={stats}>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              )
+            }
+            )} */}
+          {/* </tbody>} */}
+        </table>
       </div>
     )
   }
@@ -13,7 +40,7 @@ export class CompanyList extends React.Component {
 
 const mapPropsToState = (state) => {
   return {
-    storeStats: state
+    storeStats: state.companyList
   }
 }
 
