@@ -8,10 +8,10 @@ class TotalStats extends React.Component {
   }
   render () {
     const total = (this.props.totalStats || 0)
-    const totalBalance = (total && (total.donations - total.redemptions))
     return (
       <div className='TotalStats'>
-        {totalBalance}
+        <p>Total Donations Made: {total.donations}</p>
+        <p>Total Amout Redeemed: {total.redemptions}</p>
       </div>
     )
   }

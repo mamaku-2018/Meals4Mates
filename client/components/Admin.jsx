@@ -1,14 +1,14 @@
 import React from 'react'
 import TotalStats from './TotalStats'
 // import {Locations} from '../components/Locations'
-// import {CompanyList} from '../components/CompanyList'
+// import CompanyListStats from './CompanyListStats'
 
 const Admin = () => {
   return (
     <div className='Admin'>
       <TotalStats />
       {/* <Locations /> */}
-      {/* <CompanyList /> */}
+      {/* <CompanyListStats /> */}
     </div>
   )
 }
