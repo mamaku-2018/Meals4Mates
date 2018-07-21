@@ -16,5 +16,6 @@ export default combineReducers({
   login,
   userDetails,
   storeBalance,
-  storeStats
+  storeStats,
+  totalStats
 })
