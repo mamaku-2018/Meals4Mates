@@ -78,7 +78,7 @@ export class Register extends React.Component {
                 value={this.state.owner} />
               <br />
               <label htmlFor='email'>Email: </label>
-              <input type='email'
+              <input type='text'
                 name='email'
                 id='email'
                 placeholder='Email..'
@@ -90,12 +90,12 @@ export class Register extends React.Component {
                 type='text'
                 name='address' id='address'
                 placeholder='Address..'
-                nChange={this.handleChange}
+                onChange={this.handleChange}
                 value={this.state.address} />
               <br />
               <label htmlFor='phone'>Phone no: </label>
               <input
-                type='tel'
+                type='text'
                 name='phone'
                 id='phone'
                 placeholder='Phone..'
