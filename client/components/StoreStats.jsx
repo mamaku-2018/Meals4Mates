@@ -3,8 +3,6 @@ import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recha
 import {connect} from 'react-redux'
 import {getStoreStats} from '../actions/storeStats'
 
-// const colors = ['#fff', '#F7CE3E']
-
 export class StoreStats extends React.Component {
   constructor (props) {
     super(props)
