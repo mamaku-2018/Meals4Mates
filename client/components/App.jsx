@@ -1,5 +1,5 @@
 import React from 'react'
-import {HashRouter as Router, Route} from 'react-router-dom'
+import {HashRouter as Router, Route, Switch} from 'react-router-dom'
 import Login from './Auth/Login'
 import Register from './Auth/Register'
 import Header from './Header'
@@ -16,8 +16,10 @@ const App = () => {
         <Route exact path='/' component={Home} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/register' component={Register} />
-        <Route exact path='/store/:id/donate' component={Donations} />
-        <Route path='/store/:id' component={StoreProfile} />
+        <Switch>
+          <Route exact path='/store/:id/donate' component={Donations} />
+          <Route path='/store/:id' component={StoreProfile} />
+        </Switch>
         <Route path='/' component={Footer} />
       </div>
     </Router>
