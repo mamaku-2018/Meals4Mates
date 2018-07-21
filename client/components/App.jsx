@@ -7,6 +7,7 @@ import Home from './Home'
 import Footer from './Footer'
 import StoreProfile from './StoreProfile'
 import Donations from './Donations'
+import StoreStats from './StoreStats'
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path='/store/:id' component={StoreProfile} />
         </Switch>
         <Route path='/' component={Footer} />
+        <Route path='/:id/stats' component={StoreStats} />
       </div>
     </Router>
   )
