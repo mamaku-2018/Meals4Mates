@@ -37,7 +37,7 @@ export function logUserOff () {
   }
 }
 
-export function login (user, confirmSuccess) {
+export function login (user) {
   return (dispatch) => {
     dispatch(requestLogin())
     request('post', '/auth/login', user)
@@ -46,7 +46,6 @@ export function login (user, confirmSuccess) {
         dispatch(receiveLogin(res.body))
         dispatch(getUserData(token.id))
         dispatch(clearError())
-        confirmSuccess()
         dispatch(showSuccess('You are now logged in.'))
       })
       .catch(err => {
