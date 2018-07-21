@@ -8,6 +8,7 @@ import Footer from './Footer'
 import StoreProfile from './StoreProfile'
 import Donations from './Donations'
 import StoreStats from './StoreStats'
+import Admin from './Admin'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <div className='container'>
         <Route path='/' component={Header} />
         <Route exact path='/' component={Home} />
+        <Route exact path='/admin' component={Admin} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/register' component={Register} />
         <Switch>

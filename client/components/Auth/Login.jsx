@@ -1,12 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {login} from '../../actions/auth/login'
-import {clearError} from '../../actions'
+import {clearError, showError} from '../../actions'
 import {Redirect} from 'react-router-dom'
 
 class Login extends React.Component {
   constructor (props) {
     super(props)
+
     this.state = {
       email: '',
       password: '',
@@ -30,6 +31,7 @@ class Login extends React.Component {
       password: this.state.password
     }
     login(user)
+    console.log()
     this.setState({redirect: true})
     e.preventDefault()
   }
@@ -46,14 +48,26 @@ class Login extends React.Component {
             <fieldset>
               <h2>Login</h2>
               <label htmlFor='email'>Email: </label>
-              <input type='text' name='email' id='email' placeholder='Email...'
-                onChange={this.handleChange} value={this.state.email} />
+              <input type='text'
+                name='email'
+                id='email'
+                placeholder='Email...'
+                onChange={this.handleChange}
+                value={this.state.email} />
               <br />
               <label htmlFor='password'>Password: </label>
-              <input type='password' name='password' placeholder='Password...'
-                onChange={this.handleChange} value={this.state.password} />
+              <input
+                type='password'
+                name='password'
+                placeholder='Password...'
+                onChange={this.handleChange}
+                value={this.state.password} />
               <br />
-              <button type='button' className='button' onClick={this.handleSubmit}>Login</button>
+              <button
+                type='button'
+                className='button'
+                onClick={this.handleSubmit}>Login
+              </button>
             </fieldset>
           </form>
         </div>
@@ -71,4 +85,11 @@ function mapDispatchToProps (dispatch) {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Login)
+function mapStateToProps (state) {
+  console.log(state)
+  return {
+    message: state.errorMessage
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
