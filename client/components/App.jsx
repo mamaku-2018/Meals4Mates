@@ -7,6 +7,7 @@ import Home from './Home'
 import Footer from './Footer'
 import StoreProfile from './StoreProfile'
 import Donations from './Donations'
+import StoreStats from './StoreStats'
 import Admin from './Admin'
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
           <Route path='/store/:id' component={StoreProfile} />
         </Switch>
         <Route path='/' component={Footer} />
+        <Route path='/:id/stats' component={StoreStats} />
       </div>
     </Router>
   )
