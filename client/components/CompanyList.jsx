@@ -7,6 +7,10 @@ export class CompanyList extends React.Component {
     this.props.getAllStoreStats()
   }
 
+  calculateStats (stats) {
+
+  }
+
   render () {
     return (
       <div className='companyList'>
@@ -19,19 +23,19 @@ export class CompanyList extends React.Component {
               <th>Remaining balance</th>
             </tr>
           </thead>
-          {/* {this.props.storeStats && <tbody>
+          {this.props.storeStats && <tbody>
             {this.props.storeStats.map(stats => {
               return (
-                <tr key={stats}>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                <tr key={stats.id}>
+                  <td>{stats.store}</td>
+                  <td>{stats.donation}</td>
+                  <td>{stats.redemption}</td>
+                  <td>{stats.donation - stats.redemption}</td>
                 </tr>
               )
             }
-            )} */}
-          {/* </tbody>} */}
+            )}
+          </tbody>}
         </table>
       </div>
     )

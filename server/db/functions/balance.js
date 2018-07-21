@@ -29,7 +29,10 @@ function getStoreTotalRedemption (id, db = knex) {
 function getStoreStats (db = knex) {
   return db('stores')
     .join('balance', 'stores.id', 'balance.store_id')
-    .select('stores.name as store', 'balance.store_id', 'balance.donation as donation', 'balance.redemption as redemption')
+    .groupBy('balance.store_id')
+    .sum('balance.redemption as redemption')
+    .sum('balance.donation as donation')
+    .select('stores.name', 'stores.id')
 }
 
 function addDonation (donation, db = knex) {
