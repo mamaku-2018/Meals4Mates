@@ -27,7 +27,7 @@ export class CompanyList extends React.Component {
             {this.props.storeStats.map(stats => {
               return (
                 <tr key={stats.id}>
-                  <td>{stats.store}</td>
+                  <td>{stats.name}</td>
                   <td>{stats.donation}</td>
                   <td>{stats.redemption}</td>
                   <td>{stats.donation - stats.redemption}</td>

@@ -5,7 +5,7 @@ const router = express.Router()
 router.get('/:id', (req, res) => {
   const id = req.params.id
   db.getStoreDetails(id)
-    .then(details => res.json(details[0]))
+    .then(details => res.json(details))
     .catch(err => {
       // eslint-disable-next-line
       console.log(err)

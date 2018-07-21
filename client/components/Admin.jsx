@@ -1,7 +1,7 @@
 import React from 'react'
-import {TotalStats} from '../components/TotalStats'
-import {Locations} from '../components/Locations'
-import {CompanyList} from '../components/CompanyList'
+import TotalStats from './TotalStats'
+import Locations from './Locations'
+import CompanyList from './CompanyList'
 
 const Admin = () => {
   return (
