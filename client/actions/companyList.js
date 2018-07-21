@@ -1,19 +1,27 @@
 import request from 'superagent'
 import {showError} from './'
 
-export const requestStats() {
+export const REQUEST_STATS = 'REQUEST_STATS'
+export const RECEIVE_STATS = 'RECEIVE_STATS'
+
+export const requestStats = () => {
   return {
     type: REQUEST_STATS
   }
 }
 
-export const receiveStats(voucher)
+export const receiveStats = (stats) => {
+  return {
+    type: RECEIVE_STATS,
+    stats
+  }
+}
 
-export function getAllStoreStats() {
+export function getAllStoreStats () {
   return dispatch => {
     dispatch(requestStats())
-    return request 
-      .get('/api/v1/')
+    return request
+      .get('/api/v1/balance/admin')
       .then(stats => {
         dispatch(receiveStats(stats.body))
       })
