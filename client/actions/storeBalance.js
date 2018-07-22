@@ -23,7 +23,7 @@ export function getStoreBalance (id) {
     return request
       .get(`/api/v1/balance/${id}`)
       .then(res => {
-        dispatch(receiveBalance(res.body[0].donations))
+        dispatch(receiveBalance(res.body[0]))
       })
       .catch(() => {
         dispatch(showError('An unexpected error has occurred'))
