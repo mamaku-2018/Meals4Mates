@@ -13,7 +13,22 @@ module.exports = {
     },
     seeds: {
       directory: path.join(__dirname, '../../tests/server/db/seeds')
-    }
+    },
+    useNullAsDefault: true
+  },
+
+  test: {
+    client: 'sqlite3',
+    connection: {
+      filename: ':memory:'
+    },
+    migrations: {
+      directory: path.join(__dirname, './migrations')
+    },
+    seeds: {
+      directory: path.join(__dirname, '../../tests/server/db/seeds')
+    },
+    useNullAsDefault: true
   },
 
   staging: {
