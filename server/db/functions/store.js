@@ -10,7 +10,8 @@ module.exports = {
   getStore,
   getStoreByEmail,
   getStoreDetails,
-  editStoreDetails
+  editStoreDetails,
+  getAllStoreLocations
 }
 
 function addNewStore (newStore, db = knex) {
@@ -54,6 +55,11 @@ function getStore (id, db = knex) {
   return db('stores')
     .select()
     .where('id', id)
+}
+
+function getAllStoreLocations (db = knex) {
+  return db('stores')
+    .select()
 }
 
 function editStoreDetails (store, db = knex) {
