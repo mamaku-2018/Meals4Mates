@@ -11,7 +11,7 @@ class TotalStats extends React.Component {
     return (
       <div className='TotalStats'>
         <p>Total Donations Made: {total.donations}</p>
-        <p>Total Amout Redeemed: {total.redemptions}</p>
+        <p>Total Amount Redeemed: {total.redemptions}</p>
       </div>
     )
   }

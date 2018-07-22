@@ -3797,11 +3797,6 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-lodash-es@^4.0.0, lodash-es@^4.17.5:
-=======
-=======
 locate-path@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-3.0.0.tgz#dbec3b3ab759758071b58fe59fc41871af21400e"
@@ -3809,9 +3804,7 @@ locate-path@^3.0.0:
     p-locate "^3.0.0"
     path-exists "^3.0.0"
 
->>>>>>> 1e85131d98e89fc06ac7647ee3ead92d65571700
-lodash-es@^4.17.5, lodash-es@~4.17.4:
->>>>>>> 1c9f6ebf4cb9cdaa41bdb066145b1f7ab519cf46
+lodash-es@^4.0.0, lodash-es@^4.17.5, lodash-es@~4.17.4:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.10.tgz#62cd7104cdf5dd87f235a837f0ede0e8e5117e05"
 
@@ -3859,11 +3852,7 @@ lodash.sortby@^4.7.0:
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
 
-<<<<<<< HEAD
-lodash@^4.0.0, lodash@^4.13.1, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0:
-=======
-lodash@^4.13.1, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0, lodash@~4.17.4:
->>>>>>> 1c9f6ebf4cb9cdaa41bdb066145b1f7ab519cf46
+lodash@^4.0.0, lodash@^4.13.1, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0, lodash@~4.17.4:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
@@ -4950,7 +4939,6 @@ react-is@^16.4.1:
   version "16.4.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.1.tgz#d624c4650d2c65dbd52c72622bbf389435d9776e"
 
-<<<<<<< HEAD
 react-leaflet@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-leaflet/-/react-leaflet-2.0.0.tgz#5ba2c3ddc69014e221c259b966cb1eb494b01611"
@@ -4960,10 +4948,7 @@ react-leaflet@^2.0.0:
     lodash-es "^4.0.0"
     warning "^4.0.0"
 
-react-lifecycles-compat@^3.0.0:
-=======
 react-lifecycles-compat@^3.0.0, react-lifecycles-compat@^3.0.4:
->>>>>>> 1c9f6ebf4cb9cdaa41bdb066145b1f7ab519cf46
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 

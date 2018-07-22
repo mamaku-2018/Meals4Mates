@@ -11,6 +11,7 @@ class Login extends React.Component {
       email: '',
       password: '',
       redirect: false,
+      admin: false,
       id: 0
     }
     this.handleChange = this.handleChange.bind(this)
@@ -30,7 +31,11 @@ class Login extends React.Component {
       password: this.state.password
     }
     const goStore = (id) => {
-      if (id) {
+      if (id === 33) {
+        return this.setState({
+          admin: true
+        })
+      } else if (id) {
         this.setState({
           redirect: true,
           id: id
@@ -42,7 +47,11 @@ class Login extends React.Component {
   }
 
   render () {
-    if (this.state.redirect === true) {
+    if (this.state.admin === true) {
+      return (
+        <Redirect to={'/admin'} />
+      )
+    } else if (this.state.redirect === true) {
       return (
         <Redirect to={`/store/${this.state.id}`} />
       )
