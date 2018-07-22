@@ -16,10 +16,13 @@ export class Register extends React.Component {
       password: '',
       confirm: '',
       match: '',
-      message: 'Passwords do not match'
+      message: 'Passwords do not match',
+      badEmail: false,
+      emailMessage: 'Not an email'
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.verifyEmail = this.verifyEmail.bind(this)
   }
 
   handleChange (e) {
@@ -27,24 +30,37 @@ export class Register extends React.Component {
     let match = this.state.match
     match = name === 'password' ? value === this.state.confirm : match
     match = name === 'confirm' ? value === this.state.password : match
+
     this.setState({
       [name]: value,
       match: match
     })
   }
 
+  verifyEmail () {
+    let re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm
+    if (!re.test(String(this.state.email).toLowerCase())) {
+      this.setState({
+        badEmail: true
+      })
+    }
+  }
+
   handleSubmit (e) {
     const {register} = this.props
-    const user = {
-      owner: this.state.owner,
-      email: this.state.email,
-      name: this.state.store,
-      address: this.state.address,
-      phone: this.state.phone,
-      password: this.state.password
+    this.verifyEmail()
+    if (this.state.badEmail === true) {
+      const user = {
+        owner: this.state.owner,
+        email: this.state.email,
+        name: this.state.store,
+        address: this.state.address,
+        phone: this.state.phone,
+        password: this.state.password
+      }
+      register(user)
+      e.preventDefault()
     }
-    register(user)
-    e.preventDefault()
   }
 
   render () {
@@ -85,6 +101,7 @@ export class Register extends React.Component {
               placeholder='Email..'
               onChange={this.handleChange}
               value={this.state.email} />
+            {this.state.badEmail && <span>{this.state.emailMessage}</span>}
             <br />
             <label htmlFor='address'>Address: </label>
             <input
