@@ -44,25 +44,23 @@ export class Donations extends React.Component {
 
   handleConfirm () {
     this.closeModal()
-    this.setState({
-      amountSelected: true
-    })
-  }
-
-  handleClick (value) {
-    this.openModal()
-    this.setState({
-      amount: value
-    })
-  }
-
-  handleSubmit () {
     const donation = this.state.amount
     const id = Number(this.props.match.params.id)
     this.props.submitDonation(donation, id)
     this.setState({
       redirect: true
     })
+  }
+
+  handleClick (value) {
+    this.setState({
+      amountSelected: true,
+      amount: value
+    })
+  }
+
+  handleSubmit () {
+    this.openModal()
   }
 
   render () {
@@ -101,7 +99,7 @@ export class Donations extends React.Component {
             contentLabel='Confirm donation'
             ariaHideApp={false}
           >
-            <h4>Please confirm your donation</h4>
+            <h4>Thank You so much for your donation! Every little bit helps</h4>
             <p>${this.state.amount}</p>
             <button type='button' className='button' onClick={this.handleConfirm}>Confirm</button>
           </Modal>
