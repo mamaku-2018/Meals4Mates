@@ -2,6 +2,13 @@ const express = require('express')
 const db = require('../db/functions/balance')
 const router = express.Router()
 
+router.get('/admin/stats', (req, res) => {
+  db.getStoreStats()
+    .then((stats) => {
+      res.json(stats)
+    })
+})
+
 router.get('/admin', (req, res) => {
   db.getTotalDonations()
     .then(donations => {
