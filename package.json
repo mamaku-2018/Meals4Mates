@@ -4,7 +4,7 @@
   "main": "server/index",
   "scripts": {
     "build": "webpack --config ./client/webpack.config.js",
-    "dev": "node server & yarn build --watch",
+    "dev": "nodemon server & yarn build --watch",
     "knex": "knex --knexfile ./server/db/knexfile.js",
     "test": "jest --watchAll",
     "start": "node server"
