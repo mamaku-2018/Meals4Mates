@@ -11,7 +11,7 @@ const StoreProfile = (props) => {
     <div className='storeprofile'>
       <h2>Your Store Stats</h2>
       <Switch>
-        <Route path='/store/:id/edit' component={StoreInfoEdit} />
+        <Route exact path='/store/:id/edit' component={StoreInfoEdit} />
         <Route path='/store/:id' component={StoreInfo} />
       </Switch>
       <Switch>
