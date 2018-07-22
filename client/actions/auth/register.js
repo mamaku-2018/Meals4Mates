@@ -53,7 +53,6 @@ export function register (user) {
           phone: user.phone,
           password: user.password
         }
-        console.log(latLng)
         return request('post', '/auth/register', updatedUser)
       .then(res => {
         const token = saveAuthToken(res.body.token)
@@ -91,7 +90,6 @@ export function getLatLng(userAddress) {
   return Geocode.fromAddress(userAddress).then(
     response => {
     const { lat, lng } = response.results[0].geometry.location
-    console.log(lat,lng)
     const latLng = {
       lat: lat,
       lng: lng
