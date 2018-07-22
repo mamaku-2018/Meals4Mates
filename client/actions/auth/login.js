@@ -30,7 +30,7 @@ export const logOut = () => {
   }
 }
 
-export function logUserOff () {
+export function logStoreOut () {
   return (dispatch) => {
     dispatch(requestLogin())
     logOut()

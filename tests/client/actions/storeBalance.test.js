@@ -6,8 +6,7 @@ jest.mock('superagent', () => {
       return Promise.resolve({body: {donations: 15}})
     }
   }
-}
-)
+})
 
 test('getStoreBalance gets the correct actions', () => {
   const dispatch = jest.fn()

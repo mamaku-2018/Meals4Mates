@@ -11,6 +11,7 @@ exports.up = (knex, Promise) => {
     table.integer('lat')
     table.integer('lng')
     table.string('image_url')
+    table.timestamp('created_at').defaultTo(knex.fn.now())
   })
 }
 
