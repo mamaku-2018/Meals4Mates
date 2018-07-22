@@ -2,6 +2,7 @@ import React from 'react'
 import L from 'leaflet'
 import {Map, Marker, TileLayer, Popup} from 'react-leaflet'
 import path from 'path'
+import {connect} from 'react-redux'
 
 import {getAllStoreLocations} from '../actions/getAllStoreLocations'
 
@@ -13,17 +14,11 @@ const myIcon = L.icon({
 })
 
 class ViewMap extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      lat: stores.lat,
-      lng: stores.lng
-    }
+  componentDidMount () {
+    this.props.getAllStoreLocations()
   }
 
   render () {
-    const position = this.stores.map( => {
-
     return (
       <div className='map'>
         <Map center={[-36.8485, 174.7633]} zoom={13}>
@@ -34,13 +29,36 @@ class ViewMap extends React.Component {
             id= 'mapbox.streets'
             accessToken='pk.eyJ1IjoiYnJvbmJ1cmd1bmR5IiwiYSI6ImNqanJ3N3hlYzhvb2sza2xmdGZocmwzMHgifQ.W5lq17kl4kLbi4qmQ1DNrg'
           />
-          <Marker position={position} icon={myIcon}>
-            <Popup><span>{stores.name}</span></Popup>
-          </Marker>
+          {(this.props.storeDetails && this.props.storeDetails.map((details) => {
+            const position = {
+              lat: details.lat,
+              lng: details.lng
+            }
+            return (
+              <Marker key={details.id} position={position} icon={myIcon}>
+                <Popup><span>{details.name}</span></Popup>
+              </Marker>
+            )
+          })
+          )}
         </Map>
       </div>
     )
   }
 }
 
-export default ViewMap
+const mapPropsToState = (state) => {
+  return {
+    storeDetails: state.storeDetails
+  }
+}
+
+function mapDispatchToStore (dispatch) {
+  return {
+    getAllStoreLocations: () => {
+      return dispatch(getAllStoreLocations())
+    }
+  }
+}
+
+export default connect(mapPropsToState, mapDispatchToStore)(ViewMap)
