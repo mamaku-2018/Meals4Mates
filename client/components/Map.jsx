@@ -2,7 +2,8 @@ import React from 'react'
 import L from 'leaflet'
 import {Map, Marker, TileLayer, Popup} from 'react-leaflet'
 import path from 'path'
-import stores from '../../tests/server/db/seeds/stores'
+
+import {getAllStoreLocations} from '../actions/getAllStoreLocations'
 
 const myIcon = L.icon({
   iconUrl: path.join(__dirname, './images/marker.png'),
@@ -23,7 +24,6 @@ class ViewMap extends React.Component {
   render () {
     const position = this.stores.map( => {
 
-    })
     return (
       <div className='map'>
         <Map center={[-36.8485, 174.7633]} zoom={13}>
