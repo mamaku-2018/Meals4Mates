@@ -14,7 +14,7 @@ const App = () => {
     <Router>
       <div className='container'>
         <Route path='/' component={Header} />
-        <Route path='/' component={Home} />
+        <Route exact path='/' component={Home} />
         <Route path='/admin' component={Admin} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
@@ -22,7 +22,6 @@ const App = () => {
           <Route exact path='/store/:id/donate' component={Donations} />
           <Route path='/store/:id' component={StoreProfile} />
         </Switch>
-        <Route path= '/admin' component={Admin} />
         <Route path='/' component={Footer} />
       </div>
     </Router>

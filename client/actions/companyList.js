@@ -1,18 +1,18 @@
 import request from 'superagent'
 import {showError} from './'
 
-export const REQUEST_STATS = 'REQUEST_STATS'
-export const RECEIVE_STATS = 'RECEIVE_STATS'
+export const REQUEST_LIST_STATS = 'REQUEST_LIST_STATS'
+export const RECEIVE_LIST_STATS = 'RECEIVE_LIST_STATS'
 
 export const requestStats = () => {
   return {
-    type: REQUEST_STATS
+    type: REQUEST_LIST_STATS
   }
 }
 
 export const receiveStats = (stats) => {
   return {
-    type: RECEIVE_STATS,
+    type: RECEIVE_LIST_STATS,
     stats
   }
 }
