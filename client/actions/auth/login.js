@@ -37,7 +37,7 @@ export function logUserOff () {
   }
 }
 
-export function login (user) {
+export function login (user, goStore) {
   return (dispatch) => {
     dispatch(requestLogin())
     request('post', '/auth/login', user)
@@ -46,11 +46,14 @@ export function login (user) {
         dispatch(receiveLogin(res.body))
         dispatch(getUserData(token.id))
         dispatch(clearError())
+        goStore(token.id)
         dispatch(showSuccess('You are now logged in.'))
       })
       .catch(err => {
-        if (err && err.errorType === 'INVALID_CREDENTIALS') {
+        if (err) {
           return dispatch(showError('Username and password do not match an existing user'))
+        } else {
+          return dispatch(showError('An unexpected error has occurred'))
         }
       })
   }
