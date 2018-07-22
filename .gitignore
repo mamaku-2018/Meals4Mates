@@ -6,3 +6,4 @@ bundle*
 .env
 sodium*
 yarn-error.*
+config.json

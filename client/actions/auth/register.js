@@ -1,6 +1,11 @@
 import {showError, clearError, showSuccess} from '../'
 import {saveAuthToken} from '../../lib/auth'
 import request from '../../lib/apiClient'
+import Geocode from 'react-geocode'
+import config from '../../../config.json';
+
+Geocode.setApiKey(`${config.GOOGLE_API_KEY}`);
+Geocode.enableDebug()
 
 export const REQUEST_USER_REGISTRATION = 'REQUEST_USER_REGISTRATION'
 export const RECEIVE_USER_REGISTRATION = 'RECEIVE_USER_REGISTRATION'
@@ -36,13 +41,26 @@ export const receiveUserDetails = (user) => {
 export function register (user) {
   return dispatch => {
     dispatch(requestUserRegistration())
-    return request('post', '/auth/register', user)
+    return getLatLng(user.address)
+      .then(latLng => {
+        const updatedUser = {
+          owner: user.owner,
+          email: user.email,
+          name: user.name,
+          address: user.address,
+          lat: latLng.lat,
+          lng: latLng.lng,
+          phone: user.phone,
+          password: user.password
+        }
+        return request('post', '/auth/register', updatedUser)
       .then(res => {
         const token = saveAuthToken(res.body.token)
         dispatch(receiveUserRegistration(res.body))
         dispatch(getUserDetails(token.id))
         dispatch(clearError())
         dispatch(showSuccess('Registration successful'))
+      })
       })
       .catch(err => {
         if (err) {
@@ -67,3 +85,20 @@ export function getUserDetails (id) {
       })
   }
 }
+
+export function getLatLng(userAddress) {
+  return Geocode.fromAddress(userAddress).then(
+    response => {
+    const { lat, lng } = response.results[0].geometry.location
+    const latLng = {
+      lat: lat,
+      lng: lng
+    }
+    return(latLng)
+  },
+  error => {
+    console.error(error)
+  }
+)
+}
+
