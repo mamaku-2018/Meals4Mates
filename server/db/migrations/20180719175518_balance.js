@@ -4,7 +4,7 @@ exports.up = (knex, Promise) => {
     table.integer('donation')
     table.integer('redemption')
     table.integer('store_id')
-    table.string('timestamp')
+    table.timestamp('created_at').defaultTo(knex.fn.now())
   })
 }
 
