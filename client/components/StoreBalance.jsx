@@ -21,14 +21,17 @@ export class StoreBalance extends React.Component {
     const balance = (this.props.storeBalance && (this.props.storeBalance.donations - this.props.storeBalance.redemptions))
     return (
       <div className='store-balance'>
-        <div className='redeem'>
-          <Link to={`/store/${id}/redeem`} className='button'>Redeem</Link>
+        <div className='total-balance'>
+          <p>Total Donation Balance</p>
+          {this.props.storeBalance && <span>${balance}</span>}
         </div>
-        <p>Total Store Balance</p>
-        {this.props.storeBalance && <p>${balance}</p>}
-
-        <div className='donation'>
-          <Link to={`/store/${id}/donate`} className='button'>Donate</Link>
+        <div className='store-balance-buttons'>
+          <div className='redeem'>
+            <Link to={`/store/${id}/redeem`} className='button'>Redeem</Link>
+          </div>
+          <div className='donation'>
+            <Link to={`/store/${id}/donate`} className='button'>Donate</Link>
+          </div>
         </div>
       </div>
     )
