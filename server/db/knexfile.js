@@ -54,6 +54,9 @@ module.exports = {
       min: 2,
       max: 10
     },
+    seeds: {
+      directory: path.join(__dirname, '../../tests/server/db/seeds')
+    },
     migrations: {
       tableName: 'knex_migrations'
     }
