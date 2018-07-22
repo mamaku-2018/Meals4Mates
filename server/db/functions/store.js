@@ -24,7 +24,9 @@ function addNewStore (newStore, db = knex) {
       email: newStore.email,
       address: newStore.address,
       phone: newStore.phone,
-      hash: passwordHash
+      hash: passwordHash,
+      lat: newStore.lat,
+      lng: newStore.lng
     })
 }
 
