@@ -9,6 +9,7 @@ import totalStats from './totalStats'
 import storeBalance from './storeBalance'
 import storeStats from './storeStats'
 import companyList from './companyList'
+import storeDetails from './storeDetails'
 
 export default combineReducers({
   errorMessage,
@@ -19,5 +20,6 @@ export default combineReducers({
   storeBalance,
   storeStats,
   companyList,
-  totalStats
+  totalStats,
+  storeDetails
 })
