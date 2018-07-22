@@ -4,9 +4,9 @@ import {showError} from '.'
 
 export function getStoreInfo (id) {
   return dispatch => {
-    return request('get', `api/v1/store/${id}`)
+    return request
+      .get(`api/v1/store/${id}`)
       .then(res => {
-        console.log(res)
         dispatch(receiveUserDetails(res.body))
       })
       .catch(() => {
