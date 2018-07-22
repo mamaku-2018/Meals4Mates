@@ -58,13 +58,13 @@ export function register (user) {
           password: user.password
         }
         return request('post', '/auth/register', updatedUser)
-      .then(res => {
-        const token = saveAuthToken(res.body.token)
-        dispatch(receiveUserRegistration(res.body))
-        dispatch(getUserDetails(token.id))
-        dispatch(clearError())
-        dispatch(showSuccess('Registration successful'))
-      })
+          .then(res => {
+            const token = saveAuthToken(res.body.token)
+            dispatch(receiveUserRegistration(res.body))
+            dispatch(getUserDetails(token.id))
+            dispatch(clearError())
+            dispatch(showSuccess('Registration successful'))
+          })
       })
       .catch(err => {
         if (err) {
@@ -90,19 +90,19 @@ export function getUserDetails (id) {
   }
 }
 
-export function getLatLng(userAddress) {
+export function getLatLng (userAddress) {
   return Geocode.fromAddress(userAddress).then(
     response => {
-    const { lat, lng } = response.results[0].geometry.location
-    const latLng = {
-      lat: lat,
-      lng: lng
+      const {lat, lng} = response.results[0].geometry.location
+      const latLng = {
+        lat: lat,
+        lng: lng
+      }
+      return (latLng)
+    },
+    error => {
+      // eslint-disable-next-line
+      console.error(error)
     }
-    return(latLng)
-  },
-  error => {
-    console.error(error)
-  }
-)
+  )
 }
-
