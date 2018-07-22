@@ -20,6 +20,11 @@
     ]
   },
   "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-jwt": "^5.3.1",
@@ -30,18 +35,6 @@
     "pg": "^7.4.3",
     "react-leaflet": "^2.0.0",
     "recharts": "^1.1.0",
-    "sodium": "^2.0.3"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-register": "^6.26.0",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "jest": "^23.4.1",
-    "nodemon": "^1.18.3",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-modal": "^3.5.1",
@@ -50,10 +43,17 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
-    "sqlite3": "^4.0.2",
+    "sodium": "^2.0.3",
     "superagent": "^3.8.3",
-    "supertest": "^3.1.0",
     "webpack": "^4.16.1",
     "webpack-cli": "^3.0.8"
+  },
+  "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^23.4.1",
+    "nodemon": "^1.18.3",
+    "sqlite3": "^4.0.2",
+    "supertest": "^3.1.0"
   }
 }
