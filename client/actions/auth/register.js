@@ -2,9 +2,13 @@ import {showError, clearError, showSuccess} from '../'
 import {saveAuthToken} from '../../lib/auth'
 import request from '../../lib/apiClient'
 import Geocode from 'react-geocode'
-import config from '../../../config.json';
+import aws from 'aws-sdk'
 
-Geocode.setApiKey(`${config.GOOGLE_API_KEY}`);
+let s3 = new aws.S3({
+  GOOGLE_API_KEY: process.env.GOOGLE_API_KEY
+})
+
+Geocode.setApiKey(`${s3.GOOGLE_API_KEY}`)
 Geocode.enableDebug()
 
 export const REQUEST_USER_REGISTRATION = 'REQUEST_USER_REGISTRATION'
