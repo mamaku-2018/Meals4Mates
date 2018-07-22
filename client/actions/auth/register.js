@@ -41,13 +41,15 @@ export function register (user) {
         const token = saveAuthToken(res.body.token)
         dispatch(receiveUserRegistration(res.body))
         dispatch(getUserDetails(token.id))
+        dispatch(clearError())
         dispatch(showSuccess('Registration successful'))
       })
       .catch(err => {
-        if (err && err.errorType === 'EMAIL_ALREADY_REGISTERED') {
+        if (err) {
           return dispatch(showError('This email is already registered'))
+        } else {
+          return dispatch(showError('An unexpected error has occurred'))
         }
-        dispatch(showError('An unexpected error has occurred'))
       })
   }
 }
