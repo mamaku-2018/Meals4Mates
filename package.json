@@ -8,7 +8,7 @@
     "knex": "knex --knexfile ./server/db/knexfile.js",
     "test": "jest --watchAll",
     "start": "node server",
-    "postinstall": "webpack && knex migrate:latest"
+    "postinstall": "yarn build && yarn knex migrate:latest"
   },
   "repository": "https://github.com/mamaku-2018/Meals4Mates.git",
   "author": "Team BASIC",
