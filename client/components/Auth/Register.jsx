@@ -16,8 +16,7 @@ export class Register extends React.Component {
       password: '',
       confirm: '',
       match: '',
-      message: 'Passwords do not match',
-      redirect: false
+      message: 'Passwords do not match'
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -45,93 +44,94 @@ export class Register extends React.Component {
       password: this.state.password
     }
     register(user)
-    this.setState({redirect: true})
     e.preventDefault()
   }
 
   render () {
-    if (this.state.redirect) {
+    if (this.props.message === 'Registration successful') {
       return (
         <Redirect to='/' />
       )
-    } else {
-      return (
-        <div className='register'>
-          <form>
-            <fieldset>
-              <h2>Register</h2>
-              <label htmlFor='store'>Store: </label>
-              <input
-                type='text'
-                name='store'
-                id='store'
-                placeholder='Store..'
-                onChange={this.handleChange}
-                value={this.state.store} />
-              <br />
-              <label htmlFor='owner'>Owner: </label>
-              <input type='text'
-                name='owner'
-                id='owner'
-                placeholder='Store owner (or manager)..'
-                onChange={this.handleChange}
-                value={this.state.owner} />
-              <br />
-              <label htmlFor='email'>Email: </label>
-              <input type='text'
-                name='email'
-                id='email'
-                placeholder='Email..'
-                onChange={this.handleChange}
-                value={this.state.email} />
-              <br />
-              <label htmlFor='address'>Address: </label>
-              <input
-                type='text'
-                name='address' id='address'
-                placeholder='Address..'
-                onChange={this.handleChange}
-                value={this.state.address} />
-              <br />
-              <label htmlFor='phone'>Phone no: </label>
-              <input
-                type='text'
-                name='phone'
-                id='phone'
-                placeholder='Phone..'
-                onChange={this.handleChange}
-                value={this.state.phone} />
-              <br />
-              <label htmlFor='password'>Password: </label>
-              <input
-                type='password'
-                name='password'
-                id='password'
-                placeholder='Password..'
-                onChange={this.handleChange}
-                value={this.state.password} />
-              <br />
-              <label htmlFor='confirm'>Confirm password: </label>
-              <input
-                type='password'
-                name='confirm'
-                id='confirm'
-                placeholder='Confirm password..'
-                onChange={this.handleChange}
-                value={this.state.confirm} />
-              {!this.state.match && <span>{this.state.message}</span>}
-              <br />
-              <button
-                type='button'
-                disabled={!this.state.match}
-                className='button'
-                onClick={this.handleSubmit}>Register
-              </button>
-            </fieldset>
-          </form>
-        </div>
-      )
+    } else if (this.props.message === 'This email is already registered') {
+      document.getElementById('message').innerHTML = this.props.message
     }
+    return (
+      <div className='register'>
+        <form>
+          <div id='message'></div>
+          <fieldset>
+            <h2>Register</h2>
+            <label htmlFor='store'>Store: </label>
+            <input
+              type='text'
+              name='store'
+              id='store'
+              placeholder='Store..'
+              onChange={this.handleChange}
+              value={this.state.store} />
+            <br />
+            <label htmlFor='owner'>Owner: </label>
+            <input type='text'
+              name='owner'
+              id='owner'
+              placeholder='Store owner (or manager)..'
+              onChange={this.handleChange}
+              value={this.state.owner} />
+            <br />
+            <label htmlFor='email'>Email: </label>
+            <input type='text'
+              name='email'
+              id='email'
+              placeholder='Email..'
+              onChange={this.handleChange}
+              value={this.state.email} />
+            <br />
+            <label htmlFor='address'>Address: </label>
+            <input
+              type='text'
+              name='address' id='address'
+              placeholder='Address..'
+              onChange={this.handleChange}
+              value={this.state.address} />
+            <br />
+            <label htmlFor='phone'>Phone no: </label>
+            <input
+              type='text'
+              name='phone'
+              id='phone'
+              placeholder='Phone..'
+              onChange={this.handleChange}
+              value={this.state.phone} />
+            <br />
+            <label htmlFor='password'>Password: </label>
+            <input
+              type='password'
+              name='password'
+              id='password'
+              placeholder='Password..'
+              onChange={this.handleChange}
+              value={this.state.password} />
+            <br />
+            <label htmlFor='confirm'>Confirm password: </label>
+            <input
+              type='password'
+              name='confirm'
+              id='confirm'
+              placeholder='Confirm password..'
+              onChange={this.handleChange}
+              value={this.state.confirm} />
+            {!this.state.match && <span>{this.state.message}</span>}
+            <br />
+            <button
+              type='button'
+              disabled={!this.state.match}
+              className='button'
+              onClick={this.handleSubmit}>Register
+            </button>
+          </fieldset>
+        </form>
+      </div>
+    )
   }
 }
 
@@ -144,4 +144,10 @@ function mapDispatchToProps (dispatch) {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Register)
+function mapStateToProps (state) {
+  return {
+    message: state.errorMessage
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register)
