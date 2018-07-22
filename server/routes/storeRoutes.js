@@ -2,6 +2,13 @@ const express = require('express')
 const db = require('../db/functions/store')
 const router = express.Router()
 
+router.get('/', (req, res) => {
+  db.getAllStoreLocations()
+    .then((details) => {
+      res.json(details)
+    })
+})
+
 router.get('/:id', (req, res) => {
   const id = req.params.id
   db.getStoreDetails(id)
