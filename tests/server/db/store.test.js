@@ -24,10 +24,11 @@ test('getStoreDetails returns details of the specified store', () => {
     'phone',
     'lat',
     'lng',
-    'image_url']
+    'image_url',
+    'created_at'] 
   return db.getStoreDetails(id, testDb)
     .then(details => {
-      expect(Object.keys(details[0])).toEqual(expected)
+      expect(Object.keys(details)).toEqual(expected)
     })
 })
 

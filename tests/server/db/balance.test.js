@@ -14,8 +14,8 @@ afterEach(() => {
 
 test('getCurrentBalance gets the total balance remaining of a store', () => {
   const id = 2
-  return db.getCurrentBalance(id)
+  return db.getStoreTotalDonation(id)
     .then(total => {
-      expect(total).toBe(12)
+      expect(total).toBe(10)
     })
 })
