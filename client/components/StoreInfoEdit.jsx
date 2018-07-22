@@ -11,7 +11,7 @@ export class StoreInfoEdit extends React.Component {
     this.state = {
       name: '',
       owner: '',
-      phone: 0,
+      phone: '',
       email: '',
       address: '',
       redirect: false
