@@ -21,6 +21,9 @@ class Header extends React.Component {
   }
   render () {
     if (this.state.loggedOut === true) {
+      this.setState({
+        loggedOut: false
+      })
       return (<Redirect to='/' />)
     }
     return (

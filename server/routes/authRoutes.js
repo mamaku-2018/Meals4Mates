@@ -27,7 +27,7 @@ router.post('/login', login, token.issue)
 function login (req, res, next) {
   db.getStoreByEmail(req.body.email)
     .then(store => {
-      return store || invalidCredentials(res)
+      return store || invalidCredentials(res).end()
     })
     .then(store => {
       return store && hash.verify(store.hash, req.body.password)
@@ -44,7 +44,7 @@ function login (req, res, next) {
 
 function invalidCredentials (res) {
   res.status(400).send({
-    errorType: 'INVALID_CREDENTIALS'
+    message: 'Wrong details'
   })
 }
 
