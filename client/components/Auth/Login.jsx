@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {login} from '../../actions/auth/login'
 import {clearError} from '../../actions'
-import {Redirect} from 'react-router-dom'
+import {Redirect, Link} from 'react-router-dom'
 
 class Login extends React.Component {
   constructor (props) {
@@ -87,6 +87,7 @@ class Login extends React.Component {
               className='button'
               onClick={this.handleSubmit}>Login
             </button>
+            <Link to='/' type='button' className='button' >Cancel</Link>
           </fieldset>
         </form>
       </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import Modal from 'react-modal'
 import {submitDonation} from '../actions/donations'
-import {Redirect} from 'react-router-dom'
+import {Redirect, Link} from 'react-router-dom'
 
 const customStyles = {
   content: {
@@ -64,8 +64,8 @@ export class Donations extends React.Component {
   }
 
   render () {
-    if (this.state.redirect) {
-      const id = Number(this.props.match.params.id)
+    const id = Number(this.props.match.params.id)
+    if (this.state.redirect) {   
       return (
         <Redirect to={`/store/${id}`} />
       )
@@ -87,6 +87,7 @@ export class Donations extends React.Component {
           </div>
           <div className='donate-button'>
             <button type='button' className='button' id="submitDonationBtn" disabled={!this.state.amountSelected} onClick={this.handleSubmit}>Donate</button>
+            <Link to={`/store/${id}`} type='button' className='button' >Cancel</Link>
           </div>
           <div className='donatepic'>
             <img src='/images/hands.jpg' />
