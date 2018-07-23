@@ -16,6 +16,8 @@ test('getStoreDetails returns details of the specified store', () => {
   const id = 1
   const expected = ['id',
     'name',
+    'suburb',
+    'city',
     'admin',
     'address',
     'email',
@@ -24,12 +26,15 @@ test('getStoreDetails returns details of the specified store', () => {
     'phone',
     'lat',
     'lng',
-    'image_url']
+    'image_url',
+    'created_at']
   return db.getStoreDetails(id, testDb)
     .then(details => {
-      expect(Object.keys(details[0])).toEqual(expected)
+      expect(Object.keys(details)).toEqual(expected)
     })
 })
+
+jest.mock('../../../server/auth/hash')
 
 test('addNewStore returns new id of new store', () => {
   const newStore = {

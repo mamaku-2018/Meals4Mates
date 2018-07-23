@@ -41,6 +41,8 @@ router.put('/:id/edit', (req, res) => {
 router.post('/register', (req, res) => {
   const store = {
     name: req.body.name,
+    suburb: req.body.suburb,
+    city: req.body.city,
     address: req.body.address,
     phone: req.body.phone,
     lat: req.body.lat,
