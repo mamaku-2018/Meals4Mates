@@ -15,7 +15,7 @@ export class Register extends React.Component {
       phone: '',
       password: '',
       confirm: '',
-      match: '',
+      match: true,
       message: 'Passwords do not match',
       badEmail: false,
       emailMessage: 'Email invalid',
@@ -24,8 +24,8 @@ export class Register extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.verifyEmail = this.verifyEmail.bind(this)
-    this.verifyPassword = this.verifyPassword.bind(this)
+    this.isValidEmail = this.isValidEmail.bind(this)
+    this.isWeakPassword = this.isWeakPassword.bind(this)
   }
 
   handleChange (e) {
@@ -35,32 +35,24 @@ export class Register extends React.Component {
     match = name === 'confirm' ? value === this.state.password : match
     this.setState({
       [name]: value,
-      match: match
+      match: match,
+      weakPassword: this.isWeakPassword(),
+      badEmail: this.isValidEmail()
     })
   }
 
-  verifyEmail () {
+  isValidEmail () {
     const re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm
-    if (!re.test(String(this.state.email).toLowerCase())) {
-      this.setState({
-        badEmail: true
-      })
-    }
+    return !re.test(String(this.state.email).toLowerCase())
   }
 
-  verifyPassword () {
+  isWeakPassword () {
     const symbols = new RegExp('^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})')
-    if (!symbols.test(this.state.password)) {
-      this.setState({
-        weakPassword: true
-      })
-    }
+    return !symbols.test(this.state.password)
   }
 
   handleSubmit (e) {
     const {register} = this.props
-    this.verifyEmail()
-    this.verifyPassword()
     if (!this.state.badEmail && !this.state.weakPassword) {
       const user = {
         owner: this.state.owner,
@@ -71,8 +63,8 @@ export class Register extends React.Component {
         password: this.state.password
       }
       register(user)
-      e.preventDefault()
     }
+    e.preventDefault()
   }
 
   render () {
