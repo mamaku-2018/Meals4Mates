@@ -17,14 +17,17 @@ class Register extends React.Component {
       phone: '',
       password: '',
       confirm: '',
-      match: '',
+      match: true,
       message: 'Passwords do not match',
       badEmail: false,
-      emailMessage: 'Not an email'
+      emailMessage: 'Email invalid',
+      weakPassword: false,
+      passwordMsg: 'Weak password'
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.verifyEmail = this.verifyEmail.bind(this)
+    this.isValidEmail = this.isValidEmail.bind(this)
+    this.isWeakPassword = this.isWeakPassword.bind(this)
   }
 
   handleChange (e) {
@@ -32,26 +35,27 @@ class Register extends React.Component {
     let match = this.state.match
     match = name === 'password' ? value === this.state.confirm : match
     match = name === 'confirm' ? value === this.state.password : match
-
     this.setState({
       [name]: value,
-      match: match
+      match: match,
+      weakPassword: this.isWeakPassword(),
+      badEmail: this.isValidEmail()
     })
   }
 
-  verifyEmail () {
-    let re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm
-    if (!re.test(String(this.state.email).toLowerCase())) {
-      this.setState({
-        badEmail: true
-      })
-    }
+  isValidEmail () {
+    const re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm
+    return !re.test(String(this.state.email).toLowerCase())
+  }
+
+  isWeakPassword () {
+    const symbols = new RegExp('^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})')
+    return !symbols.test(this.state.password)
   }
 
   handleSubmit (e) {
     const {register} = this.props
-    this.verifyEmail()
-    if (this.state.badEmail === false) {
+    if (!this.state.badEmail && !this.state.weakPassword) {
       const user = {
         owner: this.state.owner,
         email: this.state.email,
@@ -63,8 +67,8 @@ class Register extends React.Component {
         password: this.state.password
       }
       register(user)
-      e.preventDefault()
     }
+    e.preventDefault()
   }
 
   render () {
@@ -74,6 +78,10 @@ class Register extends React.Component {
       )
     } else if (this.props.message === 'This email is already registered') {
       document.getElementById('message').innerHTML = this.props.message
+    }
+    const style = {
+      color: 'red',
+      display: 'inline'
     }
     return (
       <div className='register'>
@@ -105,7 +113,7 @@ class Register extends React.Component {
               placeholder='Email..'
               onChange={this.handleChange}
               value={this.state.email} />
-            {this.state.badEmail && <span>{this.state.emailMessage}</span>}
+            {this.state.badEmail && <span style={style}>{this.state.emailMessage}</span>}
             <br />
             <label htmlFor='street'>Street: </label>
             <input
@@ -157,7 +165,8 @@ class Register extends React.Component {
               placeholder='Confirm password..'
               onChange={this.handleChange}
               value={this.state.confirm} />
-            {!this.state.match && <span>{this.state.message}</span>}
+            {this.state.weakPassword && <span style={style}>{this.state.passwordMsg}</span>}
+            {!this.state.match && <span style={style}>{this.state.message}</span>}
             <br />
             <button
               type='button'
