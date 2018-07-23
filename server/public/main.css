@@ -327,6 +327,23 @@ fieldset {
   border: none;
 }
 
+/* STORE STATS */
+
+.stats {
+  padding: 0;
+  width: 95%;
+  margin: auto;
+  background-color: #314950;
+}
+
+.recharts-wrapper {
+  width: 95%;
+  margin: auto;
+}
+
+.reharts-legend-wrapper {
+  bottom: 3px !important;
+}
 
 /* DONATIONS */
 
@@ -372,21 +389,6 @@ fieldset {
   object-fit: cover;
 }
 
-/* STORE BAR GRAPH */
-
-body {
-  margin: 0;
-}
-#container {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 10px;
-  width: 800px;
-  height: 800px;
-  background-color: #314950;
-}
-
 /* ADMIN COMPANY LIST */ 
 
 .companyList {
@@ -414,6 +416,7 @@ body {
 }
 
 .footer h4 {
+  color: #F7CE3E;
   margin-bottom: 0.5rem;
 }
 
@@ -599,13 +602,13 @@ body {
   .storeprofile {
     position: relative;
     width: 100%;
-    height: 800px;
+    height: 1200px;
   }
   .storeInfo {
     position: absolute;
     font-size: 150%;
     left: 15%;
-    margin-top: 6rem;
+    margin-top: 5rem;
     width: 25%;
     text-align: left;
   }
@@ -644,6 +647,10 @@ body {
     width: 10rem;
     height: 4rem;
     font-size: 140%;
+  }
+  .stats {
+    position: absolute;
+    bottom: 0;
   }
 }
 
