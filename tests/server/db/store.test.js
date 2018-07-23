@@ -32,6 +32,8 @@ test('getStoreDetails returns details of the specified store', () => {
     })
 })
 
+jest.mock('../../../server/auth/hash')
+
 test('addNewStore returns new id of new store', () => {
   const newStore = {
     name: 'test',
