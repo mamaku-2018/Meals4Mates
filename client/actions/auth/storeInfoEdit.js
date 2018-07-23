@@ -21,21 +21,20 @@ export function storeInfoEdit (user) {
           city: user.city,
           lat: latLng.lat,
           lng: latLng.lng,
-          phone: user.phone,
+          phone: user.phone
         }
-      return request
-        .put(`/api/v1/store/${user.id}/edit`)
-        .send(updatedUser)
-        .then(() => {
-          dispatch(showSuccess('Your details have been successfully updated'))
-        })
+        return request
+          .put(`/api/v1/store/${user.id}/edit`)
+          .send(updatedUser)
+          .then(() => {
+            dispatch(showSuccess('Your details have been successfully updated'))
+          })
       })
-        .catch(err => {
-          dispatch(showError(err.message))
-        })
-    }
+      .catch(err => {
+        dispatch(showError(err.message))
+      })
   }
-
+}
 
 export function getLatLng (userAddress) {
   return Geocode.fromAddress(userAddress).then(
