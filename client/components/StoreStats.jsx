@@ -3,7 +3,7 @@ import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recha
 import {connect} from 'react-redux'
 import {getStoreStats} from '../actions/storeStats'
 
-export class StoreStats extends React.Component {
+class StoreStats extends React.Component {
   constructor (props) {
     super(props)
     this.state = {

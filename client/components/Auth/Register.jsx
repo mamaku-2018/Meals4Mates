@@ -4,7 +4,7 @@ import {clearError} from '../../actions'
 import {Redirect} from 'react-router-dom'
 import {register} from '../../actions/auth/register'
 
-export class Register extends React.Component {
+class Register extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
