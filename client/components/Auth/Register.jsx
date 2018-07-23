@@ -3,18 +3,19 @@ import {connect} from 'react-redux'
 import {clearError} from '../../actions'
 import {Redirect} from 'react-router-dom'
 import {register} from '../../actions/auth/register'
+import {isValidEmail, isWeakPassword} from '../../lib/securityVal'
 
 class Register extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      email: '',
+      name: '',
       owner: '',
-      store: '',
+      phone: '',
+      email: '',
       address: '',
       suburb: '',
       city: '',
-      phone: '',
       password: '',
       confirm: '',
       match: true,
@@ -26,8 +27,6 @@ class Register extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.isValidEmail = this.isValidEmail.bind(this)
-    this.isWeakPassword = this.isWeakPassword.bind(this)
   }
 
   handleChange (e) {
@@ -38,19 +37,9 @@ class Register extends React.Component {
     this.setState({
       [name]: value,
       match: match,
-      weakPassword: this.isWeakPassword(),
-      badEmail: this.isValidEmail()
+      weakPassword: isWeakPassword(this.state.password),
+      badEmail: isValidEmail(this.state.email)
     })
-  }
-
-  isValidEmail () {
-    const re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm
-    return !re.test(String(this.state.email).toLowerCase())
-  }
-
-  isWeakPassword () {
-    const symbols = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})')
-    return !symbols.test(this.state.password)
   }
 
   handleSubmit (e) {
@@ -59,7 +48,7 @@ class Register extends React.Component {
       const user = {
         owner: this.state.owner,
         email: this.state.email,
-        name: this.state.store,
+        name: this.state.name,
         address: this.state.address,
         suburb: this.state.suburb,
         city: this.state.city,
@@ -92,11 +81,11 @@ class Register extends React.Component {
           <div id='message'></div>
           <fieldset>
             <h2>Register</h2>
-            <label htmlFor='store'>Store: </label>
+            <label htmlFor='name'>Store: </label>
             <input
               type='text'
-              name='store'
-              id='store'
+              name='name'
+              id='name'
               placeholder='Store..'
               onChange={this.handleChange}
               value={this.state.store} />
