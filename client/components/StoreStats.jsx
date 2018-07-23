@@ -22,15 +22,15 @@ class StoreStats extends React.Component {
       <div className='stats'>
         <h3>Donations by Month</h3>
         {this.props.storeStats &&
-        <ResponsiveContainer width='100%' height={400}>
-          <BarChart data={this.props.storeStats} margin={{top: 5, right: 25, left: 0, bottom: 5}}>
+        <ResponsiveContainer width='100%' height={500} maxWidth={600}>
+          <BarChart data={this.props.storeStats} margin={{top: 5, right: 25, left: 5, bottom: 5}}>
             <CartesianGrid strokeDasharray='4 4'/>
-            <XAxis dataKey='Month' label={{value: 'Month', fill: '#F7CE3E', offset: -10, position: 'insideBottom'}}/>
-            <YAxis label={{value: 'Qty', angle: -90, position: 'center', padding: 10, fill: '#1a2930'}}/>
+            <XAxis dataKey='Month' label={{value: 'Month', fill: '#1a2930', offset: -10, position: 'insideBottom'}}/>
+            <YAxis label={{value: 'Amount ($)', angle: -90, position: 'center', padding: 10, fill: '#1a2930'}}/>
             <Tooltip offset={20}/>
-            <Legend algin='center' verticalAlign='bottom' height={100}/>
+            <Legend align='right' verticalAlign='bottom' height={80} width={200} left={20}/>
             <Bar dataKey='donations' fill='#F7CE3E' legendType="square" barSize={40}/>
-            <Bar dataKey='redemptions' fill='#1a2930' legendType="square" barSize={40} />
+            <Bar dataKey='redemptions' fill='#8e9b9f' legendType="square" barSize={40} />
           </BarChart>
         </ResponsiveContainer> }
       </div>

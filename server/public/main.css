@@ -341,10 +341,6 @@ fieldset {
   margin: auto;
 }
 
-.reharts-legend-wrapper {
-  bottom: 3px !important;
-}
-
 /* DONATIONS */
 
 .donations {
@@ -602,7 +598,7 @@ fieldset {
   .storeprofile {
     position: relative;
     width: 100%;
-    height: 1200px;
+    height: 1300px;
   }
   .storeInfo {
     position: absolute;
