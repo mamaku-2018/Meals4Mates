@@ -9,7 +9,7 @@ import StoreRedemption from './StoreRedemption'
 const StoreProfile = (props) => {
   return (
     <div className='storeprofile'>
-      <h2>Your Store Stats</h2>
+      <h2>Your Donations</h2>
       <Switch>
         <Route exact path='/store/:id/edit' component={StoreInfoEdit} />
         <Route path='/store/:id' component={StoreInfo} />

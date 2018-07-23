@@ -8,7 +8,7 @@ configure({adapter: new Adapter()})
 test('<CompanyList /> component has a table', () => {
   const expected = 1
   const testgetAllStoreStats = jest.fn()
-  const wrapper = shallow(<CompanyList dispatch={testgetAllStoreStats} />)
+  const wrapper = shallow(<CompanyList getAllStoreStats={testgetAllStoreStats} />)
   const actual = wrapper.find('table').length
   expect(actual).toEqual(expected)
 })
