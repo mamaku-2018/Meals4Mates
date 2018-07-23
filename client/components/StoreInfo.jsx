@@ -19,17 +19,19 @@ class StoreInfo extends React.Component {
     const id = Number(this.props.match.params.id)
     return (
       <div>
-        <div className='StoreInfo'>
-          <Link to={`/store/${id}/edit`} className='button'>Edit</Link>
-        </div>
-        {this.props.userDetails &&
+        <div className='storeInfo'>
+          {this.props.userDetails &&
         <div>
-          <h2>{this.props.userDetails.name}</h2>
+          <h3>{this.props.userDetails.name}</h3>
+          <p>{this.props.userDetails.address}</p>
+          <p>{this.props.userDetails.suburb}</p>
+          <br />
           <p>{this.props.userDetails.owner}</p>
           <p>{this.props.userDetails.phone}</p>
           <p>{this.props.userDetails.email}</p>
-          <p>{this.props.userDetails.address}</p>
         </div>}
+          <Link to={`/store/${id}/edit`} className='button'>Edit</Link>
+        </div>
       </div>
     )
   }
