@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {clearError} from '../actions'
-import {Redirect} from 'react-router-dom'
+import {Redirect, Link} from 'react-router-dom'
 import {storeInfoEdit} from '../actions/auth/storeInfoEdit'
 import {getStoreInfo} from '../actions/getStoreInfo'
 import {isValidEmail} from '../lib/securityVal'
@@ -60,12 +60,12 @@ export class StoreInfoEdit extends React.Component {
   }
 
   render () {
+    const id = this.props.match.params.id
     const style = {
       color: 'red'
     }
     const info = this.props.userDetails
     if (this.state.redirect) {
-      const id = this.props.match.params.id
       return (
         <Redirect to={`/store/${id}`} />
       )
@@ -100,6 +100,7 @@ export class StoreInfoEdit extends React.Component {
               {this.state.badEmail && <span style={style}>{this.state.emailMessage}</span>}
               <br />
               <button className='button' onClick={this.handleSubmit}>SUBMIT</button>
+              <Link to={`/store/${id}`} className='button'>CANCEL</Link>
             </fieldset>
           </form>}
         </div>
