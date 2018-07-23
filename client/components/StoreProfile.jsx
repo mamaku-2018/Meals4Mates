@@ -2,7 +2,7 @@ import React from 'react'
 import {Route, Switch} from 'react-router-dom'
 import StoreInfo from './StoreInfo'
 import StoreBalance from './StoreBalance'
-import {StoreStats} from './StoreStats'
+import StoreStats from './StoreStats'
 import StoreInfoEdit from './StoreInfoEdit'
 import StoreRedemption from './StoreRedemption'
 

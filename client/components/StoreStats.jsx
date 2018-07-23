@@ -1,5 +1,5 @@
 import React from 'react'
-import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts'
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts'
 import {connect} from 'react-redux'
 import {getStoreStats} from '../actions/storeStats'
 
@@ -19,19 +19,20 @@ class StoreStats extends React.Component {
 
   render () {
     return (
-      <div className='stats' id='container'>
-        <h3>Stores Monthly Stats</h3>
+      <div className='stats'>
+        <h3>Donations by Month</h3>
         {this.props.storeStats &&
-        <BarChart width={700} height={500} data={this.props.storeStats} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-          <CartesianGrid strokeDasharray='4 4'/>
-          <XAxis dataKey='Category' label={{value: 'Category', fill: '#F7CE3E', offset: -10, position: 'insideBottom'}}/>
-          <YAxis label={{value: 'Monthly Donations & Redemptions', angle: -90, position: 'center', padding: 10, fill: '#1a2930'}}/>
-          <Tooltip offset={20}/>
-          <Legend algin='center' verticalAlign='bottom' height={300}/>
-          <Bar dataKey='donations' fill='#F7CE3E' legendType="square" barSize={40}/>
-          <Bar dataKey='redemptions' fill='#1a2930' legendType="square" barSize={40} />
-        </BarChart> }
-
+        <ResponsiveContainer width='100%' height={500} maxWidth={600}>
+          <BarChart data={this.props.storeStats} margin={{top: 5, right: 25, left: 5, bottom: 5}}>
+            <CartesianGrid strokeDasharray='4 4'/>
+            <XAxis dataKey='Month' label={{value: 'Month', fill: '#1a2930', offset: -10, position: 'insideBottom'}}/>
+            <YAxis label={{value: 'Amount ($)', angle: -90, position: 'center', padding: 10, fill: '#1a2930'}}/>
+            <Tooltip offset={20}/>
+            <Legend align='right' verticalAlign='bottom' height={80} width={200} left={20}/>
+            <Bar dataKey='donations' fill='#F7CE3E' legendType="square" barSize={40}/>
+            <Bar dataKey='redemptions' fill='#8e9b9f' legendType="square" barSize={40} />
+          </BarChart>
+        </ResponsiveContainer> }
       </div>
     )
   }
