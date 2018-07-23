@@ -18,7 +18,7 @@ export class Register extends React.Component {
       match: '',
       message: 'Passwords do not match',
       badEmail: false,
-      emailMessage: 'Not an email'
+      emailMessage: 'Email invalid'
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -49,7 +49,7 @@ export class Register extends React.Component {
   handleSubmit (e) {
     const {register} = this.props
     this.verifyEmail()
-    if (this.state.badEmail === true) {
+    if (this.state.badEmail === false) {
       const user = {
         owner: this.state.owner,
         email: this.state.email,
@@ -70,6 +70,10 @@ export class Register extends React.Component {
       )
     } else if (this.props.message === 'This email is already registered') {
       document.getElementById('message').innerHTML = this.props.message
+    }
+    const style = {
+      color: 'red',
+      display: 'inline'
     }
     return (
       <div className='register'>
@@ -101,7 +105,7 @@ export class Register extends React.Component {
               placeholder='Email..'
               onChange={this.handleChange}
               value={this.state.email} />
-            {this.state.badEmail && <span>{this.state.emailMessage}</span>}
+            {this.state.badEmail && <span style={style}>{this.state.emailMessage}</span>}
             <br />
             <label htmlFor='address'>Address: </label>
             <input
@@ -137,7 +141,7 @@ export class Register extends React.Component {
               placeholder='Confirm password..'
               onChange={this.handleChange}
               value={this.state.confirm} />
-            {!this.state.match && <span>{this.state.message}</span>}
+            {!this.state.match && <span style={style}>{this.state.message}</span>}
             <br />
             <button
               type='button'
