@@ -4,6 +4,7 @@ import {clearError} from '../actions'
 import {Redirect, Link} from 'react-router-dom'
 import {storeInfoEdit} from '../actions/auth/storeInfoEdit'
 import {getStoreInfo} from '../actions/getStoreInfo'
+import {isValidEmail} from '../lib/securityVal'
 
 export class StoreInfoEdit extends React.Component {
   constructor (props) {
@@ -16,11 +17,13 @@ export class StoreInfoEdit extends React.Component {
       address: '',
       suburb: '',
       city: '',
-      redirect: false
+      redirect: false,
+      badEmail: false,
+      emailMessage: 'Email invalid'
     }
 
-    this.submitHandler = this.submitHandler.bind(this)
-    this.changeHandler = this.changeHandler.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   componentDidMount () {
@@ -28,35 +31,41 @@ export class StoreInfoEdit extends React.Component {
     this.props.getStoreInfo(id)
   }
 
-  changeHandler (e) {
+  handleChange (e) {
+    const {name, value} = e.target
     this.setState({
-      [e.target.name]: e.target.value
+      [name]: value,
+      badEmail: isValidEmail(this.state.email)
     })
   }
 
-  submitHandler (e) {
+  handleSubmit (e) {
     const id = Number(this.props.match.params.id)
     const {storeInfoEdit} = this.props
-    const user = {
-      name: this.state.name || this.props.userDetails.name,
-      owner: this.state.owner || this.props.userDetails.owner,
-      phone: this.state.phone || this.props.userDetails.phone,
-      email: this.state.email || this.props.userDetails.email,
-      address: this.state.address || this.props.userDetails.address,
-      suburb: this.state.suburb || this.props.userDetails.suburb,
-      city: this.state.city || this.props.userDetails.city,
-      id: id
+    if (!this.state.badEmail && !this.state.weakPassword) {
+      const user = {
+        name: this.state.name || this.props.userDetails.name,
+        owner: this.state.owner || this.props.userDetails.owner,
+        phone: this.state.phone || this.props.userDetails.phone,
+        email: this.state.email || this.props.userDetails.email,
+        address: this.state.address || this.props.userDetails.address,
+        suburb: this.state.suburb || this.props.userDetails.suburb,
+        city: this.state.city || this.props.userDetails.city,
+        id: id
+      }
+      storeInfoEdit(user)
+      this.setState({redirect: true})
     }
-    storeInfoEdit(user)
-    this.setState({redirect: true})
     e.preventDefault()
   }
 
   render () {
     const id = this.props.match.params.id
+    const style = {
+      color: 'red'
+    }
     const info = this.props.userDetails
     if (this.state.redirect) {
-      const id = this.props.match.params.id
       return (
         <Redirect to={`/store/${id}`} />
       )
@@ -69,27 +78,28 @@ export class StoreInfoEdit extends React.Component {
             <fieldset>
               <h2 className='StoreInfo'>Edit Store Details</h2>
               <label htmlFor='name' >Name:</label>
-              <input placeholder={info.name} value={this.state.name} onChange={this.changeHandler} name='name'/>
+              <input placeholder={info.name} value={this.state.name} onChange={this.handleChange} name='name'/>
               <br />
               <label htmlFor='owner' >Owner:</label>
-              <input placeholder={info.owner} value={this.state.owner} onChange={this.changeHandler} name='owner'/>
+              <input placeholder={info.owner} value={this.state.owner} onChange={this.handleChange} name='owner'/>
               <br />
               <label htmlFor='address'>Street:</label>
-              <input placeholder={info.address} value={this.state.address} onChange={this.changeHandler} name='address'/>
+              <input placeholder={info.address} value={this.state.address} onChange={this.handleChange} name='address'/>
               <br />
               <label htmlFor='suburb'>Suburb:</label>
-              <input placeholder={info.suburb} value={this.state.suburb} onChange={this.changeHandler} name='suburb'/>
+              <input placeholder={info.suburb} value={this.state.suburb} onChange={this.handleChange} name='suburb'/>
               <br />
               <label htmlFor='city'>City:</label>
-              <input placeholder={info.city} value={this.state.city} onChange={this.changeHandler} name='city'/>
+              <input placeholder={info.city} value={this.state.city} onChange={this.handleChange} name='city'/>
               <br />
               <label htmlFor='phone'>Phone Number:</label>
-              <input placeholder={info.phone} value={this.state.phone} onChange={this.changeHandler} name='phone'/>
+              <input placeholder={info.phone} value={this.state.phone} onChange={this.handleChange} name='phone'/>
               <br />
               <label htmlFor='email'>Email:</label>
-              <input placeholder={info.email} value={this.state.email} onChange={this.changeHandler} name='email'/>
+              <input placeholder={info.email} value={this.state.email} onChange={this.handleChange} name='email'/>
+              {this.state.badEmail && <span style={style}>{this.state.emailMessage}</span>}
               <br />
-              <button className='button' onClick={this.submitHandler}>SUBMIT</button>
+              <button className='button' onClick={this.handleSubmit}>SUBMIT</button>
               <Link to={`/store/${id}`} className='button'>CANCEL</Link>
             </fieldset>
           </form>}
