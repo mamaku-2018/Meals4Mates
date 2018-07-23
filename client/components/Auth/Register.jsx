@@ -11,7 +11,9 @@ class Register extends React.Component {
       email: '',
       owner: '',
       store: '',
-      address: '',
+      street: '',
+      suburb: '',
+      city: '',
       phone: '',
       password: '',
       confirm: '',
@@ -49,12 +51,14 @@ class Register extends React.Component {
   handleSubmit (e) {
     const {register} = this.props
     this.verifyEmail()
-    if (this.state.badEmail === true) {
+    if (this.state.badEmail === false) {
       const user = {
         owner: this.state.owner,
         email: this.state.email,
         name: this.state.store,
-        address: this.state.address,
+        street: this.state.street,
+        suburb: this.state.suburb,
+        city: this.state.city,
         phone: this.state.phone,
         password: this.state.password
       }
@@ -103,13 +107,29 @@ class Register extends React.Component {
               value={this.state.email} />
             {this.state.badEmail && <span>{this.state.emailMessage}</span>}
             <br />
-            <label htmlFor='address'>Address: </label>
+            <label htmlFor='street'>Street: </label>
             <input
               type='text'
-              name='address' id='address'
-              placeholder='Address..'
+              name='street' id='street'
+              placeholder='Street..'
               onChange={this.handleChange}
-              value={this.state.address} />
+              value={this.state.street} />
+            <br />
+            <label htmlFor='suburb'>Suburb: </label>
+            <input
+              type='text'
+              name='suburb' id='suburb'
+              placeholder='Suburb..'
+              onChange={this.handleChange}
+              value={this.state.suburb} />
+            <br />
+            <label htmlFor='city'>City: </label>
+            <input
+              type='text'
+              name='city' id='city'
+              placeholder='City..'
+              onChange={this.handleChange}
+              value={this.state.city} />
             <br />
             <label htmlFor='phone'>Phone no: </label>
             <input
