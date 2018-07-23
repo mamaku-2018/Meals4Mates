@@ -49,7 +49,7 @@ class Register extends React.Component {
   }
 
   isWeakPassword () {
-    const symbols = new RegExp('^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})')
+    const symbols = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})')
     return !symbols.test(this.state.password)
   }
 
@@ -80,8 +80,11 @@ class Register extends React.Component {
       document.getElementById('message').innerHTML = this.props.message
     }
     const style = {
-      color: 'red',
-      display: 'inline'
+      color: 'red'
+    }
+    const greyed = {
+      color: '#8e9b9f',
+      fontSize: 10
     }
     return (
       <div className='register'>
@@ -148,7 +151,7 @@ class Register extends React.Component {
               onChange={this.handleChange}
               value={this.state.phone} />
             <br />
-            <label htmlFor='password'>Password: </label>
+            <label htmlFor='password'>Password: &ensp;<span style={greyed}> (Min 8 char with 1 uppercase, 1 lowercase, 1 num, 1 special char)</span></label>
             <input
               type='password'
               name='password'
