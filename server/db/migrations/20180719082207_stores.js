@@ -7,7 +7,7 @@ exports.up = (knex, Promise) => {
     table.boolean('admin')
     table.string('address')
     table.string('email')
-    table.string('hash')
+    table.binary('hash')
     table.string('owner')
     table.decimal('lat')
     table.decimal('lng')
