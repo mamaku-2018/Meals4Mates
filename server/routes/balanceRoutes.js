@@ -35,8 +35,8 @@ router.get('/:id', (req, res) => {
       db.getStoreTotalRedemption(id)
         .then(redemptions => {
           const balance = {
-            donations: Number(donations.donation),
-            redemptions: Number(redemptions.redemption)
+            donations: donations.donation,
+            redemptions: redemptions.redemption
           }
           res.json([balance])
         })
