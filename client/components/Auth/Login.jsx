@@ -31,7 +31,7 @@ class Login extends React.Component {
       password: this.state.password
     }
     const goStore = (id) => {
-      if (id === 5) {
+      if (id === 1) {
         return this.setState({
           admin: true
         })
