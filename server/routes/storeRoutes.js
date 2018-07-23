@@ -33,12 +33,19 @@ router.put('/:id/edit', (req, res) => {
     lat: req.body.lat,
     lng: req.body.lng
   }
-  db.editStoreDetails(store)
-    .then(() => { res.status(200) })
-    .catch(err => {
-    // eslint-disable-next-line
-    console.log(err)
-      res.status(500).send('Unable to edit store details')
+  db.emailInUse(store)
+    .then(exists => {
+      if (exists) {
+        return res.status(400).send({message: 'Email already in use'})
+      } else {
+        db.editStoreDetails(store)
+          .then(() => { res.status(200) })
+          .catch(err => {
+          // eslint-disable-next-line
+          console.log(err)
+            res.status(500).send('Unable to edit store details')
+          })
+      }
     })
 })
 
