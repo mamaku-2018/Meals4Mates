@@ -11,7 +11,7 @@ class Register extends React.Component {
       email: '',
       owner: '',
       store: '',
-      street: '',
+      address: '',
       suburb: '',
       city: '',
       phone: '',
@@ -60,7 +60,7 @@ class Register extends React.Component {
         owner: this.state.owner,
         email: this.state.email,
         name: this.state.store,
-        street: this.state.street,
+        address: this.state.address,
         suburb: this.state.suburb,
         city: this.state.city,
         phone: this.state.phone,
@@ -118,13 +118,13 @@ class Register extends React.Component {
               value={this.state.email} />
             {this.state.badEmail && <span style={style}>{this.state.emailMessage}</span>}
             <br />
-            <label htmlFor='street'>Street: </label>
+            <label htmlFor='address'>Street: </label>
             <input
               type='text'
-              name='street' id='street'
+              name='address' id='address'
               placeholder='Street..'
               onChange={this.handleChange}
-              value={this.state.street} />
+              value={this.state.address} />
             <br />
             <label htmlFor='suburb'>Suburb: </label>
             <input
