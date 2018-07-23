@@ -16,6 +16,8 @@ test('getStoreDetails returns details of the specified store', () => {
   const id = 1
   const expected = ['id',
     'name',
+    'suburb',
+    'city',
     'admin',
     'address',
     'email',
@@ -25,7 +27,7 @@ test('getStoreDetails returns details of the specified store', () => {
     'lat',
     'lng',
     'image_url',
-    'created_at'] 
+    'created_at']
   return db.getStoreDetails(id, testDb)
     .then(details => {
       expect(Object.keys(details)).toEqual(expected)
