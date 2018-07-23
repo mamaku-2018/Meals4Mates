@@ -1,9 +1,8 @@
 import {showError, showSuccess} from '../'
 import request from 'superagent'
 import Geocode from 'react-geocode'
-import config from '../../../config.json'
 
-Geocode.setApiKey(`${config.GOOGLE_API_KEY}`)
+Geocode.setApiKey(process.env.GOOGLE_API_KEY)
 Geocode.enableDebug()
 
 export function storeInfoEdit (user) {
