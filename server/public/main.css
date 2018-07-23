@@ -135,14 +135,14 @@ label {
 .logo {
   position: absolute;
   top: 20%;
-  left: 0.5rem;
+  left: 0.8rem;
   width: 60%; 
 }
 
 .navbar-menu {
   position: absolute;
   padding: 0.7rem;
-  right: 0;
+  right: 0.6rem;
   display: inline;
   background-color: #1a2930;
 }
@@ -182,26 +182,27 @@ label {
 }
 
 .banner img {
-  width: 30%;
-  margin-top: 1rem;
+  width: 20%;
+  margin-top: 2rem;
+  max-width: 5rem;
 }
 
 /* LOCATIONS */
 
 .locations {
-  height: 400px;
+  height: 500px;
   width: 100%;
 }
 
 .map { 
-  height: 400px; 
+  height: 500px; 
   width: 100vw;
   position: relative;
   overflow: auto;
 }
 
 .leaflet-container { 
-  height: 400px; 
+  height: 500px; 
   width: 100vw;
   position: relative;
   overflow: auto;

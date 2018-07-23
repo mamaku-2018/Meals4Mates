@@ -8,7 +8,7 @@ const Admin = () => {
     <div className='Admin'>
      
       <div className='admin-top'>
-        <h2>Store Stats</h2>
+        <h2>Store Statistics</h2>
         <TotalStats />
         <Locations />
       </div>
