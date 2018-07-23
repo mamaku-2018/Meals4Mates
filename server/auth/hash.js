@@ -6,7 +6,7 @@ module.exports = {
 }
 
 function generate (password) {
-  const passwordBuffer = Buffer.from(password, 'utf8')
+  const passwordBuffer = Buffer.from(password)
   return sodium.crypto_pwhash_str(
     passwordBuffer,
     sodium.crypto_pwhash_OPSLIMIT_INTERACTIVE,
@@ -15,6 +15,6 @@ function generate (password) {
 }
 
 function verify (hash, password) {
-  const passwordBuffer = Buffer.from(password, 'utf8')
+  const passwordBuffer = Buffer.from(password)
   return sodium.crypto_pwhash_str_verify(hash, passwordBuffer)
 }
