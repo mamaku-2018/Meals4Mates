@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {login} from '../../actions/auth/login'
 import {clearError} from '../../actions'
-import {Redirect} from 'react-router-dom'
+import {Redirect, Link} from 'react-router-dom'
 
 class Login extends React.Component {
   constructor (props) {
@@ -10,7 +10,9 @@ class Login extends React.Component {
     this.state = {
       email: '',
       password: '',
-      redirect: false
+      redirect: false,
+      admin: false,
+      id: 0
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -24,51 +26,89 @@ class Login extends React.Component {
   }
 
   handleSubmit (e) {
-    const {login} = this.props
     const user = {
       email: this.state.email,
       password: this.state.password
     }
-    login(user)
-    this.setState({redirect: true})
+    const goStore = (id) => {
+      if (id === 5) {
+        return this.setState({
+          admin: true
+        })
+      } else if (id) {
+        this.setState({
+          redirect: true,
+          id: id
+        })
+      }
+    }
+    this.props.login(user, goStore)
     e.preventDefault()
   }
 
   render () {
-    if (this.state.redirect) {
+    if (this.state.admin === true) {
       return (
-        <Redirect to='/' />
+        <Redirect to={'/admin'} />
       )
-    } else {
+    } else if (this.state.redirect === true) {
       return (
-        <div>
-          <form>
-            <fieldset>
-              <legend>Login</legend>
-              <label htmlFor='email'>Email: </label>
-              <input type='text' name='email' id='email' placeholder='Email'
-                onChange={this.handleChange} value={this.state.email} />
-              <br />
-              <label htmlFor='password'>Password: </label>
-              <input type='password' name='password' placeholder='password'
-                onChange={this.handleChange} value={this.state.password} />
-              <br />
-              <button type='button' className='button' onClick={this.handleSubmit}>Login</button>
-            </fieldset>
-          </form>
-        </div>
+        <Redirect to={`/store/${this.state.id}`} />
       )
+    } else if (this.props.message ===
+       'Username and password do not match an existing user') {
+      document.getElementById('message').innerHTML =
+      this.props.message
     }
+    return (
+      <div className='login'>
+        <form>
+          <div id='message'></div>
+          <fieldset>
+            <h2>Login</h2>
+            <label htmlFor='email'>Email: </label>
+            <input type='text'
+              name='email'
+              id='email'
+              placeholder='Email...'
+              onChange={this.handleChange}
+              value={this.state.email} />
+            <br />
+            <label htmlFor='password'>Password: </label>
+            <input
+              type='password'
+              name='password'
+              placeholder='Password...'
+              onChange={this.handleChange}
+              value={this.state.password} />
+            <br />
+            <button
+              type='button'
+              className='button'
+              onClick={this.handleSubmit}>Login
+            </button>
+            <Link to='/' type='button' className='button' >Cancel</Link>
+          </fieldset>
+        </form>
+      </div>
+    )
   }
 }
 
 function mapDispatchToProps (dispatch) {
   return {
-    login: (user) => {
+    login: (user, goStore) => {
       dispatch(clearError())
-      return dispatch(login(user))
+      return dispatch(login(user, goStore))
     }
   }
 }
 
-export default connect(null, mapDispatchToProps)(Login)
+function mapStateToProps (state) {
+  return {
+    message: state.errorMessage,
+    user: state.userDetails
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

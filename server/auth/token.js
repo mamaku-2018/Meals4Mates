@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const verifyJwt = require('express-jwt')
 
-const db = require('../db/users')
+const db = require('../db/functions/store')
 
 module.exports = {
   issue,
@@ -9,9 +9,9 @@ module.exports = {
 }
 
 function issue (req, res) {
-  db.getUserByEmail(req.body.email)
-    .then(user => {
-      const token = createToken(user, process.env.JWT_SECRET)
+  db.getStoreByEmail(req.body.email)
+    .then(store => {
+      const token = createToken(store, process.env.JWT_SECRET)
       res.json({
         message: 'Authentication successful.',
         token
@@ -19,9 +19,9 @@ function issue (req, res) {
     })
 }
 
-function createToken (user, secret) {
+function createToken (store, secret) {
   return jwt.sign({
-    id: user.id
+    id: store.id
   }, secret, {
     expiresIn: '1d'
   })

@@ -4,3 +4,6 @@ bundle*
 .DS_Store
 *.sqlite*
 .env
+sodium*
+yarn-error.*
+config.json
