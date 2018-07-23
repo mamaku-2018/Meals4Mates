@@ -7,7 +7,6 @@ export class CompanyList extends React.Component {
     this.props.getAllStoreStats()
   }
 
-
   render () {
     return (
       <div className='companyList'>

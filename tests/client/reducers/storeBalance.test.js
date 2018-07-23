@@ -1,23 +1,24 @@
 import {
   REQUEST_BALANCE,
   RECEIVE_BALANCE,
-  getStoreBalance
+  requestBalance,
+  receiveBalance
 } from '../../../client/actions/storeBalance'
 
-test('storeBalance returns true during REQUEST_USER_REGISTRATION', () => {
-  const currentState = false
+test('requestBalance returns correct type', () => {
+  const currentState = null
   const action = {
     type: REQUEST_BALANCE
   }
-  const newState = getStoreBalance(currentState, action)
-  expect(newState).toEqual(null)
+  const newState = requestBalance(currentState, action)
+  expect(newState).toEqual({"type": "REQUEST_BALANCE"})
 })
 
-test('storeBalance returns false during RECEIVE_USER_REGISTRATION', () => {
+test('storeBalance returns false during RECEIVE_BALANCE', () => {
   const currentState = true
   const action = {
     type: RECEIVE_BALANCE
   }
-  const newState = getStoreBalance(currentState, action)
-  expect(newState).toEqual(false)
+  const newState = receiveBalance(currentState, action)
+  expect(newState).toEqual({"balance": true, "type": "RECEIVE_BALANCE"})
 })
