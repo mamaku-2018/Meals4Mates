@@ -41,13 +41,16 @@ export const receiveUserDetails = (user) => {
 export function register (user) {
   return dispatch => {
     dispatch(requestUserRegistration())
-    return getLatLng(user.address)
+    const searchAddress = user.street + ', ' + user.suburb + ', ' + user.city
+    return getLatLng(searchAddress)
       .then(latLng => {
         const updatedUser = {
           owner: user.owner,
           email: user.email,
           name: user.name,
-          address: user.address,
+          street: user.street,
+          suburb: user.suburb,
+          city: user.city,
           lat: latLng.lat,
           lng: latLng.lng,
           phone: user.phone,
@@ -98,7 +101,7 @@ export function getLatLng (userAddress) {
     },
     error => {
       // eslint-disable-next-line
-      console.error(error)
+      console.error('error: ', error)
     }
   )
 }
