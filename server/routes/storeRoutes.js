@@ -22,12 +22,16 @@ router.get('/:id', (req, res) => {
 
 router.put('/:id/edit', (req, res) => {
   const store = {
-    id: req.body.id,
+    id: req.params.id,
     name: req.body.name,
     address: req.body.address,
+    suburb: req.body.suburb,
+    city: req.body.city,
     phone: req.body.phone,
     owner: req.body.owner,
-    email: req.body.email
+    email: req.body.email,
+    lat: req.body.lat,
+    lng: req.body.lng
   }
   db.editStoreDetails(store)
     .then(() => { res.status(200) })
