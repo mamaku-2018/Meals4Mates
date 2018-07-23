@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {clearError} from '../actions'
-import {Redirect} from 'react-router-dom'
+import {Redirect, Link} from 'react-router-dom'
 import {storeInfoEdit} from '../actions/auth/storeInfoEdit'
 import {getStoreInfo} from '../actions/getStoreInfo'
 
@@ -53,6 +53,7 @@ export class StoreInfoEdit extends React.Component {
   }
 
   render () {
+    const id = this.props.match.params.id
     const info = this.props.userDetails
     if (this.state.redirect) {
       const id = this.props.match.params.id
@@ -89,6 +90,7 @@ export class StoreInfoEdit extends React.Component {
               <input placeholder={info.email} value={this.state.email} onChange={this.changeHandler} name='email'/>
               <br />
               <button className='button' onClick={this.submitHandler}>SUBMIT</button>
+              <Link to={`/store/${id}`} className='button'>CANCEL</Link>
             </fieldset>
           </form>}
         </div>
