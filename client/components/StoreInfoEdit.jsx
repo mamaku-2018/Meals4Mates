@@ -81,7 +81,7 @@ export class StoreInfoEdit extends React.Component {
               <input placeholder={info.name} value={this.state.name} onChange={this.handleChange} name='name'/>
               <br />
               <label htmlFor='owner' >Owner:</label>
-              <input placeholder={info.owner} value={this.state.owner} onChange={this.handleChange} name='owner'/>
+              <input placeholder={info.owner} value={this.state.owner || info.owner} onChange={this.handleChange} name='owner'/>
               <br />
               <label htmlFor='address'>Street:</label>
               <input placeholder={info.address} value={this.state.address} onChange={this.handleChange} name='address'/>
