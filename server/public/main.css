@@ -19,7 +19,7 @@ html, body {
 h1, h2, h3 {
   font-weight: 900;
   color: #F7CE3E;
-  margin: 2.5rem 0 1rem 0;
+  margin: 2.5rem 0 2.5rem 0;
   padding-top: 1rem;
 }
 
@@ -385,21 +385,51 @@ fieldset {
   object-fit: cover;
 }
 
-/* ADMIN COMPANY LIST */ 
+/* ADMIN */ 
+
+.TotalStats {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
 
 .companyList {
   position: relative;
-  padding: 0;
-  margin-top: 1rem;
+  padding: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 0.8rem;
+  max-width: 830px;
 }
 
-.companyList table {
-  margin: 0 auto;
-}
-.companyList table tr td, .companyList table tr th {
-  padding: 5px;
+.companyList td, .companyList th {
+  padding: 10px 0 10px 0;
   text-align: center;
 }
+
+.companyList th {
+  color: #e4e2e2;
+}
+
+.store-name {
+  text-align: left;
+}
+
+.top-row {
+  border-bottom: 2px solid #8e9b9f;
+}
+.donate-circle, .redeem-circle {
+  max-width: 280px;
+  max-height: 280px;
+}
+.redeem-circle {
+  background-color: #1a2930;
+}
+
+.redeem-circle p, .redeem-circle span {
+  color: #e4e2e2;
+}
+
+
 
 /* FOOTER */
 
@@ -408,7 +438,7 @@ fieldset {
   margin: 0;
   background-color: #1a2930;
   color: #e4e2e2;
-  padding: 2rem 1.5rem 3rem;
+  padding: 2rem;
 }
 
 .footer h4 {
@@ -469,10 +499,30 @@ fieldset {
     margin: 4rem 4rem 4rem 2rem;
     width: 30%;
   }
+  .TotalStats {
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
   .total-balance {
+    margin: auto;
     margin-top: 2rem;
     margin-bottom: 3rem;
-    margin-right: 1rem;
+  }
+  .companyList {
+    width: 90%;
+    position: relative;
+    padding: 1rem;
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+  .companyList td, .companyList th {
+    padding: 10px 2px 10px 2px;
+    text-align: center;
   }
 }
 
@@ -501,6 +551,24 @@ fieldset {
   .donations h2 {
     margin-top: 3rem;
   }
+  .TotalStats {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    margin-bottom: 3rem;
+  }
+  .total-balance {
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+  .companyList {
+    font-size: 1.2rem;
+  }
+  .companyList td, .companyList th {
+    padding: 10px 5px 10px 5px;
+  }
 }
 
 @media only screen and (min-width: 750px) {
@@ -521,6 +589,16 @@ fieldset {
     bottom: 0;
     text-align: left;
   } 
+  .companyList {
+    width: 80%;
+    margin: auto;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    font-size: 1.3rem;
+  }
+  .companyList td, .companyList th {
+    padding: 15px;
+  }
 }
 
 @media only screen and (min-width: 900px) {
@@ -576,7 +654,10 @@ fieldset {
   .footer-text {
     margin-left: 5%;
   }
-
+  .companyList {
+    width: 75%;
+    font-size: 1.5rem;
+  }
 }
 
 @media only screen and (min-width: 1088px) {
@@ -627,12 +708,12 @@ fieldset {
     height: 380px;
   }
   .total-balance p {
-    padding-top: 7rem;
-    font-size: 2rem;
-    line-height: 3rem;
+    padding-top: 6rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
   .total-balance span {
-    font-size: 5rem;
+    font-size: 3rem;
   }
   .store-balance-buttons {
     margin: auto;
@@ -648,6 +729,19 @@ fieldset {
     position: absolute;
     bottom: 0;
   }
+  .TotalStats {
+    text-align: center;
+    width: 80%;
+    margin-bottom: 3rem;
+  }
+  .total-balance {
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+  .donate-circle p, .redeem-circle p {
+    padding-top: 5rem;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -662,6 +756,43 @@ fieldset {
   .donatepic img {
     width: 100%;
   }
+  .companyList {
+    width: 70%;
+    font-size: 1.4rem;
+  }
+  .Admin {
+    position: relative;
+    margin-top: 0;
+  }
+  .admin-top {
+    display: flex;
+    height: 814px;
+    background-color: #8e9b9f;
+    border-bottom: 14px solid #e4e2e2;
+  }  
+  .Admin h2 {
+    position: absolute;
+    width: 40%;
+    margin: auto;
+    padding-top: 2rem;
+  }
+  .TotalStats {
+    display: block;
+    width: 40%;
+    margin-bottom: 1rem;
+    padding: 5rem 5rem 0 4rem;
+  }
+  .donate-circle p, .redeem-circle p {
+    padding-top: 4rem;
+    font-size: 1.4rem;
+  }
+  .locations {
+    width: 60%;
+    height: 800px;
+  }
+  .map, .leaflet-container {
+    height: 800px;
+  }
 }  
 
 @media only screen and (min-width: 1400px) {
@@ -670,5 +801,8 @@ fieldset {
   }
   .logo {
     width: 28%;
+  }
+  .navbar-menu, .navbar-brand {
+    padding-top: 2rem;
   }
 }  
