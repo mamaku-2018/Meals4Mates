@@ -22,7 +22,7 @@ function addNewStore (newStore, db = knex) {
       admin: 0,
       owner: newStore.owner,
       email: newStore.email,
-      address: newStore.street,
+      address: newStore.address,
       suburb: newStore.suburb,
       city: newStore.city,
       phone: newStore.phone,
@@ -72,8 +72,12 @@ function editStoreDetails (store, db = knex) {
     .update({
       name: store.name,
       address: store.address,
+      suburb: store.suburb,
+      city: store.city,
       phone: store.phone,
       owner: store.owner,
-      email: store.email
+      email: store.email,
+      lat: store.lat,
+      lng: store.lng
     })
 }

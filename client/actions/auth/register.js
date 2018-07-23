@@ -40,14 +40,14 @@ export const receiveUserDetails = (user) => {
 export function register (user) {
   return dispatch => {
     dispatch(requestUserRegistration())
-    const searchAddress = user.street + ', ' + user.suburb + ', ' + user.city
+    const searchAddress = user.address + ', ' + user.suburb + ', ' + user.city
     return getLatLng(searchAddress)
       .then(latLng => {
         const updatedUser = {
           owner: user.owner,
           email: user.email,
           name: user.name,
-          street: user.street,
+          address: user.address,
           suburb: user.suburb,
           city: user.city,
           lat: latLng.lat,

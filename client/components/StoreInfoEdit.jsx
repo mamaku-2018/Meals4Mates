@@ -14,6 +14,8 @@ export class StoreInfoEdit extends React.Component {
       phone: '',
       email: '',
       address: '',
+      suburb: '',
+      city: '',
       redirect: false
     }
 
@@ -33,7 +35,7 @@ export class StoreInfoEdit extends React.Component {
   }
 
   submitHandler (e) {
-    const id = this.props.match.params.id
+    const id = Number(this.props.match.params.id)
     const {storeInfoEdit} = this.props
     const user = {
       name: this.state.name || this.props.userDetails.name,
@@ -41,6 +43,8 @@ export class StoreInfoEdit extends React.Component {
       phone: this.state.phone || this.props.userDetails.phone,
       email: this.state.email || this.props.userDetails.email,
       address: this.state.address || this.props.userDetails.address,
+      suburb: this.state.suburb || this.props.userDetails.suburb,
+      city: this.state.city || this.props.userDetails.city,
       id: id
     }
     storeInfoEdit(user)
@@ -69,8 +73,14 @@ export class StoreInfoEdit extends React.Component {
               <label htmlFor='owner' >Owner:</label>
               <input placeholder={info.owner} value={this.state.owner} onChange={this.changeHandler} name='owner'/>
               <br />
-              <label htmlFor='Address'>Address:</label>
+              <label htmlFor='address'>Street:</label>
               <input placeholder={info.address} value={this.state.address} onChange={this.changeHandler} name='address'/>
+              <br />
+              <label htmlFor='suburb'>Suburb:</label>
+              <input placeholder={info.suburb} value={this.state.suburb} onChange={this.changeHandler} name='suburb'/>
+              <br />
+              <label htmlFor='city'>City:</label>
+              <input placeholder={info.city} value={this.state.city} onChange={this.changeHandler} name='city'/>
               <br />
               <label htmlFor='phone'>Phone Number:</label>
               <input placeholder={info.phone} value={this.state.phone} onChange={this.changeHandler} name='phone'/>
