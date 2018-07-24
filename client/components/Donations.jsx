@@ -65,7 +65,7 @@ export class Donations extends React.Component {
 
   render () {
     const id = Number(this.props.match.params.id)
-    if (this.state.redirect) {   
+    if (this.state.redirect) {
       return (
         <Redirect to={`/store/${id}`} />
       )
