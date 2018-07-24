@@ -18,7 +18,6 @@ router.get('/', (req, res) => {
 })
 
 router.get('/donationRedemption', (req, res) => {
-  const id = Number(req.params.id)
   db.getAllDonationsRedemptions()
     .then((money) => {
       res.json(money)
@@ -52,7 +51,7 @@ router.put('/:id/edit', (req, res) => {
   db.emailInUse(store)
     .then(exists => {
       if (exists) {
-        return res.status(400).send({message: 'Email already in use'})
+        return res.status(200).send({message: 'Email already in use'})
       } else {
         db.editStoreDetails(store)
           .then(() => { res.status(200).send({message: 'Your details have been successfully updated'}) })
