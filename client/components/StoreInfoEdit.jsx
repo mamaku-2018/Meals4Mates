@@ -4,6 +4,7 @@ import {clearError} from '../actions'
 import {Redirect, Link} from 'react-router-dom'
 import {storeInfoEdit} from '../actions/auth/storeInfoEdit'
 import {getStoreInfo} from '../actions/getStoreInfo'
+import {isValidEmail} from '../lib/securityVal'
 
 export class StoreInfoEdit extends React.Component {
   constructor (props) {
@@ -16,6 +17,7 @@ export class StoreInfoEdit extends React.Component {
       address: '',
       suburb: '',
       city: '',
+      redirect: false,
       badEmail: false,
       emailMessage: 'Email invalid'
     }
@@ -30,8 +32,10 @@ export class StoreInfoEdit extends React.Component {
   }
 
   handleChange (e) {
+    const {name, value} = e.target
     this.setState({
-      [e.target.name]: e.target.value
+      [name]: value,
+      badEmail: isValidEmail(this.state.email)
     })
   }
 
@@ -50,9 +54,8 @@ export class StoreInfoEdit extends React.Component {
         id: id
       }
       storeInfoEdit(user)
+      this.setState({redirect: true})
     }
-    storeInfoEdit(user)
-    this.setState({redirect: true})
     e.preventDefault()
   }
 
@@ -62,7 +65,7 @@ export class StoreInfoEdit extends React.Component {
       color: 'red'
     }
     const info = this.props.userDetails
-    if (this.props.message === 'Your details have been successfully updated') {
+    if (this.state.redirect) {
       return (
         <Redirect to={`/store/${id}`} />
       )
@@ -75,7 +78,7 @@ export class StoreInfoEdit extends React.Component {
             <fieldset>
               <h2 className='StoreInfo'>Edit Store Details</h2>
               <label htmlFor='name' >Name:</label>
-              <input value={info.name} onChange={this.handleChange} name='name'/>
+              <input placeholder={info.name} value={this.state.name} onChange={this.handleChange} name='name'/>
               <br />
               <label htmlFor='owner' >Owner:</label>
               <input placeholder={info.owner} value={this.state.owner} onChange={this.handleChange} name='owner'/>
@@ -94,6 +97,7 @@ export class StoreInfoEdit extends React.Component {
               <br />
               <label htmlFor='email'>Email:</label>
               <input placeholder={info.email} value={this.state.email} onChange={this.handleChange} name='email'/>
+              {this.state.badEmail && <span style={style}>{this.state.emailMessage}</span>}
               <br />
               <button className='button' onClick={this.handleSubmit}>SUBMIT</button>
               <Link to={`/store/${id}`} className='button'>CANCEL</Link>
@@ -118,9 +122,7 @@ function mapDispatchToProps (dispatch) {
 }
 const mapStateToProps = (state) => {
   return {
-    userDetails: state.userDetails,
-    message: state.errorMessage
+    userDetails: state.userDetails
   }
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(StoreInfoEdit)
