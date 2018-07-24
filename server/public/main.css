@@ -528,6 +528,15 @@ color: #1a2930;
   color: #e4e2e2;
 }
 
+/* WAIT INDICATOR*/
+
+.waitIndicator {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100px;
+}
+
 /* MEDIA QUERIES */ 
 
 @media only screen and (min-width: 350px) {
