@@ -32,7 +32,7 @@ class AdminStats extends React.Component {
     let donationSum = 0
     let redemptionSum = 0
 
-    this.props.storeStats.forEach(t => {
+    this.props.adminStats.forEach(t => {
       if (t.date.substring(0, 7) === date.substring(0, 7)) {
         donationSum += Number(t.donation)
         redemptionSum += Number(t.redemption)
@@ -50,9 +50,9 @@ class AdminStats extends React.Component {
   }
 
   getTransactions() {
-    this.props.storeStats.forEach(t => {
-      if (!this.isDonationDateSummedUp(t.date)) {
-        this.sumUpDonationDate(t.date)
+    this.props.adminStats.forEach(t => {
+      if (!this.isTransactionDateSummedUp(t.date)) {
+        this.sumUpTransactionDate(t.date)
       }
     })
 
@@ -60,8 +60,8 @@ class AdminStats extends React.Component {
     this.state.summedUpDates.forEach((d, i) => {
       obj[i] = {
         date: d,
-        donations: this.state.donation[i],
-        redemptions: this.state.redemption[i]
+        donations: this.state.donations[i],
+        redemptions: this.state.redemptions[i]
       }
     })
     const transactions = Object.values(obj)
@@ -82,8 +82,8 @@ class AdminStats extends React.Component {
               <YAxis label={{ value: 'Amount ($)', angle: -90, position: 'center', padding: 10, fill: '#1a2930' }} />
               <Tooltip offset={20} />
               <Legend align='right' verticalAlign='bottom' height={80} width={200} left={20} />
-              <Bar dataKey="donation" fill='#F7CE3E' legendType="square" barSize={40} />
-              <Bar dataKey="redemption" fill='#8e9b9f' legendType="square" barSize={40} />
+              <Bar dataKey="donations" fill='#F7CE3E' legendType="square" barSize={40} />
+              <Bar dataKey="redemptions" fill='#8e9b9f' legendType="square" barSize={40} />
             </BarChart>
           </ResponsiveContainer>}
       </div>
