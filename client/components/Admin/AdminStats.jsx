@@ -31,8 +31,8 @@ class AdminStats extends React.Component {
               <YAxis label={{ value: 'Amount ($)', angle: -90, position: 'center', padding: 10, fill: '#1a2930' }} />
               <Tooltip offset={20} />
               <Legend align='right' verticalAlign='bottom' height={80} width={200} left={20} />
-              <Bar dataKey="donations" fill='#F7CE3E' legendType="square" barSize={40} />
-              <Bar dataKey="redemptions" fill='#8e9b9f' legendType="square" barSize={40} />
+              <Bar dataKey="donation" fill='#F7CE3E' legendType="square" barSize={40} />
+              <Bar dataKey="redemption" fill='#8e9b9f' legendType="square" barSize={40} />
             </BarChart>
           </ResponsiveContainer>}
       </div>
