@@ -8,6 +8,7 @@ import Footer from './Footer'
 import StoreProfile from './StoreProfile'
 import Donations from './Donations'
 import Admin from './Admin'
+import StoreStats from './StoreStats'
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route exact path='/store/:id/donate' component={Donations} />
           <Route path='/store/:id' component={StoreProfile} />
         </Switch>
+        <Route exact path='/store/:id' component={StoreStats} />
         <Route path='/' component={Footer} />
       </div>
     </Router>

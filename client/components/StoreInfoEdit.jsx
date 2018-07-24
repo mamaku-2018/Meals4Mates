@@ -16,7 +16,8 @@ export class StoreInfoEdit extends React.Component {
       address: '',
       suburb: '',
       city: '',
-      redirect: false
+      badEmail: false,
+      emailMessage: 'Email invalid'
     }
 
     this.submitHandler = this.submitHandler.bind(this)
@@ -37,15 +38,18 @@ export class StoreInfoEdit extends React.Component {
   submitHandler (e) {
     const id = Number(this.props.match.params.id)
     const {storeInfoEdit} = this.props
-    const user = {
-      name: this.state.name || this.props.userDetails.name,
-      owner: this.state.owner || this.props.userDetails.owner,
-      phone: this.state.phone || this.props.userDetails.phone,
-      email: this.state.email || this.props.userDetails.email,
-      address: this.state.address || this.props.userDetails.address,
-      suburb: this.state.suburb || this.props.userDetails.suburb,
-      city: this.state.city || this.props.userDetails.city,
-      id: id
+    if (!this.state.badEmail && !this.state.weakPassword) {
+      const user = {
+        name: this.state.name || this.props.userDetails.name,
+        owner: this.state.owner || this.props.userDetails.owner,
+        phone: this.state.phone || this.props.userDetails.phone,
+        email: this.state.email || this.props.userDetails.email,
+        address: this.state.address || this.props.userDetails.address,
+        suburb: this.state.suburb || this.props.userDetails.suburb,
+        city: this.state.city || this.props.userDetails.city,
+        id: id
+      }
+      storeInfoEdit(user)
     }
     storeInfoEdit(user)
     this.setState({redirect: true})
@@ -58,7 +62,7 @@ export class StoreInfoEdit extends React.Component {
       color: 'red'
     }
     const info = this.props.userDetails
-    if (this.state.redirect) {
+    if (this.props.message === 'Your details have been successfully updated') {
       return (
         <Redirect to={`/store/${id}`} />
       )
@@ -74,7 +78,7 @@ export class StoreInfoEdit extends React.Component {
               <input value={info.name} onChange={this.changeHandler} name='name'/>
               <br />
               <label htmlFor='owner' >Owner:</label>
-              <input placeholder={info.owner} value={this.state.owner} onChange={this.changeHandler} name='owner'/>
+              <input placeholder={info.owner} value={this.state.owner} onChange={this.handleChange} name='owner'/>
               <br />
               <label htmlFor='address'>Street:</label>
               <input placeholder={info.address} value={this.state.address} onChange={this.changeHandler} name='address'/>
@@ -114,7 +118,8 @@ function mapDispatchToProps (dispatch) {
 }
 const mapStateToProps = (state) => {
   return {
-    userDetails: state.userDetails
+    userDetails: state.userDetails,
+    message: state.errorMessage
   }
 }
 

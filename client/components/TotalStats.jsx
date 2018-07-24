@@ -10,8 +10,14 @@ class TotalStats extends React.Component {
     const total = (this.props.totalStats || 0)
     return (
       <div className='TotalStats'>
-        <p>Total Donations Made: {total.donations}</p>
-        <p>Total Amount Redeemed: {total.redemptions}</p>
+        <div className='total-balance donate-circle'>
+          <p>Total Amount Donated</p>
+          <span>${total.donations}</span>
+        </div>
+        <div className='total-balance redeem-circle'>
+          <p>Total Amount Redeemed</p>
+          <span>${total.redemptions}</span>
+        </div>
       </div>
     )
   }

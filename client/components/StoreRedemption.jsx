@@ -40,7 +40,7 @@ export class StoreRedemption extends React.Component {
             <input type='text' value={this.state.voucher} onChange={this.changeHandler} name='voucher'/>
             <label htmlFor='amount' >Amount</label>
             <input type='text' value={this.state.amount} onChange={this.changeHandler} name='amount'/>
-            <Link to={`/store/${id}/balance`} type='button' className='button' onClick={this.submitHandler} value={this.state.StoreRedemption} >Submit</Link>
+            <Link to={`/store/${id}`} type='button' className='button' onClick={this.submitHandler} value={this.state.StoreRedemption} >Submit</Link>
             <Link to={`/store/${id}`} type='button' className='button' >Cancel</Link>
           </fieldset>
         </form>
