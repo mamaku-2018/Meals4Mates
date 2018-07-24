@@ -1,7 +1,7 @@
 import React from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import { connect } from 'react-redux'
-import { getAdminStats } from '../actions/AdminStats'
+import { getAdminStats } from '../actions/adminStats'
 
 class AdminStats extends React.Component {
   constructor(props) {
@@ -69,12 +69,12 @@ class AdminStats extends React.Component {
   }
 
   render() {
-    if (!this.props.storeStats) return null
+    if (!this.props.adminStats) return null
     const trxs = this.getTransactions()
     return (
       <div className='stats'>
         <h3>Donations by Month</h3>
-        {this.props.storeStats &&
+        {this.props.adminStats &&
           <ResponsiveContainer width='100%' height={500} maxWidth={600}>
             <BarChart data={trxs} margin={{ top: 5, right: 25, left: 5, bottom: 5 }}>
               <CartesianGrid strokeDasharray='4 4' />
