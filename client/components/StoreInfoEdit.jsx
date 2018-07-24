@@ -69,7 +69,6 @@ export class StoreInfoEdit extends React.Component {
       )
     } else {
       return (
-
         <div className='StoreInfoEdit'>
           {this.props.userDetails &&
           <form>
