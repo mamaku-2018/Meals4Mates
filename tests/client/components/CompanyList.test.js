@@ -6,7 +6,7 @@ import {Provider} from 'react-redux'
 import thunkMiddleware from 'redux-thunk'
 import configureStore from 'redux-mock-store'
 
-//create initial state
+// create initial state
 const initialState = {
   getAllStoreStats: [
     {id: 1, store: 'store 1'},
