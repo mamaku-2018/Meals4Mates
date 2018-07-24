@@ -18,7 +18,9 @@ export class StoreInfoEdit extends React.Component {
       suburb: '',
       city: '',
       badEmail: false,
-      emailMessage: 'Email invalid'
+      badEmailMessage: 'Email invalid',
+      existsEmail: false,
+      emailInUseMsg: 'Email already exisits'
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -59,9 +61,6 @@ export class StoreInfoEdit extends React.Component {
 
   render () {
     const id = this.props.match.params.id
-    const style = {
-      color: 'red'
-    }
     const info = this.props.userDetails
     if (this.props.message === 'Your details have been successfully updated') {
       return (
@@ -74,6 +73,7 @@ export class StoreInfoEdit extends React.Component {
           <form>
             <fieldset>
               <h3 className='storeInfo'>Edit Store Details</h3>
+              {this.props.message === 'Email already in use' && <span className='error'>{this.state.emailInUseMsg}</span>}
               <label htmlFor='name' >Name:</label>
               <input placeholder={info.name} value={this.state.name} onChange={this.handleChange} name='name'/>
               <br />
@@ -94,7 +94,8 @@ export class StoreInfoEdit extends React.Component {
               <br />
               <label htmlFor='email'>Email:</label>
               <input placeholder={info.email} value={this.state.email} onChange={this.handleChange} name='email'/>
-              {this.state.badEmail && <span style={style}>{this.state.emailMessage}</span>}
+              {this.state.badEmail && <span className='error'>{this.state.badEmailMessage}</span>}
+
               <br />
               <button className='button' onClick={this.handleSubmit}>SUBMIT</button>
               <Link to={`/store/${id}`} className='button'>CANCEL</Link>

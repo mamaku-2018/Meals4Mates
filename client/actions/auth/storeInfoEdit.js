@@ -7,7 +7,7 @@ Geocode.enableDebug()
 
 export function storeInfoEdit (user) {
   return dispatch => {
-    const searchAddress = user.address + ', ' + user.suburb + ', ' + user.city
+    const searchAddress = `${user.address}, ${user.suburb}, ${user.city}`
     return getLatLng(searchAddress)
       .then(latLng => {
         const updatedUser = {

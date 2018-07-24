@@ -55,15 +55,12 @@ class Login extends React.Component {
       return (
         <Redirect to={`/store/${this.state.id}`} />
       )
-    } else if (this.props.message ===
-       'Username and password do not match an existing user') {
-      document.getElementById('message').innerHTML =
-      this.props.message
     }
     return (
       <div className='login'>
+        {this.props.message && <span className='error'>
+        Username and password do not match an existing user</span>}
         <form>
-          <div id='message'></div>
           <fieldset>
             <h2>Login</h2>
             <label htmlFor='email'>Email: </label>

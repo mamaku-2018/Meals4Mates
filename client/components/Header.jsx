@@ -30,9 +30,9 @@ class Header extends React.Component {
     return (
       <nav className='navbar'>
         <div className='navbar-brand'>
-          <a className='logo' href='/'>
+          <Link className='logo' to='/' >
             <img src='/images/logo.png' alt='M4M logo' />
-          </a>
+          </Link>
         </div>
         <div className='navbar-menu'>
           {!this.props.logIn && <Link to='/login' className='button'>Login</Link>}
