@@ -23,9 +23,9 @@ test('getStoreDetails returns details of the specified store', () => {
     'email',
     'hash',
     'owner',
-    'phone',
     'lat',
     'lng',
+    'phone',
     'image_url',
     'created_at']
   return db.getStoreDetails(id, testDb)

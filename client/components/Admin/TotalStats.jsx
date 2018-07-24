@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {getTotalStats} from '../actions/getTotalStats'
+import {getTotalStats} from '../../actions/getTotalStats'
 
 class TotalStats extends React.Component {
   componentDidMount () {

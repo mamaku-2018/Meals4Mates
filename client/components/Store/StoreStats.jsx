@@ -1,7 +1,7 @@
 import React from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import { connect } from 'react-redux'
-import { getStoreStats } from '../actions/storeStats'
+import { getStoreStats } from '../../actions/storeStats'
 
 class StoreStats extends React.Component {
   constructor (props) {
@@ -20,7 +20,6 @@ class StoreStats extends React.Component {
   componentDidMount () {
     const id = Number(this.props.match.params.id)
     this.props.dispatch(getStoreStats(id))
-      .then(this.getTransactions)
   }
 
   isDonationDateSummedUp (date) {

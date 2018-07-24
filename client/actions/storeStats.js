@@ -4,13 +4,13 @@ import {showError} from './'
 export const REQUEST_STATS = 'REQUEST_STATS'
 export const RECEIVE_STATS = 'RECEIVE_STATS'
 
-export const requestStoreStats = () => {
+const requestStoreStats = () => {
   return {
     type: REQUEST_STATS
   }
 }
 
-export const receiveStoreStats = (balance) => {
+const receiveStoreStats = (balance) => {
   return {
     type: RECEIVE_STATS,
     balance

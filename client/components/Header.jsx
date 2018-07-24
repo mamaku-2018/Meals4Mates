@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {clearError} from '../actions/index'
+import {clearError} from '../actions'
 import {logStoreOut} from '../actions/auth/login'
 
 class Header extends React.Component {
@@ -12,6 +12,7 @@ class Header extends React.Component {
     }
     this.logout = this.logout.bind(this)
   }
+
   logout () {
     const {logStoreOut} = this.props
     logStoreOut()
