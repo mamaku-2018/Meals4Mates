@@ -3,7 +3,6 @@ import {Link, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {clearError} from '../actions/index'
 import {logStoreOut} from '../actions/auth/login'
-import WaitIndicator from './WaitIndicator'
 
 class Header extends React.Component {
   constructor (props) {
@@ -34,7 +33,6 @@ class Header extends React.Component {
             <img src='/images/logo.png' alt='M4M logo' />
           </a>
         </div>
-        <WaitIndicator />
         <div className='navbar-menu'>
           {!this.props.logIn && <Link to='/login' className='button'>Login</Link>}
           {!this.props.logIn && <Link to='/register' className='button'>Register</Link>}

@@ -18,9 +18,6 @@ const waiting = (state = false, action) => {
     case RECEIVE_STATS:
       return false
 
-    case SHOW_ERROR:
-      return false
-
     case REQUEST_BALANCE:
       return true
 
@@ -31,6 +28,9 @@ const waiting = (state = false, action) => {
       return true
 
     case RECEIVE_STORE_DETAILS:
+      return false
+
+    case SHOW_ERROR:
       return false
 
     default:
