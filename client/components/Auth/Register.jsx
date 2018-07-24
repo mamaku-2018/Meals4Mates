@@ -133,9 +133,8 @@ class Register extends React.Component {
               onChange={this.handleChange}
               value={this.state.phone} />
             <br />
-            <label htmlFor='password'>Password: &ensp;
-              <span className='greyed'>
-             (Min 8 char with 1 uppercase, 1 lowercase, 1 num, 1 special char)
+            <label htmlFor='password'>Password:
+              <span className='greyed'>(min 8 char - 1 upper, lower, num, special char)
               </span>
             </label>
             <input
