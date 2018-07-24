@@ -1,5 +1,6 @@
 import request from 'superagent'
 import {showError} from './'
+import {getTransactions} from './storeStats'
 
 export const REQUEST_ADMIN_STATS = 'REQUEST_ADMIN_STATS'
 export const RECEIVE_ADMIN_STATS = 'RECEIVE_ADMIN_STATS'
@@ -23,7 +24,10 @@ export function getAdminStats() {
     return request
       .get('/api/v1/store/donationRedemption')
       .then(res => {
-        dispatch(receiveAdminStats(res.body))
+        return getTransactions(res.body)
+      })
+      .then(stats => {
+        dispatch(receiveAdminStats(stats))
       })
       .catch(() => {
         dispatch(showError('An unexpected error has occurred'))
