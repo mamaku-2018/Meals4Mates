@@ -22,7 +22,7 @@ export class StoreBalance extends React.Component {
     return (
       <div className='store-balance'>
         <div className='total-balance'>
-          <p>Total Donation Balance</p>
+          <p>Total Donations</p>
           {this.props.storeBalance && <span>${balance}</span>}
         </div>
         <div className='store-balance-buttons'>

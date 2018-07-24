@@ -76,7 +76,7 @@ export class StoreInfoEdit extends React.Component {
           {this.props.userDetails &&
           <form>
             <fieldset>
-              <h2 className='StoreInfo'>Edit Store Details</h2>
+              <h3 className='StoreInfo'>Edit Store Details</h3>
               <label htmlFor='name' >Name:</label>
               <input placeholder={info.name} value={this.state.name} onChange={this.handleChange} name='name'/>
               <br />
