@@ -19,7 +19,7 @@ export class StoreInfoEdit extends React.Component {
       city: '',
       badEmail: false,
       badEmailMessage: 'Email invalid',
-      existsEmail: 'false',
+      existsEmail: false,
       emailInUseMsg: 'Email already exisits'
     }
 
@@ -69,17 +69,18 @@ export class StoreInfoEdit extends React.Component {
       return (
         <Redirect to={`/store/${id}`} />
       )
-    } else if (this.props.message === 'Email already in use') {
-      this.setState({
-        existsEmail: true
-      })
     } else {
+    //  if (this.props.message === '') {
+    //   this.setState({
+    //     existsEmail: true
+    //   })
+    // } else
       return (
         <div className='StoreInfoEdit'>
           {this.props.userDetails &&
           <form>
             <fieldset>
-              {this.state.existsEmail && <span style={style}>{this.state.emailInUseMsg}</span>}
+              {this.props.message === 'Email already in use' && <span style={style}>{this.state.emailInUseMsg}</span>}
               <h3 className='StoreInfo'>Edit Store Details</h3>
               <label htmlFor='name' >Name:</label>
               <input placeholder={info.name} value={this.state.name} onChange={this.handleChange} name='name'/>
