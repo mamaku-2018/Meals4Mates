@@ -9,7 +9,7 @@ const waiting = (state = false, action) => {
       return true
 
     case RECEIVE_STATS:
-      return false
+      return true
 
     case SHOW_ERROR:
       return false
