@@ -1,9 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {clearError} from '../actions/'
+import {clearError} from '../../actions/'
 
 import Banner from './Banner'
-import Locations from './Locations'
+import Locations from '../Locations'
 import Advertising from './Advertising'
 
 class Home extends React.Component {

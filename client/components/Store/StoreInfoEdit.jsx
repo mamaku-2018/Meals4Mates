@@ -1,10 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {clearError} from '../actions'
+import {clearError} from '../../actions'
 import {Redirect, Link} from 'react-router-dom'
-import {storeInfoEdit} from '../actions/auth/storeInfoEdit'
-import {getStoreInfo} from '../actions/getStoreInfo'
-import {isValidEmail} from '../lib/securityVal'
+import {storeInfoEdit} from '../../actions/auth/storeInfoEdit'
+import {getStoreInfo} from '../../actions/getStoreInfo'
+import {isValidEmail} from '../../lib/securityVal'
 
 export class StoreInfoEdit extends React.Component {
   constructor (props) {

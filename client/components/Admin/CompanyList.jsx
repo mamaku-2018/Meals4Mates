@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {getAllStoreStats} from '../actions/companyList'
+import {getAllStoreStats} from '../../actions/companyList'
 
 export class CompanyList extends React.Component {
   componentDidMount () {
