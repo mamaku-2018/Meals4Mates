@@ -9,17 +9,10 @@ export const RECEIVE_LOGIN = 'RECEIVE_LOGIN'
 export const REQUEST_USER = 'REQUEST_USER'
 export const RECEIVE_USER = 'RECEIVE_USER'
 export const LOG_OUT = 'LOG_OUT'
-export const CHECK_LOGIN_STATE = 'CHECK_LOGIN_STATE'
 
 export const requestLogin = () => {
   return {
     type: REQUEST_LOGIN
-  }
-}
-
-export const checkLoginState = () => {
-  return {
-    type: CHECK_LOGIN_STATE
   }
 }
 
