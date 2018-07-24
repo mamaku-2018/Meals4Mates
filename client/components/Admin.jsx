@@ -2,6 +2,7 @@ import React from 'react'
 import TotalStats from './TotalStats'
 import Locations from './Locations'
 import CompanyList from './CompanyList'
+import AdminStats from './AdminStats';
 
 const Admin = () => {
   return (
@@ -12,6 +13,7 @@ const Admin = () => {
         <Locations />
       </div>
       <CompanyList />
+      <AdminStats />
     </div>
   )
 }
