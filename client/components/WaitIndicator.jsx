@@ -9,7 +9,7 @@ const WaitIndicator = (props) => {
   )
 }
 
-function mapStateToProps (state){
+function mapStateToProps (state) {
   return {
     waiting: state.waiting
   }

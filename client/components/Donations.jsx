@@ -100,7 +100,7 @@ export class Donations extends React.Component {
             contentLabel='Confirm donation'
             ariaHideApp={false}
           >
-            <h4>Thank You so much for your donation! Every little bit helps</h4>
+            <h4>Thanks so much for your donation!</h4>
             <p>${this.state.amount}</p>
             <button type='button' className='button' onClick={this.handleConfirm}>Confirm</button>
           </Modal>
