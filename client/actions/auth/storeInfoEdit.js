@@ -25,8 +25,8 @@ export function storeInfoEdit (user) {
         return request
           .put(`/api/v1/store/${user.id}/edit`)
           .send(updatedUser)
-          .then(() => {
-            dispatch(showSuccess('Your details have been successfully updated'))
+          .then(resp => {
+            dispatch(showSuccess(resp.body.message))
           })
       })
       .catch(err => {
