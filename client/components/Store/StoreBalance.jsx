@@ -22,7 +22,7 @@ export class StoreBalance extends React.Component {
     if (!this.props.storeBalance) {
       return null
     }
-    const endBalance = this.props.storeBalance.donations -this.props.storeBalance.redemptions
+    const endBalance = this.props.storeBalance.donations - this.props.storeBalance.redemptions
     let counter = 0
     counter = setInterval(() => {
       if (this.state.currentBalance < endBalance) {

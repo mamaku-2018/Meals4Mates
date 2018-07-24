@@ -12,10 +12,9 @@ const StoreProfile = (props) => {
         <Route exact path='/store/:id/edit' component={StoreInfoEdit} />
         <Route path='/store/:id' component={StoreInfo} />
       </Switch>
-      <Switch>
-        <Route path='/store/:id/redeem' component={StoreRedemption} />
-        <Route path='/store/:id' component={StoreBalance} />
-      </Switch>
+      <Route exact path='/store/:id/redeem' component={StoreRedemption} />
+      <Route exact path='/store/:id' component={StoreBalance} />
+
     </div>
   )
 }
