@@ -5,6 +5,9 @@ import {
   REQUEST_BALANCE,
   RECEIVE_BALANCE} from '../actions/storeBalance'
 import {
+  REQUEST_STORE_DETAILS,
+  RECEIVE_STORE_DETAILS} from '../actions/getAllStoreLocations'
+import {
   SHOW_ERROR} from '../actions'
 
 const waiting = (state = false, action) => {
@@ -22,6 +25,12 @@ const waiting = (state = false, action) => {
       return true
 
     case RECEIVE_BALANCE:
+      return false
+
+    case REQUEST_STORE_DETAILS:
+      return true
+
+    case RECEIVE_STORE_DETAILS:
       return false
 
     default:
