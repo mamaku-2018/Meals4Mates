@@ -17,7 +17,6 @@ export class StoreInfoEdit extends React.Component {
       address: '',
       suburb: '',
       city: '',
-      redirect: false,
       badEmail: false,
       emailMessage: 'Email invalid'
     }
@@ -54,7 +53,6 @@ export class StoreInfoEdit extends React.Component {
         id: id
       }
       storeInfoEdit(user)
-      this.setState({redirect: true})
     }
     e.preventDefault()
   }
@@ -65,7 +63,7 @@ export class StoreInfoEdit extends React.Component {
       color: 'red'
     }
     const info = this.props.userDetails
-    if (this.state.redirect) {
+    if (this.props.message === 'Your details have been successfully updated') {
       return (
         <Redirect to={`/store/${id}`} />
       )
@@ -81,7 +79,7 @@ export class StoreInfoEdit extends React.Component {
               <input placeholder={info.name} value={this.state.name} onChange={this.handleChange} name='name'/>
               <br />
               <label htmlFor='owner' >Owner:</label>
-              <input placeholder={info.owner} value={this.state.owner} onChange={this.handleChange} name='owner'/>
+              <input placeholder={info.owner} value={this.state.owner || info.owner} onChange={this.handleChange} name='owner'/>
               <br />
               <label htmlFor='address'>Street:</label>
               <input placeholder={info.address} value={this.state.address} onChange={this.handleChange} name='address'/>
@@ -122,7 +120,9 @@ function mapDispatchToProps (dispatch) {
 }
 const mapStateToProps = (state) => {
   return {
-    userDetails: state.userDetails
+    userDetails: state.userDetails,
+    message: state.errorMessage
   }
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(StoreInfoEdit)
