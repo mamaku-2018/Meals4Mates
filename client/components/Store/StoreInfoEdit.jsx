@@ -70,11 +70,6 @@ export class StoreInfoEdit extends React.Component {
         <Redirect to={`/store/${id}`} />
       )
     } else {
-    //  if (this.props.message === '') {
-    //   this.setState({
-    //     existsEmail: true
-    //   })
-    // } else
       return (
         <div className='StoreInfoEdit'>
           {this.props.userDetails &&
