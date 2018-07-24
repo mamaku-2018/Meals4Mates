@@ -9,6 +9,7 @@ import StoreProfile from './StoreProfile'
 import Donations from './Donations'
 import Admin from './Admin'
 import StoreStats from './StoreStats'
+import WaitIndicator from './WaitIndicator'
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <div className='container'>
         <Route path='/' component={Header} />
         <Route exact path='/' component={Home} />
+        <WaitIndicator />
         <Route path='/admin' component={Admin} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
