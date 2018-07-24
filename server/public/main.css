@@ -229,12 +229,16 @@ label {
 
 /* LOGIN & REGISTER */
 
-.login button, .register button {
+.login button, .register button, .cancel-button {
   margin-left: 0;
 }
 
 .login {
   height: 550px;
+}
+
+.register {
+  margin-top: 0;
 }
 
 form h2 {
@@ -296,7 +300,8 @@ fieldset {
   height: 200px;
   margin: auto;
   z-index: 1;
-  background-color: #e4e2e2;
+  background: rgb(245,245,245);
+  background: linear-gradient(180deg, rgba(245,245,245,1) 1%, rgba(228,226,226,1) 100%);
   border: 5px solid #8e9b9f;
   border-radius: 50%;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -343,7 +348,13 @@ fieldset {
 
 .StoreInfoEdit .button {
   margin-left: 0;
-  margin-right: 2rem;
+  margin-right: 3rem;
+}
+
+.progress-bar {
+  width: 220px;
+  margin: 0 auto;
+  margin-top: 3rem;
 }
 
 /* STORE REDEMPTION */
