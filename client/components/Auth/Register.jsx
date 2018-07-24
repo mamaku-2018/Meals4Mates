@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {clearError} from '../../actions'
-import {Redirect} from 'react-router-dom'
+import {Redirect, Link} from 'react-router-dom'
 import {register} from '../../actions/auth/register'
 import {isValidEmail, isWeakPassword} from '../../lib/securityVal'
 
@@ -166,6 +166,7 @@ class Register extends React.Component {
               className='button'
               onClick={this.handleSubmit}>Register
             </button>
+            <Link to='/' type='button' className='button' >Cancel</Link>
           </fieldset>
         </form>
       </div>

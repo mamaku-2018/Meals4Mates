@@ -11,7 +11,8 @@ module.exports = {
   getStoreByEmail,
   getStoreDetails,
   editStoreDetails,
-  getAllStoreLocations
+  getAllStoreLocations,
+  getDonationsRedemptions
 }
 
 function addNewStore (newStore, db = knex) {
@@ -30,6 +31,12 @@ function addNewStore (newStore, db = knex) {
       lat: newStore.lat,
       lng: newStore.lng
     })
+}
+
+function getDonationsRedemptions (id, db = knex) {
+  return db('balance')
+    .where('balance.store_id', id)
+    .select('created_at as date', 'donation', 'redemption')
 }
 
 function storeExists (email, db = knex) {

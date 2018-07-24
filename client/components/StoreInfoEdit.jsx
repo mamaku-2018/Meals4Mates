@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {clearError} from '../actions'
-import {Redirect} from 'react-router-dom'
+import {Redirect, Link} from 'react-router-dom'
 import {storeInfoEdit} from '../actions/auth/storeInfoEdit'
 import {getStoreInfo} from '../actions/getStoreInfo'
 
@@ -53,9 +53,12 @@ export class StoreInfoEdit extends React.Component {
   }
 
   render () {
+    const id = this.props.match.params.id
+    const style = {
+      color: 'red'
+    }
     const info = this.props.userDetails
     if (this.state.redirect) {
-      const id = this.props.match.params.id
       return (
         <Redirect to={`/store/${id}`} />
       )
@@ -68,7 +71,7 @@ export class StoreInfoEdit extends React.Component {
             <fieldset>
               <h2 className='StoreInfo'>Edit Store Details</h2>
               <label htmlFor='name' >Name:</label>
-              <input placeholder={info.name} value={this.state.name} onChange={this.changeHandler} name='name'/>
+              <input value={info.name} onChange={this.changeHandler} name='name'/>
               <br />
               <label htmlFor='owner' >Owner:</label>
               <input placeholder={info.owner} value={this.state.owner} onChange={this.changeHandler} name='owner'/>
@@ -88,7 +91,8 @@ export class StoreInfoEdit extends React.Component {
               <label htmlFor='email'>Email:</label>
               <input placeholder={info.email} value={this.state.email} onChange={this.changeHandler} name='email'/>
               <br />
-              <button className='button' onClick={this.submitHandler}>SUBMIT</button>
+              <button className='button' onClick={this.handleSubmit}>SUBMIT</button>
+              <Link to={`/store/${id}`} className='button'>CANCEL</Link>
             </fieldset>
           </form>}
         </div>

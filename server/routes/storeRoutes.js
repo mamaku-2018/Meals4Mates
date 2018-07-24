@@ -2,6 +2,14 @@ const express = require('express')
 const db = require('../db/functions/store')
 const router = express.Router()
 
+router.get('/:id/donationRedemption', (req, res) => {
+  const id = Number(req.params.id)
+  db.getDonationsRedemptions(id)
+    .then((money) => {
+      res.json(money)
+    })
+})
+
 router.get('/', (req, res) => {
   db.getAllStoreLocations()
     .then((details) => {

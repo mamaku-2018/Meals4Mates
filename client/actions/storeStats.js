@@ -17,11 +17,14 @@ export const receiveStoreStats = (balance) => {
   }
 }
 
+
+
+
 export function getStoreStats (id) {
   return dispatch => {
     dispatch(requestStoreStats())
     return request
-      .get(`/api/v1/balance/${id}`)
+      .get(`/api/v1/store/${id}/donationRedemption`)
       .then(res => {
         dispatch(receiveStoreStats(res.body))
       })
