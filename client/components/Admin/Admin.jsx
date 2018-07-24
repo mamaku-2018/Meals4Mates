@@ -6,7 +6,7 @@ import AdminStats from './AdminStats';
 
 const Admin = () => {
   return (
-    <div className='Admin'>
+    <div className='admin'>
       <div className='admin-top'>
         <h2>Store Statistics</h2>
         <TotalStats />

@@ -128,6 +128,11 @@ label {
   margin-bottom: 0;
 }
 
+.greyed {
+  color: #8e9b9f;
+  font-size: 10px;
+}
+
 /* HEADER */
 
 .navbar {
@@ -260,6 +265,7 @@ fieldset {
 
 .advertising img {
   width: 20%;
+  max-width: 10rem;
   margin: 2rem 1rem 2rem 1rem;
 }
 
@@ -331,22 +337,12 @@ fieldset {
   justify-content: space-between;
 }
 
-.redeem .button {
+.redeem .button, .donation .button {
   width: 6rem;
   height: 3rem;
-  background-color: #1a2930; 
-  border: none;
 }
 
-.donation .button {
-  width: 6rem;
-  height: 3rem;
-  background-color: #8e9b9f; 
-  color: #1a2930;
-  border: none;
-}
-
-.StoreInfoEdit .button {
+.storeInfoEdit .button {
   margin-left: 0;
   margin-right: 3rem;
 }
@@ -485,7 +481,7 @@ color: #1a2930;
 
 /* ADMIN */ 
 
-.TotalStats {
+.totalStats {
   margin-top: 2rem;
   margin-bottom: 4rem;
 }
@@ -576,10 +572,7 @@ color: #1a2930;
   .logo {
     width: 50%;
   }
-  .redeem .button {
-    width: 8rem;
-  }
-  .donation .button {
+  .redeem .button, .donation .button {
     width: 8rem;
   }
 }
@@ -605,7 +598,7 @@ color: #1a2930;
     margin: 4rem 4rem 4rem 2rem;
     width: 30%;
   }
-  .TotalStats {
+  .totalStats {
     text-align: center;
     width: 50%;
     margin: auto;
@@ -660,7 +653,7 @@ color: #1a2930;
   .donations h2 {
     margin-top: 3rem;
   }
-  .TotalStats {
+  .totalStats {
     text-align: center;
     width: 80%;
     margin: auto;
@@ -723,7 +716,7 @@ color: #1a2930;
     margin-left: 0;
     margin-top: 2rem;
   }
-  .StoreInfoEdit {
+  .storeInfoEdit {
     flex-shrink: 0;
     width: 100%;
     position: relative; 
@@ -792,7 +785,7 @@ color: #1a2930;
     margin: 1rem 0 0 1rem;
     font-size: 0.9rem;
   }
-  .login button, .register button {
+  .login button, .register button, .cancel-button {
     width: 8rem;
   }
   .navbar-menu {
@@ -860,7 +853,7 @@ color: #1a2930;
     margin: auto;
     margin-top: 5rem;
   }
-  .TotalStats {
+  .totalStats {
     text-align: center;
     width: 80%;
     margin-bottom: 3rem;
@@ -900,7 +893,7 @@ color: #1a2930;
   .companyList {
     width: 70%;
   }
-  .Admin {
+  .admin {
     position: relative;
     margin-top: 0;
   }
@@ -910,7 +903,7 @@ color: #1a2930;
     background-color: #8e9b9f;
     border-bottom: 14px solid #e4e2e2;
   }  
-  .Admin h2 {
+  .admin h2 {
     position: absolute;
     width: 40%;
     margin: auto;
@@ -925,7 +918,7 @@ color: #1a2930;
     padding-top: 4rem;
     font-size: 1.8rem;
   }
-  .TotalStats {
+  .totalStats {
     display: block;
     width: 40%;
     margin-bottom: 1rem;
