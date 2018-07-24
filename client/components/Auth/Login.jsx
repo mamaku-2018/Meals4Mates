@@ -87,7 +87,7 @@ class Login extends React.Component {
               className='button'
               onClick={this.handleSubmit}>Login
             </button>
-            <Link to='/' type='button' className='button' >Cancel</Link>
+            <Link to='/' type='button' className='button cancel-button' >Cancel</Link>
           </fieldset>
         </form>
       </div>

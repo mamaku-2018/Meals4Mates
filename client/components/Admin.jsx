@@ -6,7 +6,6 @@ import CompanyList from './CompanyList'
 const Admin = () => {
   return (
     <div className='Admin'>
-     
       <div className='admin-top'>
         <h2>Store Statistics</h2>
         <TotalStats />
