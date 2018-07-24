@@ -2,12 +2,13 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getStoreBalance} from '../../actions/storeBalance'
+import CircularProgressbar from 'react-circular-progressbar'
 
 export class StoreBalance extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-
+      currentBalance: 0
     }
   }
 
@@ -17,13 +18,47 @@ export class StoreBalance extends React.Component {
   }
 
   render () {
+    if (!this.props.storeBalance) {
+      return null
+    }
+    const endBalance = this.props.storeBalance.donations
+    let counter = 0
+    counter = setInterval(() => {
+      if (this.state.currentBalance < endBalance) {
+        const nextBalance = this.state.currentBalance + 1
+        this.setState({currentBalance: nextBalance})
+      } else {
+        clearInterval(counter)
+      }
+    },
+    100
+    )
+
     const id = this.props.match.params.id
-    const balance = (this.props.storeBalance && (this.props.storeBalance.donations - this.props.storeBalance.redemptions))
     return (
       <div className='store-balance'>
         <div className='total-balance'>
-          <p>Total Donations</p>
-          {this.props.storeBalance && <span>${balance}</span>}
+          <div>
+            <p>Total Donation Balance</p>
+            <CircularProgressbar
+              percentage={Math.floor(this.state.currentBalance / endBalance * 100)}
+              fill-opacity='10'
+              strokeWidth={50}
+              text={`$${this.state.currentBalance}`}
+              styles={{
+                text: {
+                  fill: '#1a2930',
+                  fontSize: '20px'
+                },
+                path: {
+                  transition: 'stroke-dashoffset 1.14s ease 0s',
+                  stroke: '#8e9b9f',
+                  transform: 'rotate(90deg)',
+                  transformOrigin: 'center center'
+                },
+                trail: {stroke: '#ffff'}
+              }} />
+          </div>
         </div>
         <div className='store-balance-buttons'>
           <div className='redeem'>
