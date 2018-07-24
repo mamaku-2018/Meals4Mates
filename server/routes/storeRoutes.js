@@ -51,7 +51,7 @@ router.put('/:id/edit', (req, res) => {
   db.emailInUse(store)
     .then(exists => {
       if (exists) {
-        return res.status(400).send({message: 'Email already in use'})
+        return res.status(200).send({message: 'Email already in use'})
       } else {
         db.editStoreDetails(store)
           .then(() => { res.status(200).send({message: 'Your details have been successfully updated'}) })
