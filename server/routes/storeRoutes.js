@@ -18,7 +18,6 @@ router.get('/', (req, res) => {
 })
 
 router.get('/donationRedemption', (req, res) => {
-  const id = Number(req.params.id)
   db.getAllDonationsRedemptions()
     .then((money) => {
       res.json(money)

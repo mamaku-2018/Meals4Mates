@@ -1,7 +1,7 @@
 import React from 'react'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
-import { connect } from 'react-redux'
-import { getStoreStats } from '../../actions/storeStats'
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts'
+import {connect} from 'react-redux'
+import {getStoreStats} from '../../actions/storeStats'
 
 class StoreStats extends React.Component {
   constructor (props) {
@@ -76,10 +76,10 @@ class StoreStats extends React.Component {
         <h3>Donations by Month</h3>
         {this.props.storeStats &&
           <ResponsiveContainer width='100%' height={500} maxWidth={600}>
-            <BarChart data={trxs} margin={{ top: 5, right: 25, left: 5, bottom: 5 }}>
+            <BarChart data={trxs} margin={{top: 5, right: 25, left: 5, bottom: 5}}>
               <CartesianGrid strokeDasharray='4 4' />
-              <XAxis dataKey="date" label={{ value: 'Month', fill: '#1a2930', offset: -10, position: 'insideBottom' }} />
-              <YAxis label={{ value: 'Amount ($)', angle: -90, position: 'center', padding: 10, fill: '#1a2930' }} />
+              <XAxis dataKey="date" label={{value: 'Month', fill: '#1a2930', offset: -10, position: 'insideBottom'}} />
+              <YAxis label={{value: 'Amount ($)', angle: -90, position: 'center', padding: 10, fill: '#1a2930'}} />
               <Tooltip offset={20} />
               <Legend align='right' verticalAlign='bottom' height={80} width={200} left={20} />
               <Bar dataKey="donation" fill='#F7CE3E' legendType="square" barSize={40} />
