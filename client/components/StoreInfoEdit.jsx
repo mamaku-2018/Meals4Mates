@@ -18,7 +18,9 @@ export class StoreInfoEdit extends React.Component {
       suburb: '',
       city: '',
       badEmail: false,
-      emailMessage: 'Email invalid'
+      badEmailMessage: 'Email invalid',
+      existsEmail: 'false',
+      emailInUseMsg: 'Email already exisits'
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -67,12 +69,17 @@ export class StoreInfoEdit extends React.Component {
       return (
         <Redirect to={`/store/${id}`} />
       )
+    } else if (this.props.message === 'Email already in use') {
+      this.setState({
+        existsEmail: true
+      })
     } else {
       return (
         <div className='StoreInfoEdit'>
           {this.props.userDetails &&
           <form>
             <fieldset>
+              {this.state.existsEmail && <span style={style}>{this.state.emailInUseMsg}</span>}
               <h3 className='StoreInfo'>Edit Store Details</h3>
               <label htmlFor='name' >Name:</label>
               <input placeholder={info.name} value={this.state.name} onChange={this.handleChange} name='name'/>
@@ -94,7 +101,8 @@ export class StoreInfoEdit extends React.Component {
               <br />
               <label htmlFor='email'>Email:</label>
               <input placeholder={info.email} value={this.state.email} onChange={this.handleChange} name='email'/>
-              {this.state.badEmail && <span style={style}>{this.state.emailMessage}</span>}
+              {this.state.badEmail && <span style={style}>{this.state.badEmailMessage}</span>}
+
               <br />
               <button className='button' onClick={this.handleSubmit}>SUBMIT</button>
               <Link to={`/store/${id}`} className='button'>CANCEL</Link>

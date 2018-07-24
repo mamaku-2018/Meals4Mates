@@ -17,9 +17,6 @@ export const receiveStoreStats = (balance) => {
   }
 }
 
-
-
-
 export function getStoreStats (id) {
   return dispatch => {
     dispatch(requestStoreStats())
