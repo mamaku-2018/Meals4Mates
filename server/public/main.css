@@ -12,7 +12,7 @@ html, body {
   text-align: center;
   margin: 0; 
   padding: 0; 
-  background-color: #314950;
+  background: #314950;
   font-family: 'Libre Franklin', sans-serif
 }
 
@@ -135,7 +135,7 @@ label {
   display: flex;
   height: 6rem;
   width: 100%; 
-  background-color: #1a2930;
+  background: #1a2930;
   margin: 0;
 }
 
@@ -150,6 +150,7 @@ label {
   top: 20%;
   left: 0.8rem;
   width: 60%; 
+  max-width: 330px;
 }
 
 .navbar-menu {
@@ -285,7 +286,9 @@ fieldset {
 }
 
 .store-balance {
+  margin: 0 auto;
   margin-top: 3rem;
+  width: 80%;
 }
 
 .total-balance {
@@ -316,7 +319,6 @@ fieldset {
 }
 
 .store-balance-buttons {
-  width: 80%;
   margin: auto;
   margin-top: 1rem;
   margin-bottom: 4rem;
@@ -378,7 +380,7 @@ color: #1a2930;
 
 .redeem-buttons {
   display: flex;
-  width: 80%;
+  width: 70%;
   margin: auto;
   justify-content: space-between;
 }
@@ -504,7 +506,7 @@ color: #1a2930;
   width: 100%;
   margin: 0;
   margin-top: 3rem;
-  background-color: #1a2930;
+  background: #1a2930;
   color: #e4e2e2;
   padding: 2rem;
 }
@@ -524,6 +526,15 @@ color: #1a2930;
 .footer-email a {
   font-size: 1.2rem;
   color: #e4e2e2;
+}
+
+/* WAIT INDICATOR*/
+
+.waitIndicator {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100px;
 }
 
 /* MEDIA QUERIES */ 
@@ -559,10 +570,8 @@ color: #1a2930;
     bottom: 0;
   }  
   .store-balance {
-    margin: auto;
     margin-top: 3rem;
     display: flex;
-    width: 95%;
   }
   .store-balance-buttons {
     display: block;
@@ -636,7 +645,6 @@ color: #1a2930;
     margin-top: 2rem;
     margin-bottom: 3rem;
   }
- 
   .companyList {
     font-size: 1.2rem;
   }
@@ -661,17 +669,20 @@ color: #1a2930;
     top: 10%;
   }
   .storeprofile {
-    position: relative;
-    width: 100%;
-    height: 1300px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 92%;
+    margin: 3rem auto;
   }
   .storeInfo {
-    position: absolute;
-    font-size: 150%;
-    left: 10%;
-    margin-top: 1rem;
-    width: 25%;
+    font-size: 1.2rem;
+    margin: 1rem 0 1rem 1rem;
     text-align: left;
+    width: 28%;
+  }
+  .store-balance {
+    width: 62%;
+    margin: 0 auto;
   }
   .storeInfo h3 {
     font-size: 120%;
@@ -685,14 +696,16 @@ color: #1a2930;
     margin-left: 0;
     margin-top: 2rem;
   }
-  .store-balance {
-    position: absolute;
-    right: 10%;
-    width: 50%;
+  .StoreInfoEdit {
+    flex-shrink: 0;
+    width: 100%;
+    position: relative; 
+    margin-bottom: 3rem;
   }
   .total-balance {
     width: 250px;
     height: 250px;
+    position: relative;
   }
   .total-balance p {
     padding-top: 3rem;
@@ -717,13 +730,6 @@ color: #1a2930;
     width: 50%;
     float: right;
     margin: 2.5rem;
-  }
-  .stats {
-    position: absolute;
-    bottom: 0;
-  }
-  .store-balance {
-    width: 60%;
   }
   .companyList {
     width: 80%;
@@ -782,15 +788,15 @@ color: #1a2930;
     width: 60%;
     margin: auto;
   }
+  .storeInfo {
+    margin: 1rem 0 1rem 2.5rem;
+  }
   .total-balance p {
     padding: 3.5rem 2rem 0.5rem 2rem;
     font-size: 1.3rem;
   }
   .total-balance span {
     font-size: 3.5rem;
-  }
-  .footer-text {
-    margin-left: 5%;
   }
   .companyList {
     width: 75%;
@@ -800,7 +806,10 @@ color: #1a2930;
   }
   .recharts-wrapper, .recharts-responsive-container {
     width: 75%;
-  }  
+  }
+  .footer-text {
+    margin-left: 5%;
+  }
 }
 
 @media only screen and (min-width: 1088px) {
@@ -819,6 +828,11 @@ color: #1a2930;
   .map { 
     height: 500px; 
   }
+  .storeprofile {
+    width: 80%;
+    margin: auto;
+    margin-top: 5rem;
+  }
   .TotalStats {
     text-align: center;
     width: 80%;
@@ -828,6 +842,10 @@ color: #1a2930;
     margin: auto;
     margin-top: 2rem;
     margin-bottom: 3rem;
+  }
+  .total-balance p {
+    padding-top: 3rem;
+    font-size: 1.6rem;
   }
   .donate-circle p, .redeem-circle p {
     padding-top: 5rem;
@@ -872,6 +890,14 @@ color: #1a2930;
     padding-top: 2rem;
     font-size: 2.5rem;
   }
+  .total-balance {
+    width: 300px;
+    height: 300px;
+  }
+  .total-balance p {
+    padding-top: 4rem;
+    font-size: 1.8rem;
+  }
   .TotalStats {
     display: block;
     width: 40%;
@@ -892,18 +918,53 @@ color: #1a2930;
 }  
 
 @media only screen and (min-width: 1400px) {
-  .storeprofile {
-    max-width: 80%;
-    margin: auto;
-    margin-top: 4rem;
-  }
   .navbar{
-    height: 8rem;
+    height: 10rem;
+  }
+  .navbar-menu .button {
+    width: 8rem;
+    height: 2.5rem;
+    margin: 1.5rem 0 0 1rem;
+    font-size: 1rem;
   }
   .logo {
-    width: 28%;
+    width: 35%;
   }
   .navbar-menu, .navbar-brand {
     padding-top: 2rem;
+  }
+  .storeprofile {
+    width: 70%;
+  }
+  .total-balance p {
+    padding-top: 3rem;
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+  .redeem .button, .donation .button {
+    width: 15rem;
+    height: 4rem;
+    font-size: 130%;
+  }
+  .redeem-buttons {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 1700px) {
+  .storeprofile {
+    width: 60%;
+  }
+  .total-balance p {
+    padding-top: 3rem;
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+  .redeem .button, .donation .button {
+    width: 15rem;
+    height: 4rem;
+    font-size: 130%;
+  }
+  .redeem-buttons {
+    width: 50%;
   }
 }
