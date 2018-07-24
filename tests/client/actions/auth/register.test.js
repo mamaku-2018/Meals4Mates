@@ -1,23 +1,22 @@
-import { 
-  REQUEST_USER_REGISTRATION, 
-  requestUserRegistration, 
-  RECEIVE_USER_REGISTRATION, 
-  receiveUserRegistration, 
-  REQUEST_USER_DETAILS, 
-  requestUserDetails, 
-  RECEIVE_USER_DETAILS, 
+import {
+  REQUEST_USER_REGISTRATION,
+  requestUserRegistration,
+  RECEIVE_USER_REGISTRATION,
+  receiveUserRegistration,
+  REQUEST_USER_DETAILS,
+  requestUserDetails,
+  RECEIVE_USER_DETAILS,
   receiveUserDetails
-} from "../../../../client/actions/auth/register";
-
+} from '../../../../client/actions/auth/register'
 
 test('requestUserRegistration returns correct action', () => {
-  const expected = { type: REQUEST_USER_REGISTRATION }
+  const expected = {type: REQUEST_USER_REGISTRATION}
   const actual = requestUserRegistration()
   expect(actual).toEqual(expected)
 })
 
 test('receiveUserRegistration returns correct action', () => {
-  const expected = { type: RECEIVE_USER_REGISTRATION }
+  const expected = {type: RECEIVE_USER_REGISTRATION}
   const actual = receiveUserRegistration()
   expect(actual).toEqual(expected)
 })
@@ -33,13 +32,13 @@ test('receiveUserRegistration returns type details', () => {
 })
 
 test('requestUserDetails returns correct action', () => {
-  const expected = { type: REQUEST_USER_DETAILS }
+  const expected = {type: REQUEST_USER_DETAILS}
   const actual = requestUserDetails()
   expect(actual).toEqual(expected)
 })
 
 test('receiveUserDetails returns correct action', () => {
-  const expected = { type: RECEIVE_USER_DETAILS }
+  const expected = {type: RECEIVE_USER_DETAILS}
   const actual = receiveUserDetails()
   expect(actual).toEqual(expected)
 })

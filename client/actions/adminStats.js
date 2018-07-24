@@ -18,7 +18,7 @@ const receiveAdminStats = (stats) => {
   }
 }
 
-export function getAdminStats() {
+export function getAdminStats () {
   return dispatch => {
     dispatch(requestAdminStats())
     return request
