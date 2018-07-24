@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { getStoreStats } from '../actions/storeStats'
 
 class StoreStats extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       donation: [],
@@ -17,19 +17,17 @@ class StoreStats extends React.Component {
     this.sumUpDonationDate = this.sumUpDonationDate.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     const id = Number(this.props.match.params.id)
     this.props.dispatch(getStoreStats(id))
       .then(this.getTransactions)
   }
 
-
-
-  isDonationDateSummedUp(date) {
-    return this.state.summedUpDates.indexOf(date.substring(0, 7)) !== -1;
+  isDonationDateSummedUp (date) {
+    return this.state.summedUpDates.indexOf(date.substring(0, 7)) !== -1
   }
 
-  sumUpDonationDate(date) {
+  sumUpDonationDate (date) {
     let dates = this.state.summedUpDates
     let donations = this.state.donation
     let redemptions = this.state.redemption
@@ -46,14 +44,14 @@ class StoreStats extends React.Component {
     dates.push(date.substring(0, 7))
     donations.push(donationSum)
     redemptions.push(redemptionSum)
-    this.state.setState = ({
+    this.setState = ({
       donation: donations,
       redemption: redemptions,
       summedUpDates: dates
     })
   }
 
-  getTransactions() {
+  getTransactions () {
     this.props.storeStats.forEach(t => {
       if (!this.isDonationDateSummedUp(t.date)) {
         this.sumUpDonationDate(t.date)
@@ -61,12 +59,17 @@ class StoreStats extends React.Component {
     })
 
     let obj = {}
-    this.state.summedUpDates.forEach((d, i) => obj[i] = { date: d, donation: this.state.donation[i], redemption: this.state.redemption[i] })
+    this.state.summedUpDates.forEach((d, i) => {
+      obj[i] = {
+        date: d,
+        donation: this.state.donation[i],
+        redemption: this.state.redemption[i]}
+    })
     const transactions = Object.values(obj)
     return transactions
   }
 
-  render() {
+  render () {
     if (!this.props.storeStats) return null
     const trxs = this.getTransactions()
     return (
@@ -89,7 +92,7 @@ class StoreStats extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     storeStats: state.storeStats
   }
