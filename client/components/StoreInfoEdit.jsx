@@ -17,7 +17,6 @@ export class StoreInfoEdit extends React.Component {
       address: '',
       suburb: '',
       city: '',
-      redirect: false,
       badEmail: false,
       emailMessage: 'Email invalid'
     }
@@ -54,7 +53,6 @@ export class StoreInfoEdit extends React.Component {
         id: id
       }
       storeInfoEdit(user)
-      this.setState({redirect: true})
     }
     e.preventDefault()
   }
@@ -65,7 +63,7 @@ export class StoreInfoEdit extends React.Component {
       color: 'red'
     }
     const info = this.props.userDetails
-    if (this.state.redirect) {
+    if (this.props.message === 'Your details have been successfully updated') {
       return (
         <Redirect to={`/store/${id}`} />
       )
@@ -122,7 +120,8 @@ function mapDispatchToProps (dispatch) {
 }
 const mapStateToProps = (state) => {
   return {
-    userDetails: state.userDetails
+    userDetails: state.userDetails,
+    message: state.errorMessage
   }
 }
 

@@ -800,6 +800,7 @@ color: #1a2930;
   }
   .recharts-wrapper, .recharts-responsive-container {
     width: 75%;
+  }  
 }
 
 @media only screen and (min-width: 1088px) {
@@ -905,4 +906,4 @@ color: #1a2930;
   .navbar-menu, .navbar-brand {
     padding-top: 2rem;
   }
-}  
+}

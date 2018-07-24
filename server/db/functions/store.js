@@ -7,6 +7,7 @@ const hash = require('../../auth/hash')
 module.exports = {
   addNewStore,
   storeExists,
+  emailInUse,
   getStore,
   getStoreByEmail,
   getStoreDetails,
@@ -36,6 +37,16 @@ function storeExists (email, db = knex) {
   return db('stores')
     .count('id as n')
     .where('email', email)
+    .then(count => {
+      return count[0].n > 0
+    })
+}
+
+function emailInUse (store, db = knex) {
+  return db('stores')
+    .whereNot('id', store.id)
+    .where('email', store.email)
+    .count('id as n')
     .then(count => {
       return count[0].n > 0
     })
