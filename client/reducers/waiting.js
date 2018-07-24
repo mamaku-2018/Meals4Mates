@@ -8,6 +8,9 @@ import {
   REQUEST_STORE_DETAILS,
   RECEIVE_STORE_DETAILS} from '../actions/getAllStoreLocations'
 import {
+  REQUEST_ADMIN_STATS,
+  RECEIVE_ADMIN_STATS} from '../actions/adminStats'
+import {
   SHOW_ERROR} from '../actions'
 
 const waiting = (state = false, action) => {
@@ -16,6 +19,12 @@ const waiting = (state = false, action) => {
       return true
 
     case RECEIVE_STATS:
+      return false
+
+    case REQUEST_ADMIN_STATS:
+      return true
+
+    case RECEIVE_ADMIN_STATS:
       return false
 
     case REQUEST_BALANCE:
