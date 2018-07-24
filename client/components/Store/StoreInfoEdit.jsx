@@ -61,9 +61,6 @@ export class StoreInfoEdit extends React.Component {
 
   render () {
     const id = this.props.match.params.id
-    const style = {
-      color: 'red'
-    }
     const info = this.props.userDetails
     if (this.props.message === 'Your details have been successfully updated') {
       return (
@@ -75,7 +72,7 @@ export class StoreInfoEdit extends React.Component {
           {this.props.userDetails &&
           <form>
             <fieldset>
-              {this.props.message === 'Email already in use' && <span style={style}>{this.state.emailInUseMsg}</span>}
+              {this.props.message === 'Email already in use' && <span className='error'>{this.state.emailInUseMsg}</span>}
               <h3 className='StoreInfo'>Edit Store Details</h3>
               <label htmlFor='name' >Name:</label>
               <input placeholder={info.name} value={this.state.name} onChange={this.handleChange} name='name'/>
@@ -97,7 +94,7 @@ export class StoreInfoEdit extends React.Component {
               <br />
               <label htmlFor='email'>Email:</label>
               <input placeholder={info.email} value={this.state.email} onChange={this.handleChange} name='email'/>
-              {this.state.badEmail && <span style={style}>{this.state.badEmailMessage}</span>}
+              {this.state.badEmail && <span className='error'>{this.state.badEmailMessage}</span>}
 
               <br />
               <button className='button' onClick={this.handleSubmit}>SUBMIT</button>

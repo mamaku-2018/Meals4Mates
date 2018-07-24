@@ -27,7 +27,7 @@ router.post('/login', login, token.issue)
 function login (req, res, next) {
   db.getStoreByEmail(req.body.email)
     .then(store => {
-      return store || invalidCredentials(res).end()
+      return store
     })
     .then(store => {
       return store && hash.verify(store.hash, req.body.password)
