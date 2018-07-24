@@ -13,17 +13,25 @@ import App from './components/App'
 
 const persistConfig = {
   key: 'root',
-  storage
+  storage,
+  whitelist: ['login']
 }
 
 const persistedReducer = persistReducer(persistConfig, reducers)
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
 const store = createStore(persistedReducer, composeEnhancers(
   applyMiddleware(thunkMiddleware)
 ))
 
-let persistor = persistStore(store)
+const checkLogin = () => {
+  if (!global.window.localStorage.token) {
+    global.window.localStorage.setItem('persist:root', '{login: "false", _persist: "{"version":-1,"rehydrated":true}"}')
+  }
+}
+
+let persistor = persistStore(store, [null, checkLogin()])
 
 document.addEventListener('DOMContentLoaded', () => {
   render(
