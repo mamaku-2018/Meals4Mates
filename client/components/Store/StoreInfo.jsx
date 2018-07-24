@@ -1,8 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {getStoreInfo} from '../actions/getStoreInfo'
-import {clearError} from '../actions/'
+import {getStoreInfo} from '../../actions/getStoreInfo'
+import {clearError} from '../../actions'
 
 class StoreInfo extends React.Component {
   constructor (props) {

@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {submitVoucher} from '../actions/storeRedemption'
+import {submitVoucher} from '../../actions/storeRedemption'
 
 export class StoreRedemption extends React.Component {
   constructor (props) {

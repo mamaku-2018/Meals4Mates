@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {getStoreBalance} from '../actions/storeBalance'
+import {getStoreBalance} from '../../actions/storeBalance'
 import CircularProgressbar from 'react-circular-progressbar'
 
 export class StoreBalance extends React.Component {

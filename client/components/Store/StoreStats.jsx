@@ -1,7 +1,7 @@
 import React from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import { connect } from 'react-redux'
-import { getStoreStats } from '../actions/storeStats'
+import { getStoreStats } from '../../actions/storeStats'
 
 class StoreStats extends React.Component {
   constructor (props) {
