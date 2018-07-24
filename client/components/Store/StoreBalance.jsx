@@ -37,29 +37,38 @@ export class StoreBalance extends React.Component {
     const id = this.props.match.params.id
     return (
       <div className='store-balance'>
-        <div className='total-balance'>
-          <div>
-            <p>Total Donation Balance</p>
+        <div>
+          <div className='progress-bar'>
             <CircularProgressbar
               percentage={Math.floor(this.state.currentBalance / endBalance * 100)}
               fill-opacity='10'
-              strokeWidth={50}
+              strokeWidth={8}
               text={`$${this.state.currentBalance}`}
+              background
+              backgroundPadding={0}
               styles={{
+                background: {
+                  fill: '#e4e2e2'
+                },
                 text: {
+                  fontSize: '20px',
+                  fontWeight: 'bold',
                   fill: '#1a2930',
-                  fontSize: '20px'
+                  textAnchor: 'middle'
                 },
                 path: {
                   transition: 'stroke-dashoffset 1.14s ease 0s',
-                  stroke: '#8e9b9f',
+                  stroke: '#f7ce3e',
+                  strokelinecap: 'round',
                   transform: 'rotate(90deg)',
                   transformOrigin: 'center center'
                 },
                 trail: {stroke: '#ffff'}
               }} />
           </div>
+          <h4>Total Donations</h4>
         </div>
+
         <div className='store-balance-buttons'>
           <div className='redeem'>
             <Link to={`/store/${id}/redeem`} className='button'>Redeem</Link>
