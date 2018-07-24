@@ -20,8 +20,8 @@ export class StoreInfoEdit extends React.Component {
       emailMessage: 'Email invalid'
     }
 
-    this.submitHandler = this.submitHandler.bind(this)
-    this.changeHandler = this.changeHandler.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   componentDidMount () {
@@ -29,13 +29,13 @@ export class StoreInfoEdit extends React.Component {
     this.props.getStoreInfo(id)
   }
 
-  changeHandler (e) {
+  handleChange (e) {
     this.setState({
       [e.target.name]: e.target.value
     })
   }
 
-  submitHandler (e) {
+  handleSubmit (e) {
     const id = Number(this.props.match.params.id)
     const {storeInfoEdit} = this.props
     if (!this.state.badEmail && !this.state.weakPassword) {
@@ -75,25 +75,25 @@ export class StoreInfoEdit extends React.Component {
             <fieldset>
               <h2 className='StoreInfo'>Edit Store Details</h2>
               <label htmlFor='name' >Name:</label>
-              <input value={info.name} onChange={this.changeHandler} name='name'/>
+              <input value={info.name} onChange={this.handleChange} name='name'/>
               <br />
               <label htmlFor='owner' >Owner:</label>
               <input placeholder={info.owner} value={this.state.owner} onChange={this.handleChange} name='owner'/>
               <br />
               <label htmlFor='address'>Street:</label>
-              <input placeholder={info.address} value={this.state.address} onChange={this.changeHandler} name='address'/>
+              <input placeholder={info.address} value={this.state.address} onChange={this.handleChange} name='address'/>
               <br />
               <label htmlFor='suburb'>Suburb:</label>
-              <input placeholder={info.suburb} value={this.state.suburb} onChange={this.changeHandler} name='suburb'/>
+              <input placeholder={info.suburb} value={this.state.suburb} onChange={this.handleChange} name='suburb'/>
               <br />
               <label htmlFor='city'>City:</label>
-              <input placeholder={info.city} value={this.state.city} onChange={this.changeHandler} name='city'/>
+              <input placeholder={info.city} value={this.state.city} onChange={this.handleChange} name='city'/>
               <br />
               <label htmlFor='phone'>Phone Number:</label>
-              <input placeholder={info.phone} value={this.state.phone} onChange={this.changeHandler} name='phone'/>
+              <input placeholder={info.phone} value={this.state.phone} onChange={this.handleChange} name='phone'/>
               <br />
               <label htmlFor='email'>Email:</label>
-              <input placeholder={info.email} value={this.state.email} onChange={this.changeHandler} name='email'/>
+              <input placeholder={info.email} value={this.state.email} onChange={this.handleChange} name='email'/>
               <br />
               <button className='button' onClick={this.handleSubmit}>SUBMIT</button>
               <Link to={`/store/${id}`} className='button'>CANCEL</Link>
