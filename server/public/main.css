@@ -50,21 +50,32 @@ p {
 }
 
 .button {
-  width: 10rem;
-  height: 3rem;
+  width: 7rem;
+  height: 2.5rem;
   margin: 1rem;
   text-transform: uppercase;
   font-weight: 900;
-  background-color: transparent;
-  border: 2px solid  #F7CE3E;
-  color: #e4e2e2;
+  background: rgb(255,255,255);
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(179,188,191,1) 0%, rgba(142,155,159,1) 100%);
+  border: none;
+  color: #1a2930;
   border-radius: 5px;
   outline: none;
-  box-shadow: 0 2px 3px #3f3e3e;
+  box-shadow: 0 2px 2px 0 #1a2930;
 }
 
 .button:hover {
-  color:  #1a2930;
+  color: #e4e2e2;
+}
+
+.button:active {
+  background: #1a2930;
+  color: #e4e2e2;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 input {
@@ -366,8 +377,8 @@ fieldset {
   border-color: #1a2930;
   color: #1a2930;
   font-size: 1.3rem;
-  width: 7rem;
-  height: 2.5rem;
+  width: 9rem;
+  height: 3rem;
   padding-top: 0.2rem;
 }
 
@@ -528,6 +539,9 @@ fieldset {
 }
 
 @media only screen and (min-width: 640px) {
+  h2 {
+    font-size: 2.6rem;
+  }
   .banner img {
     width: 15%;
     margin-top: 1rem;
@@ -575,6 +589,9 @@ fieldset {
 @media only screen and (min-width: 750px) {
   .container {
     height: 100vh;
+  }
+  h2 {
+    font-size: 2.8rem;
   }
   .navbarmenu .button {
     width: 6rem;
@@ -657,7 +674,9 @@ fieldset {
   }
   .companyList {
     width: 75%;
-    font-size: 1.5rem;
+  }
+  .companyList td, .companyList th {
+    padding: 17px;
   }
 }
 
@@ -743,6 +762,12 @@ fieldset {
   .donate-circle p, .redeem-circle p {
     padding-top: 5rem;
   }
+  .companyList td, .companyList th {
+    padding: 20px;
+  }
+  .donations-buttons button {
+    width: 18rem;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -759,7 +784,6 @@ fieldset {
   }
   .companyList {
     width: 70%;
-    font-size: 1.4rem;
   }
   .Admin {
     position: relative;
@@ -776,6 +800,7 @@ fieldset {
     width: 40%;
     margin: auto;
     padding-top: 2rem;
+    font-size: 2.5rem;
   }
   .TotalStats {
     display: block;
