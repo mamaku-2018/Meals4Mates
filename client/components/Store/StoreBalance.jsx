@@ -8,7 +8,8 @@ export class StoreBalance extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      currentBalance: 0
+      currentBalance: 0,
+      reload: false
     }
   }
 
@@ -21,7 +22,7 @@ export class StoreBalance extends React.Component {
     if (!this.props.storeBalance) {
       return null
     }
-    const endBalance = this.props.storeBalance.donations
+    const endBalance = this.props.storeBalance.donations -this.props.storeBalance.redemptions
     let counter = 0
     counter = setInterval(() => {
       if (this.state.currentBalance < endBalance) {
@@ -66,7 +67,7 @@ export class StoreBalance extends React.Component {
                 trail: {stroke: '#ffff'}
               }} />
           </div>
-          <h4>Total Donations</h4>
+          <h4>Current Balance</h4>
         </div>
 
         <div className='store-balance-buttons'>
