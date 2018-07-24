@@ -66,10 +66,6 @@ class Register extends React.Component {
         <Redirect to='/' />
       )
     }
-    const greyed = {
-      color: '#8e9b9f',
-      fontSize: 10
-    }
     return (
       <div className='register'>
         <form>
@@ -138,7 +134,7 @@ class Register extends React.Component {
               value={this.state.phone} />
             <br />
             <label htmlFor='password'>Password: &ensp;
-              <span style={greyed}>
+              <span className='greyed'>
              (Min 8 char with 1 uppercase, 1 lowercase, 1 num, 1 special char)
               </span>
             </label>
