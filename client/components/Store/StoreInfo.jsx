@@ -1,5 +1,4 @@
 import React from 'react'
-import { withRouter } from 'react-router'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getStoreInfo} from '../../actions/getStoreInfo'
@@ -57,4 +56,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps))(StoreInfo)
+export default connect(mapStateToProps, mapDispatchToProps)(StoreInfo)
