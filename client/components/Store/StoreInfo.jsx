@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {getStoreInfo} from '../../actions/getStoreInfo'
 import {clearError} from '../../actions'
 
-class StoreInfo extends React.Component {
+export class StoreInfo extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
