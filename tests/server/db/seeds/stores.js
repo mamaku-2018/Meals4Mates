@@ -1,4 +1,4 @@
-const {generate} = require('../../../../server/getStoreByEmailuth/hash')
+const {generate} = require('../../../../server/auth/hash')
 
 exports.seed = (knex, Promise) => {
   return knex('stores').del()
