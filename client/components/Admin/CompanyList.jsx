@@ -14,6 +14,7 @@ export class CompanyList extends React.Component {
           <thead>
             <tr className='top-row'>
               <th><br />Store</th>
+              <th><br />Suburb</th>
               <th>Total Donations</th>
               <th>Total Redemptions</th>
               <th>Remaining Balance</th>
@@ -24,6 +25,7 @@ export class CompanyList extends React.Component {
               return (
                 <tr key={stats.id}>
                   <td className='store-name'>{stats.name}</td>
+                  <td>{stats.suburb}</td>
                   <td>${stats.donation}</td>
                   <td>${stats.redemption}</td>
                   <td>${stats.donation - stats.redemption}</td>

@@ -14,6 +14,7 @@ class StoreInfo extends React.Component {
   componentDidMount () {
     const id = Number(this.props.match.params.id)
     this.props.getStoreInfo(id)
+    window.scrollTo(0, 0)
     this.props.clearError()
   }
 

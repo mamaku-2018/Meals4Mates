@@ -29,6 +29,9 @@ export class Donations extends React.Component {
     this.closeModal = this.closeModal.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
+  componentDidMount () {
+    window.scrollTo(0, 0)
+  }
 
   openModal () {
     this.setState({
