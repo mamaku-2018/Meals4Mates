@@ -29,8 +29,8 @@ class StoreStats extends React.Component {
           <ResponsiveContainer width='100%' height={500} maxWidth={600}>
             <BarChart data={this.props.storeStats} margin={{top: 5, right: 25, left: 5, bottom: 5}}>
               <CartesianGrid strokeDasharray='4 4' />
-              <XAxis dataKey="date" label={{value: 'Month', fill: '#1a2930', offset: -10, position: 'insideBottom'}} />
-              <YAxis label={{value: 'Amount ($)', angle: -90, position: 'center', padding: 10, fill: '#1a2930'}} />
+              <XAxis dataKey="date" label={{value: 'Month', fill: '#e4e2e2', offset: -10, position: 'insideBottom'}} />
+              <YAxis label={{value: 'Amount ($)', angle: -90, position: 'center', padding: 10, fill: '#e4e2e2'}} />
               <Tooltip offset={20} />
               <Legend align='right' verticalAlign='bottom' height={80} width={200} left={20} />
               <Bar dataKey="donation" fill='#F7CE3E' legendType="square" barSize={40} />
