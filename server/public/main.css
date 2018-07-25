@@ -332,13 +332,24 @@ fieldset {
 }
 
 .redeem .button, .donation .button {
-  width: 6rem;
+  width: 8rem;
   height: 3rem;
 }
 
-.storeInfoEdit .button {
+.storeInfoEdit h2 {
   margin-left: 0;
-  margin-right: 3rem;
+}
+
+.storeInfoEdit form {
+  width: 90%;
+}
+
+.storeInfoEdit .button {
+  width: 6rem;
+  height: 2.5rem;
+  font-size: 0.8rem;
+  margin-left: 0;
+  margin-right: 0.5rem;
 }
 
 .progress-bar {
@@ -489,7 +500,6 @@ fieldset {
   width: 100%;
   margin: 0 auto;
   padding: 2rem 0.5rem 2.5rem 0.5rem;
-  font-size: 0.6rem;
   border-top: 25px solid #314950;
   background: rgb(245,245,245);
   background: linear-gradient(180deg, rgba(245,245,245,1) 1%, rgba(228,226,226,1) 100%);
@@ -497,31 +507,30 @@ fieldset {
 }
 
 .companyList table {
-  width: 80%;
+  width: 90%;
   max-width: 830px;
   margin: 0 auto;
 }
 
 .companyList td, .companyList th {
-  padding: 0.5rem;
-  text-align: right;
+  padding: 1.5rem 0.2rem;
   color: #314950;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .companyList td {
   color: #314950;
+  font-size: 0.6rem;
 }
 
 .companyList th {
   color: #1a2930;
+  font-size: 0.6rem;
 }
 
 .companyList tr {
   border-bottom: 2px solid #8e9b9f;
-}
-
-.store-name {
-  text-align: left;
 }
 
 .donate-circle, .redeem-circle {
@@ -626,7 +635,7 @@ fieldset {
     margin-bottom: 3rem;
   }
   .companyList {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
 }
 
@@ -669,7 +678,7 @@ fieldset {
     margin-bottom: 3rem;
   }
   .companyList {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -757,7 +766,7 @@ fieldset {
   }
   .companyList {
     padding: 3rem 2rem 3.5rem 2rem;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
   }
   .companyList td, .companyList th {
     padding: 1rem;
