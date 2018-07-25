@@ -59,7 +59,7 @@ class Login extends React.Component {
     return (
       <div className='login'>
         {this.props.message && <span className='error'>
-        Username and password do not match an existing user</span>}
+          {this.props.message}</span>}
         <form>
           <fieldset>
             <h2>Login</h2>

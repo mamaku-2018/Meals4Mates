@@ -63,14 +63,14 @@ class Register extends React.Component {
   render () {
     if (this.props.message === 'Registration successful') {
       return (
-        <Redirect to='/' />
+        <Redirect to='/login' />
       )
     }
     return (
       <div className='register'>
         <form>
           {this.props.message && <span className='error'>
-          This email is already registered</span>}
+            {this.props.message}</span>}
           <fieldset>
             <h2>Register</h2>
             <label htmlFor='name'>Store: </label>
