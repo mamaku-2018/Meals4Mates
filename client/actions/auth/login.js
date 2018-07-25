@@ -64,7 +64,6 @@ export function getUserData (id) {
     dispatch(requestUserDetails())
     request('get', `/auth/${id}`)
       .then(res => {
-        console.log(res.body)
         dispatch(receiveUserDetails(res.body))
         dispatch(clearError())
       })
