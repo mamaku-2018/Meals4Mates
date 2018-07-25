@@ -996,6 +996,10 @@ binary-extensions@^1.0.0:
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-1.11.0.tgz#46aa1751fb6a2f93ee5e689bb1087d4b14c6c205"
 
+bindings@^1.2.1:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/bindings/-/bindings-1.3.0.tgz#b346f6ecf6a95f5a815c5839fc7cdb22502f1ed7"
+
 bluebird@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.1.tgz#d9551f9de98f1fcda1e683d17ee91a0602ee2eb9"
@@ -1803,6 +1807,12 @@ detect-libc@^1.0.2:
 detect-newline@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/detect-newline/-/detect-newline-2.1.0.tgz#f41f1c10be4b00e87b5f13da680759f2c5bfd3e2"
+
+dev@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/dev/-/dev-0.1.3.tgz#89fdc08705e0e7eaef92d012e26751e4d744322a"
+  dependencies:
+    inotify ">= 0.1.6"
 
 diff@^3.2.0:
   version "3.5.0"
@@ -2869,6 +2879,13 @@ inherits@2.0.1:
 ini@^1.3.4, ini@~1.3.0:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.5.tgz#eee25f56db1c9ec6085e0c22778083f596abf927"
+
+"inotify@>= 0.1.6":
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/inotify/-/inotify-1.4.2.tgz#fd69d0f6e4a55005e338b3c1852fbb81acfb3ccc"
+  dependencies:
+    bindings "^1.2.1"
+    nan "^2.3.3"
 
 inquirer@^6.0.0:
   version "6.0.0"
@@ -4134,7 +4151,7 @@ mute-stream@0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
 
-nan@^2.8.0, nan@^2.9.2, nan@~2.10.0:
+nan@^2.3.3, nan@^2.8.0, nan@^2.9.2, nan@~2.10.0:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.10.0.tgz#96d0cd610ebd58d4b4de9cc0c6828cda99c7548f"
 

@@ -16,6 +16,10 @@ export class StoreRedemption extends React.Component {
     this.changeHandler = this.changeHandler.bind(this)
   }
 
+  componentDidMount () {
+    window.scrollTo(0, 0)
+  }
+
   changeHandler (e) {
     const {name, value} = e.target
     this.setState({

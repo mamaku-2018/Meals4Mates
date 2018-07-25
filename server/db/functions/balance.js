@@ -32,7 +32,7 @@ function getStoreStats (db = knex) {
     .groupBy('stores.id')
     .sum('balance.redemption as redemption')
     .sum('balance.donation as donation')
-    .select('stores.name', 'stores.id')
+    .select('stores.name', 'stores.id', 'stores.suburb')
 }
 
 function addDonation (donation, db = knex) {

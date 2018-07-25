@@ -28,6 +28,7 @@ export class StoreInfoEdit extends React.Component {
   }
 
   componentDidMount () {
+    window.scrollTo(0, 0)
     const id = Number(this.props.match.params.id)
     this.props.getStoreInfo(id)
   }
@@ -68,12 +69,12 @@ export class StoreInfoEdit extends React.Component {
       )
     } else {
       return (
-        <div className='StoreInfoEdit'>
+        <div className='storeInfoEdit'>
           {this.props.userDetails &&
           <form>
             <fieldset>
+              <h3 className='storeInfo'>Edit Store Details</h3>
               {this.props.message === 'Email already in use' && <span className='error'>{this.state.emailInUseMsg}</span>}
-              <h3 className='StoreInfo'>Edit Store Details</h3>
               <label htmlFor='name' >Name:</label>
               <input placeholder={info.name} value={this.state.name} onChange={this.handleChange} name='name'/>
               <br />

@@ -16,6 +16,7 @@ export class StoreBalance extends React.Component {
   componentDidMount () {
     const id = Number(this.props.match.params.id)
     this.props.getStoreBalance(id)
+    window.scrollTo(0, 0)
   }
 
   render () {
