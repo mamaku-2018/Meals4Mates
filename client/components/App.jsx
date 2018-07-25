@@ -25,7 +25,7 @@ const App = () => {
           <Route path='/store/:id/donate' component={Donations} />
           <Route path='/store/:id' component={StoreProfile} />
         </Switch>
-        <Route exact path='/store/:id' component={StoreStats} />
+        <Route path='/store/:id' component={StoreStats} />
         <Route path='/' component={Footer} />
       </div>
     </Router>
