@@ -1,9 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {getStoreInfo} from '../actions/getStoreInfo'
+import {getStoreInfo} from '../../actions/getStoreInfo'
+import {clearError} from '../../actions'
 
-class StoreInfo extends React.Component {
+export class StoreInfo extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -13,6 +14,8 @@ class StoreInfo extends React.Component {
   componentDidMount () {
     const id = Number(this.props.match.params.id)
     this.props.getStoreInfo(id)
+    window.scrollTo(0, 0)
+    this.props.clearError()
   }
 
   render () {
@@ -40,6 +43,9 @@ function mapDispatchToProps (dispatch) {
   return {
     getStoreInfo: (id) => {
       return dispatch(getStoreInfo(id))
+    },
+    clearError: () => {
+      dispatch(clearError())
     }
   }
 }
@@ -51,4 +57,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(StoreInfo)
-// export default StoreInfo

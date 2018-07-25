@@ -11,7 +11,7 @@ test('requestBalance returns correct type', () => {
     type: REQUEST_BALANCE
   }
   const newState = requestBalance(currentState, action)
-  expect(newState).toEqual({"type": "REQUEST_BALANCE"})
+  expect(newState).toEqual({'type': 'REQUEST_BALANCE'})
 })
 
 test('storeBalance returns false during RECEIVE_BALANCE', () => {
@@ -20,5 +20,5 @@ test('storeBalance returns false during RECEIVE_BALANCE', () => {
     type: RECEIVE_BALANCE
   }
   const newState = receiveBalance(currentState, action)
-  expect(newState).toEqual({"balance": true, "type": "RECEIVE_BALANCE"})
+  expect(newState).toEqual({'balance': true, 'type': 'RECEIVE_BALANCE'})
 })

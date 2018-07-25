@@ -12,21 +12,22 @@ html, body {
   text-align: center;
   margin: 0; 
   padding: 0; 
-  background-color: #314950;
+  background: #314950;
   font-family: 'Libre Franklin', sans-serif
 }
 
-h1, h2, h3 {
+h1, h2 {
   font-weight: 900;
   color: #F7CE3E;
-  margin: 2.5rem 0 1rem 0;
+  margin: 2.5rem 0 2.5rem 0;
   padding-top: 1rem;
 }
 
-h4, h5 {
+h3, h4, h5 {
   font-weight: 900;
   color: #e4e2e2;
   margin: 0;
+  padding: 1rem 0 1rem 0;
 }
 
 h1 {
@@ -38,7 +39,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 }
 
 h4 {
@@ -50,21 +51,27 @@ p {
 }
 
 .button {
-  width: 10rem;
-  height: 3rem;
+  width: 7rem;
+  height: 2.5rem;
   margin: 1rem;
   text-transform: uppercase;
   font-weight: 900;
-  background-color: transparent;
-  border: 2px solid  #F7CE3E;
-  color: #e4e2e2;
+  background: rgb(255,255,255);
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(179,188,191,1) 0%, rgba(142,155,159,1) 100%);
+  border: none;
+  color: #1a2930;
   border-radius: 5px;
   outline: none;
-  box-shadow: 0 2px 3px #3f3e3e;
+  box-shadow: 0 2px 2px 0 #1a2930;
 }
 
 .button:hover {
-  color:  #1a2930;
+  color: #e4e2e2;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 input {
@@ -90,7 +97,7 @@ span {
   margin-top: 2.5rem;
   color: red;
   font-weight: bold;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
 }
 
 #app, .container {
@@ -103,7 +110,8 @@ span {
 }
 
 form {
-  width: 100%;
+  width: 70%;
+  margin: auto;
   text-align: left;
   padding: 1rem;
 }
@@ -115,6 +123,11 @@ label {
   margin-bottom: 0;
 }
 
+.greyed {
+  color: #8e9b9f;
+  font-size: 10px;
+}
+
 /* HEADER */
 
 .navbar {
@@ -122,7 +135,7 @@ label {
   display: flex;
   height: 6rem;
   width: 100%; 
-  background-color: #1a2930;
+  background: #1a2930;
   margin: 0;
 }
 
@@ -135,14 +148,15 @@ label {
 .logo {
   position: absolute;
   top: 20%;
-  left: 0.5rem;
+  left: 0.8rem;
   width: 60%; 
+  max-width: 330px;
 }
 
 .navbar-menu {
   position: absolute;
   padding: 0.7rem;
-  right: 0;
+  right: 0.6rem;
   display: inline;
   background-color: #1a2930;
 }
@@ -182,30 +196,29 @@ label {
 }
 
 .banner img {
-  width: 30%;
-  margin-top: 1rem;
+  width: 20%;
+  margin-top: 2rem;
+  max-width: 5rem;
 }
 
 /* LOCATIONS */
 
-.locations {
-  height: 400px;
+.locations, .map, .leaflet-container {
+  height: 500px;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .map { 
-  height: 400px; 
-  width: 100vw;
-  position: relative;
-  overflow: auto;
+  box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .leaflet-container { 
-  height: 400px; 
+  height: 500px; 
   width: 100vw;
   position: relative;
   overflow: auto;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .leaflet-popup-content-wrapper {
@@ -214,18 +227,16 @@ label {
 
 /* LOGIN & REGISTER */
 
-.login, .register {
-  width: 80%;
-  margin: auto;
-  border: none;
-}
-
-.login button, .register button {
+.login button, .register button, .cancel-button {
   margin-left: 0;
 }
 
 .login {
   height: 550px;
+}
+
+.register {
+  margin-top: 0;
 }
 
 form h2 {
@@ -247,13 +258,14 @@ fieldset {
 
 .advertising img {
   width: 20%;
+  max-width: 10rem;
   margin: 2rem 1rem 2rem 1rem;
 }
 
 /* STORE */
 
 .storeprofile {
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .storeInfo {
@@ -266,14 +278,20 @@ fieldset {
   margin-bottom: 0;
   color: #e4e2e2;
 }
+.storeInfo h5 {
+  padding: 0;
+}
 
 .storeInfo .button {
   width: 6rem;
   height: 2rem;
+  font-size: 0.8rem;
 }
 
 .store-balance {
+  margin: 0 auto;
   margin-top: 3rem;
+  width: 80%;
 }
 
 .total-balance {
@@ -281,18 +299,20 @@ fieldset {
   height: 200px;
   margin: auto;
   z-index: 1;
-  background-color: #e4e2e2;
+  background: rgb(245,245,245);
+  background: linear-gradient(180deg, rgba(245,245,245,1) 1%, rgba(228,226,226,1) 100%);
   border: 5px solid #8e9b9f;
   border-radius: 50%;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   margin-bottom: 2rem;
+  transition: width 0.5s, height 0.5s;
 }
 
 .total-balance p {
   padding: 2.5rem 2rem 0.5rem 2rem;
   color: #1a2930;
   z-index: 2;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 900;
   line-height: 1.4rem;
 }
@@ -304,7 +324,6 @@ fieldset {
 }
 
 .store-balance-buttons {
-  width: 80%;
   margin: auto;
   margin-top: 1rem;
   margin-bottom: 4rem;
@@ -312,33 +331,86 @@ fieldset {
   justify-content: space-between;
 }
 
-.redeem .button {
+.redeem .button, .donation .button {
   width: 6rem;
   height: 3rem;
-  background-color: #1a2930; 
-  border: none;
 }
 
-.donation .button {
-  width: 6rem;
-  height: 3rem;
-  background-color: #8e9b9f; 
+.storeInfoEdit .button {
+  margin-left: 0;
+  margin-right: 3rem;
+}
+
+.progress-bar {
+  width: 220px;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
+/* STORE REDEMPTION */
+
+.store-redemption {
+  width: 90%;
+  background-color: #e4e2e2; 
+  margin: auto;
+  margin-top: 1rem;
+  padding: 1rem;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.store-redemption form {
+  width: 90%;
+  padding: 0;
+  margin: auto;
+  margin-bottom: 1rem;
+}
+
+.store-redemption fieldset {
+  width: 100%;
+  margin: auto;
+}
+
+.store-redemption h4 {
+  text-align: center;
   color: #1a2930;
-  border: none;
+}
+
+.store-redemption label {
+  color: #1a2930;
+}
+
+.redeem-buttons {
+  display: flex;
+  width: 70%;
+  margin: auto;
+  justify-content: space-between;
+}
+
+.store-redemption .button {
+  width: 6rem;
+  height: 2rem;
+  font-size: 0.8rem;
 }
 
 /* STORE STATS */
 
 .stats {
-  padding: 0;
+  padding-top: 2rem;
   width: 95%;
   margin: auto;
   background-color: #314950;
 }
 
-.recharts-wrapper {
-  width: 95%;
+.stats h3 {
+  width: 60%;
   margin: auto;
+  text-align: center;
+}
+
+.recharts-wrapper, .recharts-responsive-container {
+  width: 90%;
+  margin: auto;
+  max-width: 1100px;
 }
 
 /* DONATIONS */
@@ -361,13 +433,19 @@ fieldset {
 }
 
 .donations-buttons button {
-  background-color: #F7CE3E;
-  border-color: #1a2930;
-  color: #1a2930;
   font-size: 1.3rem;
-  width: 7rem;
-  height: 2.5rem;
+  width: 9rem;
+  height: 3rem;
   padding-top: 0.2rem;
+}
+
+.donations-buttons button:focus {
+  background: rgb(250,219,111);
+  background: linear-gradient(180deg, rgba(250,219,111,1) 0%, rgba(247,206,62,1) 100%);
+}
+
+.donations-buttons button:focus:hover {
+  color: #1a2930;
 }
 
 .donate-button {
@@ -385,20 +463,79 @@ fieldset {
   object-fit: cover;
 }
 
-/* ADMIN COMPANY LIST */ 
+/* MODAL */
+
+.ReactModal__Content, .ReactModal__Content--after-open {
+  padding: 30px !important;
+}
+
+.ReactModal__Content, .ReactModal__Content--after-open h4, .ReactModal__Content, .ReactModal__Content--after-open p {
+  color: #1a2930 !important;
+}
+
+.ReactModal__Content, .ReactModal__Content--after-open p {
+  font-size: 2rem;
+}  
+
+/* ADMIN */ 
+
+.totalStats {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
 
 .companyList {
   position: relative;
-  padding: 0;
-  margin-top: 1rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 0.5rem 2.5rem 0.5rem;
+  font-size: 0.6rem;
+  border-top: 25px solid #314950;
+  background: rgb(245,245,245);
+  background: linear-gradient(180deg, rgba(245,245,245,1) 1%, rgba(228,226,226,1) 100%);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .companyList table {
+  width: 80%;
+  max-width: 830px;
   margin: 0 auto;
 }
-.companyList table tr td, .companyList table tr th {
-  padding: 5px;
-  text-align: center;
+
+.companyList td, .companyList th {
+  padding: 0.5rem;
+  text-align: right;
+  color: #314950;
+}
+
+.companyList td {
+  color: #314950;
+}
+
+.companyList th {
+  color: #1a2930;
+}
+
+.companyList tr {
+  border-bottom: 2px solid #8e9b9f;
+}
+
+.store-name {
+  text-align: left;
+}
+
+.donate-circle, .redeem-circle {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.redeem-circle {
+  background: rgb(35,50,56);
+  background: linear-gradient(180deg, rgba(35,50,56,1) 0%, rgba(26,41,48,1) 100%);
+}
+
+.redeem-circle p, .redeem-circle span {
+  color: #e4e2e2;
 }
 
 /* FOOTER */
@@ -406,14 +543,14 @@ fieldset {
 .footer {
   width: 100%;
   margin: 0;
-  background-color: #1a2930;
+  margin-top: 3rem;
+  background: #1a2930;
   color: #e4e2e2;
-  padding: 2rem 1.5rem 3rem;
+  padding: 2rem;
 }
 
 .footer h4 {
   color: #F7CE3E;
-  margin-bottom: 0.5rem;
 }
 
 .footer p {
@@ -429,6 +566,15 @@ fieldset {
   color: #e4e2e2;
 }
 
+/* WAIT INDICATOR*/
+
+.waitIndicator {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100px;
+}
+
 /* MEDIA QUERIES */ 
 
 @media only screen and (min-width: 350px) {
@@ -441,15 +587,15 @@ fieldset {
   .logo {
     width: 50%;
   }
-  .redeem .button {
-    width: 8rem;
-  }
-  .donation .button {
+  .redeem .button, .donation .button {
     width: 8rem;
   }
 }
 
 @media only screen and (min-width: 500px) {
+  form {
+    width: 60%;
+  }
   .logo {
     width: 50%;
     top: 15%;
@@ -459,24 +605,35 @@ fieldset {
     bottom: 0;
   }  
   .store-balance {
-    margin: auto;
     margin-top: 3rem;
     display: flex;
-    width: 95%;
   }
   .store-balance-buttons {
     display: block;
     margin: 4rem 4rem 4rem 2rem;
     width: 30%;
   }
+  .totalStats {
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
   .total-balance {
+    margin: auto;
     margin-top: 2rem;
     margin-bottom: 3rem;
-    margin-right: 1rem;
+  }
+  .companyList {
+    font-size: 1.1rem;
   }
 }
 
 @media only screen and (min-width: 640px) {
+  h2 {
+    font-size: 2.6rem;
+  }
   .banner img {
     width: 15%;
     margin-top: 1rem;
@@ -501,11 +658,27 @@ fieldset {
   .donations h2 {
     margin-top: 3rem;
   }
+  .totalStats {
+    width: 80%;
+    display: flex;
+    margin-bottom: 3rem;
+  }
+  .total-balance {
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+  .companyList {
+    font-size: 1.2rem;
+  }
 }
 
 @media only screen and (min-width: 750px) {
   .container {
     height: 100vh;
+  }
+  h2 {
+    font-size: 2.8rem;
   }
   .navbarmenu .button {
     width: 6rem;
@@ -514,6 +687,80 @@ fieldset {
   }
   .logo {
     top: 10%;
+  }
+  .storeprofile {
+    display: flex;
+    flex-wrap: wrap;
+    width: 92%;
+    margin: 3rem auto;
+  }
+  .storeInfo {
+    font-size: 1.2rem;
+    margin: 1rem 0 1rem 1rem;
+    text-align: left;
+    width: 28%;
+  }
+  .store-balance {
+    width: 62%;
+    margin: 0 auto;
+  }
+  .storeInfo h3 {
+    font-size: 120%;
+  }
+  .storeInfo p {
+    font-size: 1.3rem;
+  }
+  .storeInfo .button {
+    width: 7rem;
+    height: 2.5rem;
+    margin-left: 0;
+    margin-top: 2rem;
+  }
+  .storeInfoEdit {
+    flex-shrink: 0;
+    width: 100%;
+    position: relative; 
+    margin-bottom: 3rem;
+  }
+  .total-balance {
+    width: 250px;
+    height: 250px;
+    position: relative;
+  }
+  .total-balance p {
+    padding-top: 3rem;
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+  .total-balance span {
+    font-size: 3rem;
+  }
+  .total-balance:hover {
+    width: 270px;
+    height: 270px;
+  }
+  .store-balance-buttons {
+    margin: auto;
+    margin-top: 4rem;
+    margin-bottom: 8rem;
+  }
+  .redeem .button, .donation .button {
+    width: 10rem;
+    height: 4rem;
+    font-size: 120%;
+    margin-bottom: 2rem;
+  }
+  .store-redemption {
+    width: 50%;
+    float: right;
+    margin: 2.5rem;
+  }
+  .companyList {
+    padding: 3rem 2rem 3.5rem 2rem;
+    font-size: 1.2rem;
+  }
+  .companyList td, .companyList th {
+    padding: 1rem;
   }
   .footer {
     width: 100%;
@@ -539,7 +786,7 @@ fieldset {
     margin: 1rem 0 0 1rem;
     font-size: 0.9rem;
   }
-  .login button, .register button {
+  .login button, .register button, .cancel-button {
     width: 8rem;
   }
   .navbar-menu {
@@ -555,28 +802,35 @@ fieldset {
   .banner p {
     font-size: 1.2rem;
   }
-  .map, .locations, .leaflet-container { 
-    height: 500px; 
+  .locations, .map, .leaflet-container { 
+    height: 600px; 
   }
   .login, .register {
     width: 60%;
     margin: auto;
   }
-  .total-balance {
-    width: 250px;
-    height: 250px;
+  .storeInfo {
+    margin: 1rem 0 1rem 2.5rem;
   }
   .total-balance p {
     padding: 3.5rem 2rem 0.5rem 2rem;
     font-size: 1.3rem;
   }
   .total-balance span {
-    font-size: 3.5rem;
+    font-size: 3rem;
+  }
+  .companyList {
+    padding: 5rem;
+  }
+  .companyList td, .companyList th {
+    padding: 1.8rem;
+  }
+  .recharts-wrapper, .recharts-responsive-container {
+    width: 75%;
   }
   .footer-text {
     margin-left: 5%;
   }
-
 }
 
 @media only screen and (min-width: 1088px) {
@@ -588,65 +842,29 @@ fieldset {
     width: 30%; 
     top: 0;
   }
-  .locations {
-    height: 500px;
-    width: 100%;
-  }
-  .map { 
-    height: 500px; 
-  }
   .storeprofile {
-    position: relative;
-    width: 100%;
-    height: 1300px;
-  }
-  .storeInfo {
-    position: absolute;
-    font-size: 150%;
-    left: 15%;
+    width: 80%;
+    margin: auto;
     margin-top: 5rem;
-    width: 25%;
-    text-align: left;
   }
-  .storeInfo h3 {
-    font-size: 130%;
-  }
-  .storeInfo .button {
-    width: 7rem;
-    height: 2.5rem;
-    margin-left: 0;
-    margin-top: 2rem;
-  }
-  .store-balance {
-    position: absolute;
-    right: 15%;
-    width: 50%;
+  .totalStats {
+    width: 80%;
+    margin-bottom: 3rem;
   }
   .total-balance {
-    width: 380px;
-    height: 380px;
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
   }
   .total-balance p {
-    padding-top: 7rem;
-    font-size: 2rem;
-    line-height: 3rem;
+    padding-top: 3rem;
+    font-size: 1.5rem;
   }
-  .total-balance span {
-    font-size: 5rem;
+  .donate-circle p, .redeem-circle p {
+    padding-top: 3rem;
   }
-  .store-balance-buttons {
-    margin: auto;
-    margin-top: 8rem;
-    margin-bottom: 8rem;
-  }
-  .redeem .button, .donation .button {
-    width: 10rem;
-    height: 4rem;
-    font-size: 140%;
-  }
-  .stats {
-    position: absolute;
-    bottom: 0;
+  .donations-buttons button {
+    width: 18rem;
   }
 }
 
@@ -662,13 +880,84 @@ fieldset {
   .donatepic img {
     width: 100%;
   }
+  .companyList {
+    padding: 6rem;
+  }
+  .companyList td, .companyList th {
+    padding: 1.5rem 2.5rem;
+  }
+  .admin {
+    position: relative;
+    margin-top: 0;
+  }
+  .admin-top {
+    display: flex;
+    height: 800px;
+    background-color: #8e9b9f;
+  }
+  .total-balance p {
+    padding-top: 4rem;
+    font-size: 1.7rem;
+  }
+  .totalStats {
+    display: block;
+    width: 40%;
+    margin-bottom: 1rem;
+    padding: 2rem 5rem 2rem 4rem;
+  }
+  .donate-circle p, .redeem-circle p {
+    padding-top: 4rem;
+    font-size: 1.4rem;
+  }
+  .locations, .map, .leaflet-container {
+    height: 800px;
+    width: 100%;
+    margin: 0;
+  }
 }  
 
 @media only screen and (min-width: 1400px) {
   .navbar{
-    height: 8rem;
+    height: 10rem;
+  }
+  .navbar-menu .button {
+    width: 8rem;
+    height: 2.5rem;
+    margin: 1.5rem 0 0 1rem;
+    font-size: 1rem;
   }
   .logo {
-    width: 28%;
+    width: 35%;
   }
-}  
+  .navbar-menu, .navbar-brand {
+    padding-top: 2rem;
+  }
+  .storeprofile {
+    width: 70%;
+  }
+  .total-balance p {
+    line-height: 2rem;
+  }
+  .redeem .button, .donation .button {
+    width: 15rem;
+    height: 4rem;
+    font-size: 130%;
+  }
+  .redeem-buttons {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 1700px) {
+  .storeprofile {
+    width: 60%;
+  }
+  .redeem .button, .donation .button {
+    width: 15rem;
+    height: 4rem;
+    font-size: 130%;
+  }
+  .redeem-buttons {
+    width: 50%;
+  }
+}

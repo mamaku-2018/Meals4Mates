@@ -33,7 +33,7 @@ export const logOut = () => {
 export function logStoreOut () {
   return (dispatch) => {
     dispatch(requestLogin())
-    logOut()
+    dispatch(logOut())
   }
 }
 

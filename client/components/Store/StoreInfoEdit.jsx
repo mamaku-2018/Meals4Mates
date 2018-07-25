@@ -1,10 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {clearError} from '../actions'
+import {clearError} from '../../actions'
 import {Redirect, Link} from 'react-router-dom'
-import {storeInfoEdit} from '../actions/auth/storeInfoEdit'
-import {getStoreInfo} from '../actions/getStoreInfo'
-import {isValidEmail} from '../lib/securityVal'
+import {storeInfoEdit} from '../../actions/auth/storeInfoEdit'
+import {getStoreInfo} from '../../actions/getStoreInfo'
+import {isValidEmail} from '../../lib/securityVal'
 
 export class StoreInfoEdit extends React.Component {
   constructor (props) {
@@ -17,9 +17,10 @@ export class StoreInfoEdit extends React.Component {
       address: '',
       suburb: '',
       city: '',
-      redirect: false,
       badEmail: false,
-      emailMessage: 'Email invalid'
+      badEmailMessage: 'Email invalid',
+      existsEmail: false,
+      emailInUseMsg: 'Email already exisits'
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -27,6 +28,7 @@ export class StoreInfoEdit extends React.Component {
   }
 
   componentDidMount () {
+    window.scrollTo(0, 0)
     const id = Number(this.props.match.params.id)
     this.props.getStoreInfo(id)
   }
@@ -54,29 +56,25 @@ export class StoreInfoEdit extends React.Component {
         id: id
       }
       storeInfoEdit(user)
-      this.setState({redirect: true})
     }
     e.preventDefault()
   }
 
   render () {
     const id = this.props.match.params.id
-    const style = {
-      color: 'red'
-    }
     const info = this.props.userDetails
-    if (this.state.redirect) {
+    if (this.props.message === 'Your details have been successfully updated') {
       return (
         <Redirect to={`/store/${id}`} />
       )
     } else {
       return (
-
-        <div className='StoreInfoEdit'>
+        <div className='storeInfoEdit'>
           {this.props.userDetails &&
           <form>
             <fieldset>
-              <h2 className='StoreInfo'>Edit Store Details</h2>
+              <h3 className='storeInfo'>Edit Store Details</h3>
+              {this.props.message === 'Email already in use' && <span className='error'>{this.state.emailInUseMsg}</span>}
               <label htmlFor='name' >Name:</label>
               <input placeholder={info.name} value={this.state.name} onChange={this.handleChange} name='name'/>
               <br />
@@ -97,7 +95,8 @@ export class StoreInfoEdit extends React.Component {
               <br />
               <label htmlFor='email'>Email:</label>
               <input placeholder={info.email} value={this.state.email} onChange={this.handleChange} name='email'/>
-              {this.state.badEmail && <span style={style}>{this.state.emailMessage}</span>}
+              {this.state.badEmail && <span className='error'>{this.state.badEmailMessage}</span>}
+
               <br />
               <button className='button' onClick={this.handleSubmit}>SUBMIT</button>
               <Link to={`/store/${id}`} className='button'>CANCEL</Link>
@@ -122,7 +121,8 @@ function mapDispatchToProps (dispatch) {
 }
 const mapStateToProps = (state) => {
   return {
-    userDetails: state.userDetails
+    userDetails: state.userDetails,
+    message: state.errorMessage
   }
 }
 

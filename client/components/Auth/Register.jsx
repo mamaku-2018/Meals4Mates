@@ -29,6 +29,10 @@ class Register extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  componentDidMount () {
+    window.scrollTo(0, 0)
+  }
+
   handleChange (e) {
     const {name, value} = e.target
     let match = this.state.match
@@ -63,22 +67,14 @@ class Register extends React.Component {
   render () {
     if (this.props.message === 'Registration successful') {
       return (
-        <Redirect to='/' />
+        <Redirect to='/login' />
       )
-    } else if (this.props.message === 'This email is already registered') {
-      document.getElementById('message').innerHTML = this.props.message
-    }
-    const style = {
-      color: 'red'
-    }
-    const greyed = {
-      color: '#8e9b9f',
-      fontSize: 10
     }
     return (
       <div className='register'>
         <form>
-          <div id='message'></div>
+          {this.props.message && <span className='error'>
+            {this.props.message}</span>}
           <fieldset>
             <h2>Register</h2>
             <label htmlFor='name'>Store: </label>
@@ -105,7 +101,8 @@ class Register extends React.Component {
               placeholder='Email..'
               onChange={this.handleChange}
               value={this.state.email} />
-            {this.state.badEmail && <span style={style}>{this.state.emailMessage}</span>}
+            {this.state.badEmail && <span className='error'>
+              {this.state.emailMessage}</span>}
             <br />
             <label htmlFor='address'>Street: </label>
             <input
@@ -140,7 +137,10 @@ class Register extends React.Component {
               onChange={this.handleChange}
               value={this.state.phone} />
             <br />
-            <label htmlFor='password'>Password: &ensp;<span style={greyed}> (Min 8 char with 1 uppercase, 1 lowercase, 1 num, 1 special char)</span></label>
+            <label htmlFor='password'>Password:
+              <span className='greyed'>(min 8 char - 1 upper, lower, num, special char)
+              </span>
+            </label>
             <input
               type='password'
               name='password'
@@ -157,8 +157,10 @@ class Register extends React.Component {
               placeholder='Confirm password..'
               onChange={this.handleChange}
               value={this.state.confirm} />
-            {this.state.weakPassword && <span style={style}>{this.state.passwordMsg}</span>}
-            {!this.state.match && <span style={style}>{this.state.message}</span>}
+            {this.state.weakPassword && <span className='error'>
+              {this.state.passwordMsg}</span>}
+            {!this.state.match && <span className='error'>
+              {this.state.message}</span>}
             <br />
             <button
               type='button'
@@ -166,7 +168,7 @@ class Register extends React.Component {
               className='button'
               onClick={this.handleSubmit}>Register
             </button>
-            <Link to='/' type='button' className='button' >Cancel</Link>
+            <Link to='/' type='button' className='button cancel-button' >Cancel</Link>
           </fieldset>
         </form>
       </div>

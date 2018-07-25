@@ -2,10 +2,25 @@ const express = require('express')
 const db = require('../db/functions/store')
 const router = express.Router()
 
+router.get('/:id/donationRedemption', (req, res) => {
+  const id = Number(req.params.id)
+  db.getDonationsRedemptions(id)
+    .then((money) => {
+      res.json(money)
+    })
+})
+
 router.get('/', (req, res) => {
   db.getAllStoreLocations()
     .then((details) => {
       res.json(details)
+    })
+})
+
+router.get('/donationRedemption', (req, res) => {
+  db.getAllDonationsRedemptions()
+    .then((money) => {
+      res.json(money)
     })
 })
 
@@ -33,12 +48,19 @@ router.put('/:id/edit', (req, res) => {
     lat: req.body.lat,
     lng: req.body.lng
   }
-  db.editStoreDetails(store)
-    .then(() => { res.status(200) })
-    .catch(err => {
-    // eslint-disable-next-line
-    console.log(err)
-      res.status(500).send('Unable to edit store details')
+  db.emailInUse(store)
+    .then(exists => {
+      if (exists) {
+        return res.status(200).send({message: 'Email already in use'})
+      } else {
+        db.editStoreDetails(store)
+          .then(() => { res.status(200).send({message: 'Your details have been successfully updated'}) })
+          .catch(err => {
+          // eslint-disable-next-line
+          console.log(err)
+            res.status(500).send('Unable to edit store details')
+          })
+      }
     })
 })
 

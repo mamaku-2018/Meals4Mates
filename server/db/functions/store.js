@@ -7,11 +7,14 @@ const hash = require('../../auth/hash')
 module.exports = {
   addNewStore,
   storeExists,
+  emailInUse,
   getStore,
   getStoreByEmail,
   getStoreDetails,
   editStoreDetails,
-  getAllStoreLocations
+  getAllStoreLocations,
+  getDonationsRedemptions,
+  getAllDonationsRedemptions
 }
 
 function addNewStore (newStore, db = knex) {
@@ -32,10 +35,31 @@ function addNewStore (newStore, db = knex) {
     })
 }
 
+function getDonationsRedemptions (id, db = knex) {
+  return db('balance')
+    .where('balance.store_id', id)
+    .select('created_at as date', 'donation', 'redemption')
+}
+
+function getAllDonationsRedemptions (db = knex) {
+  return db('balance')
+    .select('created_at as date', 'donation', 'redemption')
+}
+
 function storeExists (email, db = knex) {
   return db('stores')
     .count('id as n')
     .where('email', email)
+    .then(count => {
+      return count[0].n > 0
+    })
+}
+
+function emailInUse (store, db = knex) {
+  return db('stores')
+    .whereNot('id', store.id)
+    .where('email', store.email)
+    .count('id as n')
     .then(count => {
       return count[0].n > 0
     })

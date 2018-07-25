@@ -18,6 +18,10 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  componentDidMount () {
+    window.scrollTo(0, 0)
+  }
+
   handleChange (e) {
     const {name, value} = e.target
     this.setState({
@@ -31,7 +35,7 @@ class Login extends React.Component {
       password: this.state.password
     }
     const goStore = (id) => {
-      if (id === 5) {
+      if (id === 1) {
         return this.setState({
           admin: true
         })
@@ -47,23 +51,20 @@ class Login extends React.Component {
   }
 
   render () {
-    if (this.state.admin === true) {
+    if (this.state.admin) {
       return (
         <Redirect to={'/admin'} />
       )
-    } else if (this.state.redirect === true) {
+    } else if (this.state.redirect) {
       return (
         <Redirect to={`/store/${this.state.id}`} />
       )
-    } else if (this.props.message ===
-       'Username and password do not match an existing user') {
-      document.getElementById('message').innerHTML =
-      this.props.message
     }
     return (
       <div className='login'>
+        {this.props.message && <span className='error'>
+          {this.props.message}</span>}
         <form>
-          <div id='message'></div>
           <fieldset>
             <h2>Login</h2>
             <label htmlFor='email'>Email: </label>
@@ -87,7 +88,7 @@ class Login extends React.Component {
               className='button'
               onClick={this.handleSubmit}>Login
             </button>
-            <Link to='/' type='button' className='button' >Cancel</Link>
+            <Link to='/' type='button' className='button cancel-button' >Cancel</Link>
           </fieldset>
         </form>
       </div>

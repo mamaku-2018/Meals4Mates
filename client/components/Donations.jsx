@@ -29,6 +29,9 @@ export class Donations extends React.Component {
     this.closeModal = this.closeModal.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
+  componentDidMount () {
+    window.scrollTo(0, 0)
+  }
 
   openModal () {
     this.setState({
@@ -65,7 +68,7 @@ export class Donations extends React.Component {
 
   render () {
     const id = Number(this.props.match.params.id)
-    if (this.state.redirect) {   
+    if (this.state.redirect) {
       return (
         <Redirect to={`/store/${id}`} />
       )
@@ -100,7 +103,7 @@ export class Donations extends React.Component {
             contentLabel='Confirm donation'
             ariaHideApp={false}
           >
-            <h4>Thank You so much for your donation! Every little bit helps</h4>
+            <h4>Thanks so much for your donation!</h4>
             <p>${this.state.amount}</p>
             <button type='button' className='button' onClick={this.handleConfirm}>Confirm</button>
           </Modal>
