@@ -16,13 +16,14 @@ export class StoreBalance extends React.Component {
   componentDidMount () {
     const id = Number(this.props.match.params.id)
     this.props.getStoreBalance(id)
+    window.scrollTo(0, 0)
   }
 
   render () {
     if (!this.props.storeBalance) {
       return null
     }
-    const endBalance = this.props.storeBalance.donations -this.props.storeBalance.redemptions
+    const endBalance = this.props.storeBalance.donations - this.props.storeBalance.redemptions
     let counter = 0
     counter = setInterval(() => {
       if (this.state.currentBalance < endBalance) {

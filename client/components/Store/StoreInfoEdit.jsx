@@ -28,6 +28,7 @@ export class StoreInfoEdit extends React.Component {
   }
 
   componentDidMount () {
+    window.scrollTo(0, 0)
     const id = Number(this.props.match.params.id)
     this.props.getStoreInfo(id)
   }
