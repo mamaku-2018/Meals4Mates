@@ -10,7 +10,6 @@ import Donations from './Donations'
 import Admin from './Admin/Admin'
 import StoreStats from './Store/StoreStats'
 import WaitIndicator from './WaitIndicator'
-import StoreRedemption from '../components/Store/StoreRedemption'
 
 const App = () => {
   return (
@@ -24,8 +23,7 @@ const App = () => {
         <Route path='/register' component={Register} />
         <Switch>
           <Route path='/store/:id/donate' component={Donations} />
-          <Route path='/store/:id/redeem' component={StoreRedemption} />
-          {/* <Route path='/store/:id' component={StoreProfile} /> */}
+          <Route path='/store/:id' component={StoreProfile} />
         </Switch>
         <Route exact path='/store/:id' component={StoreStats} />
         <Route path='/' component={Footer} />
