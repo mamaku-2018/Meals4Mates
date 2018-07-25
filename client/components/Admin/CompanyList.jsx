@@ -10,6 +10,7 @@ export class CompanyList extends React.Component {
   render () {
     return (
       <div className='companyList'>
+        <h3>Donations by Store</h3>
         <table>
           <thead>
             <tr className='top-row'>
