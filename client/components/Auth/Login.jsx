@@ -18,6 +18,10 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  componentDidMount () {
+    window.scrollTo(0, 0)
+  }
+
   handleChange (e) {
     const {name, value} = e.target
     this.setState({
@@ -59,7 +63,7 @@ class Login extends React.Component {
     return (
       <div className='login'>
         {this.props.message && <span className='error'>
-        Username and password do not match an existing user</span>}
+          {this.props.message}</span>}
         <form>
           <fieldset>
             <h2>Login</h2>

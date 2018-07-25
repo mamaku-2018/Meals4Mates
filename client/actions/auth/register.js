@@ -65,7 +65,7 @@ export function register (user) {
           })
       })
       .catch(err => {
-        if (err) {
+        if (err.message === 'User exists') {
           return dispatch(showError('This email is already registered'))
         } else {
           return dispatch(showError('An unexpected error has occurred'))
