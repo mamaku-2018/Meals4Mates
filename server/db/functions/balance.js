@@ -12,18 +12,18 @@ module.exports = {
   getStoreStats
 }
 
-function getStoreTotalDonation (id, db = knex) {
-  return db('balance')
-    .where('store_id', id)
-    .sum('donation as donation')
-    .then(donation => donation[0])
-}
-
 function getStoreTotalRedemption (id, db = knex) {
   return db('balance')
     .where('store_id', id)
     .sum('redemption as redemption')
     .then(redemption => redemption[0])
+}
+
+function getStoreTotalDonation (id, db = knex) {
+  return db('balance')
+    .where('store_id', id)
+    .sum('donation as donation')
+    .then(donation => donation[0])
 }
 
 function getStoreStats (db = knex) {

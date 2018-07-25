@@ -28,26 +28,6 @@ router.get('/admin', (req, res) => {
     })
 })
 
-router.get('/:id', (req, res) => {
-  const id = req.params.id
-  db.getStoreTotalDonation(id)
-    .then(donations => {
-      db.getStoreTotalRedemption(id)
-        .then(redemptions => {
-          const balance = {
-            donations: Number(donations.donation),
-            redemptions: Number(redemptions.redemption)
-          }
-          res.json([balance])
-        })
-    })
-    .catch(err => {
-      // eslint-disable-next-line
-  console.log(err)
-      res.status(500).send('Unable to retrieve store data')
-    })
-})
-
 router.post('/:id/donate', (req, res) => {
   const storeId = req.params.id
   const donation = {
@@ -77,6 +57,26 @@ router.post('/:id/redeem', (req, res) => {
     // eslint-disable-next-line
 console.log(err)
       res.status(500).send('Unable to make redemption')
+    })
+})
+
+router.get('/:id', (req, res) => {
+  const id = req.params.id
+  db.getStoreTotalDonation(id)
+    .then(donations => {
+      db.getStoreTotalRedemption(id)
+        .then(redemptions => {
+          const balance = {
+            donations: Number(donations.donation),
+            redemptions: Number(redemptions.redemption)
+          }
+          res.json([balance])
+        })
+    })
+    .catch(err => {
+      // eslint-disable-next-line
+  console.log(err)
+      res.status(500).send('Unable to retrieve store data')
     })
 })
 

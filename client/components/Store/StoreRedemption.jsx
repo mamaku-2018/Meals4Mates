@@ -2,6 +2,7 @@ import React from 'react'
 import {Link, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {submitVoucher} from '../../actions/storeRedemption'
+import {getStoreStats} from '../../actions/storeStats'
 
 export class StoreRedemption extends React.Component {
   constructor (props) {
@@ -28,7 +29,8 @@ export class StoreRedemption extends React.Component {
       voucher: this.state.voucher,
       redemption: Number(this.state.amount)
     }
-    this.props.submitVoucher((voucher))
+    this.props.submitVoucher(voucher)
+    // this.props.getStoreStats(this.props.match.params.id)
     this.setState({
       isRedeemed: true
     })
@@ -66,6 +68,9 @@ function mapDispatchToProps (dispatch) {
   return {
     submitVoucher: (voucher) => {
       return dispatch(submitVoucher(voucher))
+    },
+    getStoreStats: (id) => {
+      return dispatch(getStoreStats(id))
     }
   }
 }
