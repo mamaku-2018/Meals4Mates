@@ -13,6 +13,10 @@ class Header extends React.Component {
     this.logout = this.logout.bind(this)
   }
 
+  // componentWillMount () {
+  //   dispatch()
+  // }
+
   logout () {
     const {logStoreOut} = this.props
     logStoreOut()
@@ -21,16 +25,22 @@ class Header extends React.Component {
     })
   }
   render () {
-    if (this.state.loggedOut === true) {
+    if (this.state.loggedOut) {
       this.setState({
         loggedOut: false
       })
       return (<Redirect to='/' />)
     }
+    const {id} = this.props.user
+    let home = id === 1
+      ? '/admin'
+      : id > 1
+        ? `/store/${id}`
+        : '/'
     return (
       <nav className='navbar'>
         <div className='navbar-brand'>
-          <Link className='logo' to='/' >
+          <Link className='logo' to={home}>
             <img src='/images/logo.png' alt='M4M logo' />
           </Link>
         </div>
@@ -46,7 +56,8 @@ class Header extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    logIn: state.login
+    logIn: state.login,
+    user: state.userDetails || {}
   }
 }
 
