@@ -45,7 +45,7 @@ export class StoreBalance extends React.Component {
               percentage={Math.floor(this.state.currentBalance / endBalance * 100)}
               fill-opacity='10'
               strokeWidth={8}
-              text={`$${this.state.currentBalance}`}
+              text={`$${endBalance}`}
               background
               backgroundPadding={0}
               styles={{
