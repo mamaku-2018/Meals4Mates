@@ -47,7 +47,7 @@ function sumUpTransactionDate (date, stats) {
   let redemptionSum = 0
 
   stats.forEach(t => {
-    if (t.date.substring(0, 7) === date.substring(0, 7)){
+    if (t.date.substring(0, 7) === date.substring(0, 7)) {
       donationSum += Number(t.donation)
       redemptionSum += Number(t.redemption)
     }
@@ -60,7 +60,7 @@ function sumUpTransactionDate (date, stats) {
 
 export function getTransactions (stats) {
   stats.forEach(t => {
-    if(!isTransactionDateSummedUp(t.date)) {
+    if (!isTransactionDateSummedUp(t.date)) {
       sumUpTransactionDate(t.date, stats)
     }
   })
