@@ -15,7 +15,8 @@ const StoreProfile = (props) => {
       <Switch>
         <Route path='/store/:id/redeem' component={StoreRedemption} />
         <Route path='/store/:id' component={StoreBalance} />
-      </ Switch>
+      </Switch>
+
     </div>
   )
 }
