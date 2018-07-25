@@ -51,11 +51,11 @@ class Login extends React.Component {
   }
 
   render () {
-    if (this.state.admin === true) {
+    if (this.state.admin) {
       return (
         <Redirect to={'/admin'} />
       )
-    } else if (this.state.redirect === true) {
+    } else if (this.state.redirect) {
       return (
         <Redirect to={`/store/${this.state.id}`} />
       )
