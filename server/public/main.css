@@ -69,11 +69,6 @@ p {
   color: #e4e2e2;
 }
 
-.button:active {
-  background: #1a2930;
-  color: #e4e2e2;
-}
-
 .disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -208,16 +203,14 @@ label {
 
 /* LOCATIONS */
 
-.locations {
+.locations, .map, .leaflet-container {
   height: 500px;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .map { 
-  height: 500px; 
-  width: 100vw;
-  position: relative;
-  overflow: auto;
   box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
@@ -312,6 +305,7 @@ fieldset {
   border-radius: 50%;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   margin-bottom: 2rem;
+  transition: width 0.5s, height 0.5s;
 }
 
 .total-balance p {
@@ -382,7 +376,7 @@ fieldset {
 }
 
 .store-redemption label {
-color: #1a2930;
+  color: #1a2930;
 }
 
 .redeem-buttons {
@@ -439,13 +433,19 @@ color: #1a2930;
 }
 
 .donations-buttons button {
-  background-color: #F7CE3E;
-  border-color: #1a2930;
-  color: #1a2930;
   font-size: 1.3rem;
   width: 9rem;
   height: 3rem;
   padding-top: 0.2rem;
+}
+
+.donations-buttons button:focus {
+  background: rgb(250,219,111);
+  background: linear-gradient(180deg, rgba(250,219,111,1) 0%, rgba(247,206,62,1) 100%);
+}
+
+.donations-buttons button:focus:hover {
+  color: #1a2930;
 }
 
 .donate-button {
@@ -490,7 +490,7 @@ color: #1a2930;
   margin: 0 auto;
   padding: 2rem 0.5rem 2.5rem 0.5rem;
   font-size: 0.6rem;
-  border-top: 15px solid #314950;
+  border-top: 25px solid #314950;
   background: rgb(245,245,245);
   background: linear-gradient(180deg, rgba(245,245,245,1) 1%, rgba(228,226,226,1) 100%);
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -525,8 +525,8 @@ color: #1a2930;
 }
 
 .donate-circle, .redeem-circle {
-  max-width: 280px;
-  max-height: 280px;
+  max-width: 300px;
+  max-height: 300px;
 }
 
 .redeem-circle {
@@ -659,9 +659,7 @@ color: #1a2930;
     margin-top: 3rem;
   }
   .totalStats {
-    text-align: center;
     width: 80%;
-    margin: auto;
     display: flex;
     margin-bottom: 3rem;
   }
@@ -737,6 +735,10 @@ color: #1a2930;
   .total-balance span {
     font-size: 3rem;
   }
+  .total-balance:hover {
+    width: 270px;
+    height: 270px;
+  }
   .store-balance-buttons {
     margin: auto;
     margin-top: 4rem;
@@ -800,7 +802,7 @@ color: #1a2930;
   .banner p {
     font-size: 1.2rem;
   }
-  .map, .locations, .leaflet-container { 
+  .locations, .map, .leaflet-container { 
     height: 600px; 
   }
   .login, .register {
@@ -815,7 +817,7 @@ color: #1a2930;
     font-size: 1.3rem;
   }
   .total-balance span {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
   .companyList {
     padding: 5rem;
@@ -840,19 +842,12 @@ color: #1a2930;
     width: 30%; 
     top: 0;
   }
-  .locations {
-    height: 700px;
-  }
-  .map { 
-    height: 500px; 
-  }
   .storeprofile {
     width: 80%;
     margin: auto;
     margin-top: 5rem;
   }
   .totalStats {
-    text-align: center;
     width: 80%;
     margin-bottom: 3rem;
   }
@@ -897,20 +892,8 @@ color: #1a2930;
   }
   .admin-top {
     display: flex;
-    height: 814px;
+    height: 800px;
     background-color: #8e9b9f;
-    border-bottom: 14px solid #e4e2e2;
-  }  
-  .admin h2 {
-    position: absolute;
-    width: 100%;
-    margin: 0 auto;
-    padding-top: 2rem;
-    font-size: 2.5rem;
-  }
-  .total-balance {
-    width: 300px;
-    height: 300px;
   }
   .total-balance p {
     padding-top: 4rem;
@@ -926,11 +909,10 @@ color: #1a2930;
     padding-top: 4rem;
     font-size: 1.4rem;
   }
-  .locations {
+  .locations, .map, .leaflet-container {
     height: 800px;
-  }
-  .map, .leaflet-container {
-    height: 800px;
+    width: 100%;
+    margin: 0;
   }
 }  
 
@@ -954,7 +936,6 @@ color: #1a2930;
     width: 70%;
   }
   .total-balance p {
-    padding-top: 3rem;
     line-height: 2rem;
   }
   .redeem .button, .donation .button {
@@ -966,6 +947,7 @@ color: #1a2930;
     width: 50%;
   }
 }
+
 @media only screen and (min-width: 1700px) {
   .storeprofile {
     width: 60%;
