@@ -294,35 +294,6 @@ fieldset {
   width: 80%;
 }
 
-.total-balance {
-  width: 200px;
-  height: 200px;
-  margin: auto;
-  z-index: 1;
-  background: rgb(245,245,245);
-  background: linear-gradient(180deg, rgba(245,245,245,1) 1%, rgba(228,226,226,1) 100%);
-  border: 5px solid #8e9b9f;
-  border-radius: 50%;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  margin-bottom: 2rem;
-  transition: width 0.5s, height 0.5s;
-}
-
-.total-balance p {
-  padding: 2.5rem 2rem 0.5rem 2rem;
-  color: #1a2930;
-  z-index: 2;
-  font-size: 1.2rem;
-  font-weight: 900;
-  line-height: 1.4rem;
-}
-
-.total-balance span {
-  color: #1a2930;
-  font-size: 2.5rem;
-  font-weight: 900;
-}
-
 .store-balance-buttons {
   margin: auto;
   margin-top: 1rem;
@@ -332,13 +303,24 @@ fieldset {
 }
 
 .redeem .button, .donation .button {
-  width: 6rem;
+  width: 8rem;
   height: 3rem;
 }
 
-.storeInfoEdit .button {
+.storeInfoEdit h2 {
   margin-left: 0;
-  margin-right: 3rem;
+}
+
+.storeInfoEdit form {
+  width: 90%;
+}
+
+.storeInfoEdit .button {
+  width: 6rem;
+  height: 2.5rem;
+  font-size: 0.8rem;
+  margin-left: 0;
+  margin-right: 0.5rem;
 }
 
 .progress-bar {
@@ -484,28 +466,81 @@ fieldset {
   margin-bottom: 4rem;
 }
 
+.total-balance {
+  width: 150px;
+  height: 150px;
+  max-width: 250px;
+  max-height: 250px;
+  margin: auto;
+  z-index: 1;
+  background: rgb(245,245,245);
+  background: linear-gradient(180deg, rgba(245,245,245,1) 1%, rgba(228,226,226,1) 100%);
+  border: 5px solid #1a2930;
+  border-radius: 50%;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  margin-bottom: 2rem;
+  transition: width 0.5s, height 0.5s;
+}
+
+.total-balance p {
+  padding: 2rem 2rem 0.5rem 2rem;
+  color: #1a2930;
+  z-index: 2;
+  font-size: 0.8rem;
+  font-weight: 900;
+  line-height: 1.4rem;
+}
+
+.total-balance span {
+  color: #1a2930;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.balance-circle {
+  background: rgb(35,50,56);
+  background: linear-gradient(180deg, rgba(35,50,56,1) 0%, rgba(26,41,48,1) 100%);
+  border: 5px solid #e4e2e2;
+}
+
+.balance-circle p, .balance-circle span {
+  color: #e4e2e2;
+}
+
+.balance-circle p {
+  padding-top: 2.5rem 
+}
+
 .companyList {
   position: relative;
   width: 100%;
+  height: 500px;
+  overflow: scroll;
   margin: 0 auto;
   padding: 2rem 0.5rem 2.5rem 0.5rem;
-  font-size: 0.6rem;
   border-top: 25px solid #314950;
   background: rgb(245,245,245);
   background: linear-gradient(180deg, rgba(245,245,245,1) 1%, rgba(228,226,226,1) 100%);
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
+.companyList h3 {
+  color: #1a2930;
+  margin-bottom: 1rem;
+}
+
 .companyList table {
-  width: 80%;
-  max-width: 830px;
+  width: 90%;
+  max-width: 900px;
   margin: 0 auto;
 }
 
 .companyList td, .companyList th {
-  padding: 0.5rem;
-  text-align: right;
+  padding: 1rem 0.2rem;
   color: #314950;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 0.6rem;
 }
 
 .companyList td {
@@ -518,24 +553,6 @@ fieldset {
 
 .companyList tr {
   border-bottom: 2px solid #8e9b9f;
-}
-
-.store-name {
-  text-align: left;
-}
-
-.donate-circle, .redeem-circle {
-  max-width: 300px;
-  max-height: 300px;
-}
-
-.redeem-circle {
-  background: rgb(35,50,56);
-  background: linear-gradient(180deg, rgba(35,50,56,1) 0%, rgba(26,41,48,1) 100%);
-}
-
-.redeem-circle p, .redeem-circle span {
-  color: #e4e2e2;
 }
 
 /* FOOTER */
@@ -625,8 +642,9 @@ fieldset {
     margin-top: 2rem;
     margin-bottom: 3rem;
   }
-  .companyList {
-    font-size: 1.1rem;
+  .companyList td, .companyList th {
+    padding: 1rem;
+    font-size: 0.7rem;
   }
 }
 
@@ -667,9 +685,6 @@ fieldset {
     margin: auto;
     margin-top: 2rem;
     margin-bottom: 3rem;
-  }
-  .companyList {
-    font-size: 1.2rem;
   }
 }
 
@@ -722,22 +737,9 @@ fieldset {
     position: relative; 
     margin-bottom: 3rem;
   }
-  .total-balance {
-    width: 250px;
-    height: 250px;
-    position: relative;
-  }
-  .total-balance p {
-    padding-top: 3rem;
-    font-size: 1.6rem;
-    line-height: 2rem;
-  }
-  .total-balance span {
-    font-size: 3rem;
-  }
   .total-balance:hover {
-    width: 270px;
-    height: 270px;
+    width: 160px;
+    height: 160px;
   }
   .store-balance-buttons {
     margin: auto;
@@ -757,10 +759,10 @@ fieldset {
   }
   .companyList {
     padding: 3rem 2rem 3.5rem 2rem;
-    font-size: 1.2rem;
   }
   .companyList td, .companyList th {
     padding: 1rem;
+    font-size: 0.8rem;
   }
   .footer {
     width: 100%;
@@ -812,18 +814,30 @@ fieldset {
   .storeInfo {
     margin: 1rem 0 1rem 2.5rem;
   }
+  .total-balance {
+    width: 180px;
+    height: 180px;
+  }
+  .total-balance:hover {
+    width: 200px;
+    height: 200px;
+  }
   .total-balance p {
-    padding: 3.5rem 2rem 0.5rem 2rem;
-    font-size: 1.3rem;
+    padding: 2.5rem 2rem 0.5rem 2rem;
+    font-size: 1.1rem;
   }
   .total-balance span {
-    font-size: 3rem;
+    font-size: 2rem;
+  }
+  .balance-circle p {
+    padding-top: 3rem 
   }
   .companyList {
     padding: 5rem;
   }
   .companyList td, .companyList th {
-    padding: 1.8rem;
+    padding: 1.2rem;
+    font-size: 0.9rem;
   }
   .recharts-wrapper, .recharts-responsive-container {
     width: 75%;
@@ -851,18 +865,6 @@ fieldset {
     width: 80%;
     margin-bottom: 3rem;
   }
-  .total-balance {
-    margin: auto;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
-  }
-  .total-balance p {
-    padding-top: 3rem;
-    font-size: 1.5rem;
-  }
-  .donate-circle p, .redeem-circle p {
-    padding-top: 3rem;
-  }
   .donations-buttons button {
     width: 18rem;
   }
@@ -881,7 +883,8 @@ fieldset {
     width: 100%;
   }
   .companyList {
-    padding: 6rem;
+    padding: 4rem;
+    height: 600px;
   }
   .companyList td, .companyList th {
     padding: 1.5rem 2.5rem;
@@ -895,19 +898,12 @@ fieldset {
     height: 800px;
     background-color: #8e9b9f;
   }
-  .total-balance p {
-    padding-top: 4rem;
-    font-size: 1.7rem;
-  }
   .totalStats {
     display: block;
     width: 40%;
     margin-bottom: 1rem;
+    margin-top: 1rem;
     padding: 2rem 5rem 2rem 4rem;
-  }
-  .donate-circle p, .redeem-circle p {
-    padding-top: 4rem;
-    font-size: 1.4rem;
   }
   .locations, .map, .leaflet-container {
     height: 800px;
@@ -935,8 +931,23 @@ fieldset {
   .storeprofile {
     width: 70%;
   }
+  .totalStats {
+    margin-top: 0;
+    padding-top: 1rem;
+  }
+  .total-balance {
+    width: 200px;
+    height: 200px;
+  }
+  .total-balance:hover {
+    width: 220px;
+    height: 220px;
+  }
   .total-balance p {
-    line-height: 2rem;
+    line-height: 1.5rem;
+  }
+  .balance-circle p {
+    padding-top: 3.5rem 
   }
   .redeem .button, .donation .button {
     width: 15rem;
@@ -945,6 +956,9 @@ fieldset {
   }
   .redeem-buttons {
     width: 50%;
+  }
+  .companyList td, .companyList th {
+    font-size: 1rem;
   }
 }
 

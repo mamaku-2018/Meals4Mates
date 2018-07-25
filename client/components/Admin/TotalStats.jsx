@@ -11,12 +11,16 @@ class TotalStats extends React.Component {
     return (
       <div className='totalStats'>
         <div className='total-balance donate-circle'>
-          <p>Total Amount Donated</p>
+          <p>Amount Donated</p>
           <span>${total.donations}</span>
         </div>
         <div className='total-balance redeem-circle'>
-          <p>Total Amount Redeemed</p>
+          <p>Amount Redeemed</p>
           <span>${total.redemptions}</span>
+        </div>
+        <div className='total-balance balance-circle'>
+          <p>Balance</p>
+          <span>${total.donations - total.redemptions}</span>
         </div>
       </div>
     )

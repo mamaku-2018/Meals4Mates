@@ -73,7 +73,7 @@ export class StoreInfoEdit extends React.Component {
           {this.props.userDetails &&
           <form>
             <fieldset>
-              <h3 className='storeInfo'>Edit Store Details</h3>
+              <h2 className='storeInfo'>Edit Store Details</h2>
               {this.props.message === 'Email already in use' && <span className='error'>{this.state.emailInUseMsg}</span>}
               <label htmlFor='name' >Name:</label>
               <input placeholder={info.name} value={this.state.name} onChange={this.handleChange} name='name'/>
@@ -100,6 +100,7 @@ export class StoreInfoEdit extends React.Component {
               <br />
               <button className='button' onClick={this.handleSubmit}>SUBMIT</button>
               <Link to={`/store/${id}`} className='button'>CANCEL</Link>
+
             </fieldset>
           </form>}
         </div>
