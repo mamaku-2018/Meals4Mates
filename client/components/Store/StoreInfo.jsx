@@ -1,10 +1,11 @@
 import React from 'react'
+import { withRouter } from 'react-router'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getStoreInfo} from '../../actions/getStoreInfo'
 import {clearError} from '../../actions'
 
-class StoreInfo extends React.Component {
+export class StoreInfo extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -55,4 +56,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(StoreInfo)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps))(StoreInfo)
