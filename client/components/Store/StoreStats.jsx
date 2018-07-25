@@ -17,6 +17,7 @@ class StoreStats extends React.Component {
   componentDidMount () {
     const id = Number(this.props.match.params.id)
     this.props.dispatch(getStoreStats(id))
+    window.scrollTo(0, 0)
   }
 
   render () {

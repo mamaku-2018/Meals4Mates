@@ -18,6 +18,10 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  componentDidMount () {
+    window.scrollTo(0, 0)
+  }
+
   handleChange (e) {
     const {name, value} = e.target
     this.setState({
