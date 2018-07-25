@@ -69,15 +69,6 @@ p {
   color: #e4e2e2;
 }
 
-.button:focus {
-  background: rgb(250,219,111);
-  background: linear-gradient(180deg, rgba(250,219,111,1) 0%, rgba(247,206,62,1) 100%);
-}
-
-.button:focus:hover {
-  color: #1a2930;
-}
-  
 .disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -447,6 +438,15 @@ color: #1a2930;
   width: 9rem;
   height: 3rem;
   padding-top: 0.2rem;
+}
+
+.donations-buttons button:focus {
+  background: rgb(250,219,111);
+  background: linear-gradient(180deg, rgba(250,219,111,1) 0%, rgba(247,206,62,1) 100%);
+}
+
+.donations-buttons button:focus:hover {
+  color: #1a2930;
 }
 
 .donate-button {
